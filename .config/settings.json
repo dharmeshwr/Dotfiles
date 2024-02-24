@@ -1,0 +1,32 @@
+{
+  "workbench.colorTheme": "Gruvbox Dark Hard",
+  "window.menuBarVisibility": "hidden",
+  "editor.fontSize": 16,
+  "editor.fontFamily": "\"JetBrainsMono Nerd Font\" ",
+  "editor.wordWrap": "on",
+  "editor.autoClosingBrackets": "always",
+  "editor.autoClosingComments": "always",
+  "editor.lineHeight": 1.8,
+  "editor.tabSize": 2,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true,
+  "editor.formatOnPaste": true,
+  "explorer.confirmDelete": false,
+  "workbench.productIconTheme": "icons-carbon-tweaked",
+  "diffEditor.hideUnchangedRegions.enabled": true,
+  "workbench.editor.enablePreview": false,
+  "editor.minimap.autohide": true,
+  "editor.cursorBlinking": "phase",
+  "terminal.integrated.cursorStyle": "line",
+  "editor.fontLigatures": true,
+  "editor.quickSuggestionsDelay": 0,
+  "editor.hover.enabled": false,
+  "editor.parameterHints.enabled": false,
+  "workbench.activityBar.location": "hidden",
+  "files.watcherExclude": {
+    "**/.git/objects/**": true,
+    "**/node_modules/**": true
+  },
+  "editor.cursorSmoothCaretAnimation": "on",
+  "workbench.iconTheme": "gruvbox-material-icon-theme"
+}
