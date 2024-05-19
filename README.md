@@ -1,20 +1,32 @@
-Here are my personal dotfiles for two tiling window managers, Hyprland and Qtile:
+# Dotfiles for Hyprland and Qtile
 
-Shell : zsh
-Terminal : alacritty, kitty
-Terminal multiplexer : tmux
-Editor : neovim, vscode
+These are my personal dotfiles for two tiling window managers, Hyprland and Qtile.
 
-Logout menu(hyprland) : wlogout
-Logout menu(Qtile) : rofi
+## Shell
+- zsh
 
-Lock Screen(hyprland) : swaylock
-Lock Screen(Qtile) : slock
+## Terminal
+- alacritty
+- kitty
 
-Notifications(hyprland) : mako
-Notifications(Qtile) : xfce4-notifyd
+## Terminal multiplexer
+- tmux
 
-Programs launcher : rofi
-Wayland bar(hyprland) : waybar
+## Editor
+- neovim
+- vscode
 
-Compositor(Qtile) : picom
+## Hyprland Configuration
+- **Logout menu:** wlogout
+- **Lock Screen:** swaylock
+- **Notifications:** mako
+- **Wayland bar:** waybar
+
+## Qtile Configuration
+- **Logout menu:** rofi
+- **Lock Screen:** slock
+- **Notifications:** xfce4-notifyd
+- **Compositor:** picom
+
+## Common
+- **Programs launcher:** rofi
