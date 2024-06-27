@@ -62,6 +62,14 @@ return {
           -- enabled = false,
           single_file_support = true,
           settings = {
+            window = {
+              completion = {
+                border = "rounded",
+              },
+              documentation = {
+                border = "rounded",
+              },
+            },
             Lua = {
               workspace = {
                 checkThirdParty = false,

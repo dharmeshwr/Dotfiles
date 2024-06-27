@@ -1,12 +1,7 @@
 return {
   {
     "nvimdev/dashboard-nvim",
-    event = "VimEnter",
     dependencies = { { "nvim-tree/nvim-web-devicons" } },
-  },
-  {
-    "nvim-lualine/lualine.nvim",
-    enabled = false,
   },
   {
     "nvim-tree/nvim-tree.nvim",
@@ -88,7 +83,6 @@ return {
 
   {
     "b0o/incline.nvim",
-    enabled = false,
     dependencies = {},
     event = "BufReadPre",
     priority = 1200,
@@ -115,4 +109,5 @@ return {
       })
     end,
   },
+  { "wakatime/vim-wakatime", lazy = false },
 }

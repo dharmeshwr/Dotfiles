@@ -86,7 +86,7 @@ size = 8
 
 [font.normal]
 family = "FiraCode Nerd Font"
-style = "Normal"
+style = "Medium"
 
 [window]
 padding = {x = 5, y = 5}

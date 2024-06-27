@@ -35,3 +35,4 @@ vim.opt.mouse = ""
 vim.opt.formatoptions:append({ "r" })
 
 vim.opt.foldmethod = "manual"
+vim.opt.laststatus = 3

@@ -20,7 +20,7 @@ require("lazy").setup({
       "LazyVim/LazyVim",
       import = "lazyvim.plugins",
       opts = {
-        -- colorscheme = "sonokai",
+        colorscheme = "catppuccin-mocha",
         news = {
           lazyvim = true,
           neovim = true,
@@ -52,4 +52,12 @@ require("lazy").setup({
       },
     },
   },
+  { "codota/tabnine-nvim", build = "./dl_binaries.sh" },
+  disable_auto_comment = true,
+  accept_keymap = "<Tab>",
+  dismiss_keymap = "<C-]>",
+  debounce_ms = 800,
+  suggestion_color = { gui = "#808080", cterm = 244 },
+  exclude_filetypes = { "TelescopePrompt", "NvimTree" },
+  log_file_path = nil, -- absolute path to Tabnine log file
 })

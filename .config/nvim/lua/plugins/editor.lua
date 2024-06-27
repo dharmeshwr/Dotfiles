@@ -44,14 +44,14 @@ return {
         end,
         desc = "Lists open buffers",
       },
-      {
-        ";;",
-        function()
-          local builtin = require("telescope.builtin")
-          builtin.resume()
-        end,
-        desc = "Resume the previous telescope picker",
-      },
+      -- {
+      --   ";;",
+      --   function()
+      --     local builtin = require("telescope.builtin")
+      --     builtin.resume()
+      --   end,
+      --   desc = "Resume the previous telescope picker",
+      -- },
       {
         ";e",
         function()
