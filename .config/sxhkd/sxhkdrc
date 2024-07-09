@@ -4,14 +4,16 @@ super + Return
 
 # program launcher
 super + @space
- rofi -show drun
-
+  ./.config/rofi/launchers/type-2/launcher.sh
 # firefox
 super + f
   firefox
 
+ctrl + shift + p
+  firefox --private-window
+
 super + q
-  ./.config/scripts/powermenu.sh
+  ./.config/rofi/scripts/powermenu_t2
 
 super + c 
   copyq menu
@@ -26,7 +28,7 @@ XF86AudioMute
   pactl set-sink-mute @DEFAULT_SINK@ toggle
 
 ctrl + 2
-  ./.local/scripts/scpad
+  ./.config/scripts/scpad
 
 # make sxhkd reload its configuration files:
 super + Escape

@@ -47,6 +47,10 @@ keymap.set("n", "<C-j>", function()
   vim.diagnostic.goto_next()
 end, opts)
 
+-- Comments
+keymap.set("n", "|", "gc", { noremap = true, silent = true })
+keymap.set("v", "|", "gc", { noremap = true, silent = true })
+
 keymap.set("n", "<A-,>", "<Cmd>BufferPrevious<CR>", opts)
 keymap.set("n", "<A-.>", "<Cmd>BufferNext<CR>", opts)
 keymap.set("n", "<A-<>", "<Cmd>BufferMovePrevious<CR>", opts)

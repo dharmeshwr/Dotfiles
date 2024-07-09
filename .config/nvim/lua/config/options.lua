@@ -36,3 +36,6 @@ vim.opt.formatoptions:append({ "r" })
 
 vim.opt.foldmethod = "manual"
 vim.opt.laststatus = 3
+
+vim.api.nvim_command("command W w")
+vim.api.nvim_command("command Q q")
