@@ -1,17 +1,17 @@
 -- Set leader key to space
-vim.g.mapleader = " "
+vim.g.mapleader = ' '
 
 -- Use system clipboard
-vim.opt.clipboard:append("unnamedplus")
+vim.opt.clipboard:append 'unnamedplus'
 
 -- Set script encoding to UTF-8
-vim.scriptencoding = "utf-8"
+vim.scriptencoding = 'utf-8'
 
 -- Set internal encoding to UTF-8
-vim.opt.encoding = "utf-8"
+vim.opt.encoding = 'utf-8'
 
 -- Set file encoding to UTF-8
-vim.opt.fileencoding = "utf-8"
+vim.opt.fileencoding = 'utf-8'
 
 -- Do not create swap files
 vim.opt.swapfile = false
@@ -47,7 +47,7 @@ vim.opt.expandtab = true
 vim.opt.scrolloff = 10
 
 -- Show incremental command results in a split
-vim.opt.inccommand = "split"
+vim.opt.inccommand = 'split'
 
 -- Ignore case in search patterns
 vim.opt.ignorecase = true
@@ -68,13 +68,13 @@ vim.opt.tabstop = 2
 vim.opt.wrap = false
 
 -- Enable backspace in insert mode
-vim.opt.backspace = { "start", "eol", "indent" }
+vim.opt.backspace = { 'start', 'eol', 'indent' }
 
 -- Search files recursively
-vim.opt.path:append({ "**" })
+vim.opt.path:append { '**' }
 
 -- Ignore node_modules directory
-vim.opt.wildignore:append({ "*/node_modules/*" })
+vim.opt.wildignore:append { '*/node_modules/*' }
 
 -- Open horizontal splits below current window
 vim.opt.splitbelow = true
@@ -83,31 +83,28 @@ vim.opt.splitbelow = true
 vim.opt.splitright = true
 
 -- Keep cursor in same column when splitting
-vim.opt.splitkeep = "cursor"
+vim.opt.splitkeep = 'cursor'
 
 -- Disable mouse support
-vim.opt.mouse = ""
+vim.opt.mouse = ''
 
 -- Add asterisks in block comments
-vim.opt.formatoptions:append({ "r" })
+vim.opt.formatoptions:append { 'r' }
 
 -- Manual folds using zf
-vim.opt.foldmethod = "manual"
+vim.opt.foldmethod = 'manual'
 
 -- Common status bar across all splits
 vim.opt.laststatus = 3
 
 -- Alias :W to :w
-vim.api.nvim_command("command W w")
+vim.api.nvim_command 'command W w'
 
 -- Alias :Q to :q
-vim.api.nvim_command("command Q q")
+vim.api.nvim_command 'command Q q'
 
 -- Hide command line when not needed
 -- vim.opt.cmdheight = 0
 
 -- Leave a little column on the left side for ~
-vim.opt.signcolumn = "no"
-
-vim.o.scrolloff = 8
-vim.o.sidescrolloff = 8
+vim.opt.signcolumn = 'no'

@@ -1,0 +1,8 @@
+keycode 83 = Left NoSymbol Left
+keycode 85 = Right NoSymbol Right
+keycode 80 = Up NoSymbol Up
+keycode 88 = Down NoSymbol Down
+keycode 84 = i I i I
+
+clear lock
+keycode 66 = Escape

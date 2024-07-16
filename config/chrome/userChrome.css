@@ -1,0 +1,44 @@
+#tabbrowser-tabs {
+  padding: 3px !important;
+  margin-left: 2px !important;
+  margin-right: 2px !important;
+}
+
+:root {
+  --tab-min-height: 20px !important;
+  --tab-max-height: 20px !important;
+}
+
+.tab-throbber-tabslist,
+.tab-throbber,
+.tab-icon-pending,
+.tab-icon-image,
+.tab-sharing-icon-overlay,
+.tab-icon-overlay {
+  height: 14px !important;
+  width: 14px !important;
+}
+
+.tab-background:-moz-lwtheme-brighttext {
+  background-color: rgba(66, 65, 76, 0.4) !important;
+}
+
+.tabbrowser-tab:-moz-lwtheme-brighttext:hover>.tab-stack>.tab-background {
+  background-color: rgba(66, 65, 76, 0.7) !important;
+}
+
+.tab-background {
+  background-color: #1d2021 !important;
+}
+
+.tabbrowser-tab:hover>.tab-stack>.tab-background {
+  background-color: #3c3836 !important;
+}
+
+#navigator-toolbox {
+  background-color: #1d2021 !important;
+}
+
+.tabbrowser-tab[selected="true"]>.tab-stack>.tab-background {
+  background-color: #3c3836 !important;
+}
