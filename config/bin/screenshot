@@ -1,0 +1,3 @@
+#!/bin/zsh
+
+flameshot screen --path /home/ninjafire/

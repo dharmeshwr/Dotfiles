@@ -1,0 +1,23 @@
+#!/bin/zsh
+
+if [ -n "$1" ]; then
+    # If an argument is provided, use it as the filename
+    filename="$1"
+elif [ ! -t 0 ]; then
+    # If input is piped, read from stdin
+    read -r filename
+else
+    # Otherwise, prompt for input
+    echo "Enter the C++ file name (without .cpp extension):"
+    read -r filename
+fi
+
+# Remove .cpp extension if present
+filename="${filename%.cpp}"
+
+# Compile and run
+if g++ -E "$filename.cpp" -o "$filename.i" && g++ -c "$filename.cpp" && g++ "$filename.o" -o "$filename" && time ./"$filename"; then
+    echo "Compiled and Executed"
+else
+    echo "Error occurred during compilation or execution."
+fi
