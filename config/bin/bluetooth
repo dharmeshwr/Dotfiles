@@ -1,0 +1,10 @@
+#!/bin/zsh
+
+blueman-manager &
+sleep 1
+WINDOW_ID=$(xdotool search --name "Bluetooth Devices" | head -n 1)
+
+if [ -n "$WINDOW_ID" ]; then
+  xdotool windowmove "$WINDOW_ID" 500 200
+  xdotool windowsize "$WINDOW_ID" 900 700
+fi

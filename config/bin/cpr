@@ -3,6 +3,7 @@
 if [ -n "$1" ]; then
     # If an argument is provided, use it as the filename
     filename="$1"
+    shift  # Remove the filename argument
 elif [ ! -t 0 ]; then
     # If input is piped, read from stdin
     read -r filename
@@ -16,8 +17,10 @@ fi
 filename="${filename%.c}"
 
 # Compile and run
-if gcc -E "$filename.c" -o "$filename.i" && gcc -c "$filename.c" && gcc "$filename.o" -o "$filename" && ./"$filename"; then
+if gcc -E "$filename.c" -o "$filename.i" && gcc -c "$filename.c" && gcc "$filename.o" -o "$filename"; then
+    ./"$filename" "$@"
     echo "Compiled and Executed"
 else
     echo "Error occurred during compilation or execution."
 fi
+

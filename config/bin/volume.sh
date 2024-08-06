@@ -11,6 +11,6 @@ MUTEICON=" "
 if [ "$VOLONOFF" = 0.00 ]; then
     echo "$MUTEICON"
 else
-    echo "$VOLICON $VOL"
+    echo "$VOL"
 fi
 

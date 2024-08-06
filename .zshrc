@@ -5,7 +5,7 @@ export EDITOR='nvim'
 
 eval "$(starship init zsh)"
 eval "$(zoxide init --cmd cd zsh)"
-
+eval "$(thefuck --alias)"
 # CASE_SENSITIVE="true"
 
 # HYPHEN_INSENSITIVE="true"
@@ -61,28 +61,38 @@ alias ....='cd ../..'
 alias zshconf="nvim ~/.zshrc"
 alias ohmyzsh="nvim ~/.oh-my-zsh"
 alias nv='nvim'
+alias vn="sudo nvim"
 alias uncommit="git reset HEAD~1"
 alias recommit="git commit --amend --no-edit"
 alias editcommit="git commit --amend"
 alias df='cd ../frontend'
 alias db='cd ../backend'
-alias push='git push origin master && git push intern master'
-alias qconf='cd ~/.config/qtile && nvim'
-alias reload='qtile cmd-obj -o cmd -f reload_config'
 alias vv="cat ~/work/Tasks/task.txt"
 alias ee="nvim ~/work/Tasks/task.txt"
 alias aa="cat >> ~/work/Tasks/task.txt"
 alias starship="nvim  ~/.config/starship.toml"
-alias nv="nvim"
+# alias ls='lsd'
+# alias la='lsd -a'
 alias ls='exa --grid --color auto --icons --sort=type'
 alias ll='exa --long --color always --icons --sort=type'
 alias la='exa --grid --all --color auto --icons --sort=type'
 alias lla='exa --long --all --color auto --icons --sort=type'
 alias daddy='sudo'
+alias bro='paru'
+alias gf='onefetch'
+alias rm='rm -rf'
 alias syt='python ~/work/Tasks/htmlToTxt.py'
 alias syh='python ~/work/Tasks/txtToHtml.py'
+alias cache='paru -Scc'
+alias orphan='paru -Rns $(pacman -Qtdq)'
+alias ts='tesseract'
+alias df='duf'
+alias lol='lolcat'
+alias cost='scc'
+alias hotspot='sudo lnxrouter --ap wlp3s0 Sugardaddy -p nnoonnee'
 
 export PATH="/home/ninjafire/.local/bin:$PATH"
 export BOOST_ROOT="/usr/include/boost"
+export GTK_THEME=Gruvbox-Dark-BL-LB
 
-echo "tcp server and complete promanage as quick as possible"
+cowfortune

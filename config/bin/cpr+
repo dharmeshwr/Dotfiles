@@ -16,8 +16,8 @@ fi
 filename="${filename%.cpp}"
 
 # Compile and run
-if g++ -E "$filename.cpp" -o "$filename.i" && g++ -c "$filename.cpp" && g++ "$filename.o" -o "$filename" && time ./"$filename"; then
-    echo "Compiled and Executed"
+if g++ -E "$filename.cpp" -o "$filename.i" && g++ -c "$filename.cpp" && g++ "$filename.o" -o "$filename" && ./"$filename"; then
+    echo "\nCompiled and Executed"
 else
-    echo "Error occurred during compilation or execution."
+    echo "\nError occurred during compilation or execution."
 fi

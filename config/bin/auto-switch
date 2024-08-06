@@ -1,0 +1,23 @@
+#!/bin/zsh
+
+# Check if the headphones are plugged in
+HEADPHONES_CONNECTED=$(pw-dump | grep -A 10 "Headphones" | grep "status" | grep "plugged" | wc -l)
+
+if [ "$HEADPHONES_CONNECTED" -eq 1 ]; then
+    # Set the default sink to headphones
+    pw-cli set-default-node $(pw-dump | grep -A 10 "Headphones" | grep "id" | awk '{print $2}')
+else
+    # Set the default sink to speakers
+    pw-cli set-default-node $(pw-dump | grep -A 10 "Speakers" | grep "id" | awk '{print $2}')
+fi
+
+# Check if the microphone is plugged in
+MICROPHONE_CONNECTED=$(pw-dump | grep -A 10 "Microphone" | grep "status" | grep "plugged" | wc -l)
+
+if [ "$MICROPHONE_CONNECTED" -eq 1 ]; then
+    # Set the default source to the microphone
+    pw-cli set-default-node $(pw-dump | grep -A 10 "Microphone" | grep "id" | awk '{print $2}')
+else
+    # Set the default source to the internal mic
+    pw-cli set-default-node $(pw-dump | grep -A 10 "Internal Microphone" | grep "id" | awk '{print $2}')
+fi
