@@ -1,12 +1,13 @@
-#!/bin/zsh
+#!/bin/bash
 
-/usr/lib/polkit-kde-authentication-agent-1 & # provides extended privileges to applications.
+/usr/lib/polkit-kde-authentication-agent-1 &
+
+xfce4-power-manager &
 
 xmodmap ~/.Xmodmap
 
-slstatus & 
-# dwmbar &
+slstatus &
 
 while :; do
-	ssh-agent dwm || break
+    ssh-agent dwm || break
 done

@@ -5,4 +5,8 @@ keycode 88 = Down NoSymbol Down
 keycode 84 = i I i I
 
 clear lock
-keycode 66 = Escape
+clear control
+keycode 66 = Control_L
+keycode 37 = Escape
+add lock = Caps_Lock
+add control = Control_L Control_R

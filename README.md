@@ -1,32 +1,16 @@
-# Dotfiles for Hyprland and Qtile
+# Dotfiles for Hyprland, Qtile, BSPWM and Suckless softwares 
 
-These are my personal dotfiles for two tiling window managers, Hyprland and Qtile.
-
-## Shell
 - zsh
-
-## Terminal
 - alacritty
 - kitty
-
-## Terminal multiplexer
-- tmux
-
-## Editor
+- zellij
 - neovim
 - vscode
+- rofi
+- polybar
+- picom
+- dwm
+- dmenu
+- slstatus
+- st 
 
-## Hyprland Configuration
-- **Logout menu:** wlogout
-- **Lock Screen:** swaylock
-- **Notifications:** mako
-- **Wayland bar:** waybar
-
-## Qtile Configuration
-- **Logout menu:** rofi
-- **Lock Screen:** slock
-- **Notifications:** xfce4-notifyd
-- **Compositor:** picom
-
-## Common
-- **Programs launcher:** rofi
