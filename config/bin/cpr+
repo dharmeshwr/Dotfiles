@@ -12,11 +12,16 @@ else
     read -r filename
 fi
 
+mkdir -p build
+
 # Remove .cpp extension if present
 filename="${filename%.cpp}"
 
 # Compile and run
-if g++ -E "$filename.cpp" -o "$filename.i" && g++ -c "$filename.cpp" && g++ "$filename.o" -o "$filename" && ./"$filename"; then
+
+# if g++ -E "$filename.cpp" -o "build/$filename.i" && g++ -c "$filename.cpp"  -o "build/$filename.o" && g++ "utils.h" "$filename.cpp" -o "build/$filename" && ./build/"$filename"; then
+
+if g++ "utils.h" "$filename.cpp" -o "build/$filename" && ./build/"$filename"; then
     echo "\nCompiled and Executed"
 else
     echo "\nError occurred during compilation or execution."

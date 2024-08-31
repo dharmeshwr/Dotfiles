@@ -1,0 +1,62 @@
+#!/bin/zsh
+
+# Check for debug mode
+debug_mode=0
+if [ "$1" = "-d" ]; then
+    debug_mode=1
+    shift
+fi
+
+if [ -n "$1" ]; then
+    filename="$1"
+elif [ ! -t 0 ]; then
+    read -r filename
+else
+    echo "Enter the C++ file name (without .cpp extension):"
+    read -r filename
+fi
+
+filename="${filename%.cpp}"
+
+mkdir -p build
+
+if g++ -E "$filename.cpp" -o "build/$filename.i" && g++ -c "$filename.cpp" -o "build/$filename.o" && g++ "build/$filename.o" -o "build/$filename"; then
+    echo "\nCompilation succeeded."
+else
+    echo "\nError occurred during compilation."
+    exit 1
+fi
+
+echo "Running test cases..."
+
+test_dir="tests"
+passed=0
+failed=0
+
+for input_file in "$test_dir"/*.in; do
+    base_name=$(basename "$input_file" .in)
+    expected_output_file="$test_dir/$base_name.out"
+    actual_output_file="build/$base_name.actual"
+
+    ./build/"$filename" < "$input_file" > "$actual_output_file"
+
+    if diff -q "$actual_output_file" "$expected_output_file" > /dev/null; then
+        echo "\033[32mTest $base_name: Passed\033[0m"
+        ((passed++))
+    else
+        echo "\033[31mTest $base_name: Failed\033[0m"
+        if [ $debug_mode -eq 1 ]; then
+            diff "$actual_output_file" "$expected_output_file"
+        fi
+        ((failed++))
+    fi
+
+    rm "$actual_output_file"
+done
+
+echo "\nTest Summary:"
+echo "Passed: \033[32m$passed\033[0m"
+echo "Failed: \033[31m$failed\033[0m"
+
+exit $failed
+
