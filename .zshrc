@@ -33,7 +33,8 @@ eval "$(thefuck --alias)"
 
 plugins=(
 	git
-	zsh-autosuggestions
+	zsh-syntax-highlighting
+    zsh-autosuggestions
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -48,14 +49,6 @@ source $ZSH/oh-my-zsh.sh
 #    export EDITOR='nvim'
 
 
-# export ARCHFLAGS="-arch x86_64"
-
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
-# Example aliases
 alias ..='cd ..'
 alias ....='cd ../..'
 alias zshconf="nvim ~/.zshrc"
@@ -78,9 +71,8 @@ alias ll='exa --long --color always --icons --sort=type'
 alias la='exa --grid --all --color auto --icons --sort=type'
 alias lla='exa --long --all --color auto --icons --sort=type'
 alias daddy='sudo'
-alias bro='paru'
 alias gf='onefetch'
-alias rm='rm -rf'
+alias rm='rm -vrf'
 alias syt='python ~/work/Tasks/htmlToTxt.py'
 alias syh='python ~/work/Tasks/txtToHtml.py'
 alias cache='paru -Scc'
@@ -89,10 +81,13 @@ alias ts='tesseract'
 alias df='duf'
 alias lol='lolcat'
 alias cost='scc'
-alias hotspot='sudo lnxrouter --ap wlp3s0 Sugardaddy -p nnoonnee'
+alias hotspot='sudo systemctl restart hotspot.service'
+alias stop='sudo systemctl stop hotspot.service'
 
+export SSH_AUTH_SOCK=/run/user/$UID/keyring/ssh
 export PATH="/home/ninjafire/.local/bin:$PATH"
 export BOOST_ROOT="/usr/include/boost"
+export GTK_PATH="/usr/include/gtk3.0"
 export GTK_THEME=Gruvbox-Dark-BL-LB
 
-cowfortune
+

@@ -1,0 +1,12 @@
+[Unit]
+Description=Starts Hotspot
+After=network.target
+
+[Service]
+Type=simple
+ExecStart=/home/ninjafire/.local/bin/lnxrouter --ap wlan0 Sugardaddy -p nnoonnee
+User=root
+
+[Install]
+WantedBy=multi-user.target
+
