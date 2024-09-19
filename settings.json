@@ -1,9 +1,7 @@
 {
   "workbench.colorTheme": "Gruvbox Dark Hard",
   "window.menuBarVisibility": "hidden",
-  "editor.fontSize": 16,
-  "editor.fontFamily": "\"JetBrainsMono Nerd Font\" ",
-  "editor.wordWrap": "on",
+  "editor.fontFamily": "\"FiraCode Nerd Font\" ",
   "editor.autoClosingBrackets": "always",
   "editor.autoClosingComments": "always",
   "editor.lineHeight": 1.8,
@@ -12,21 +10,38 @@
   "editor.formatOnSave": true,
   "editor.formatOnPaste": true,
   "explorer.confirmDelete": false,
-  "workbench.productIconTheme": "icons-carbon-tweaked",
+  "workbench.productIconTheme": "icons-carbon",
   "diffEditor.hideUnchangedRegions.enabled": true,
   "workbench.editor.enablePreview": false,
   "editor.minimap.autohide": true,
-  "editor.cursorBlinking": "phase",
+  "editor.cursorBlinking": "expand",
   "terminal.integrated.cursorStyle": "line",
   "editor.fontLigatures": true,
   "editor.quickSuggestionsDelay": 0,
   "editor.hover.enabled": false,
   "editor.parameterHints.enabled": false,
-  "workbench.activityBar.location": "hidden",
   "files.watcherExclude": {
     "**/.git/objects/**": true,
     "**/node_modules/**": true
   },
   "editor.cursorSmoothCaretAnimation": "on",
-  "workbench.iconTheme": "gruvbox-material-icon-theme"
+  "editor.renderWhitespace": "trailing",
+  "editor.fontSize": 16,
+  "editor.lineNumbers": "relative",
+  "editor.hover.sticky": false,
+  "editor.stickyScroll.enabled": false,
+  "editor.minimap.enabled": false,
+  "workbench.startupEditor": "none",
+  "workbench.iconTheme": "eq-material-theme-icons-darker",
+  "workbench.colorCustomizations": {
+    "errorLens.errorBackground": "#cc241d00",
+    "errorLens.errorForeground": "#665c54",
+    "editorError.foreground": "#665c54"
+  },
+  "workbench.activityBar.location": "bottom",
+  "window.commandCenter": false,
+  "workbench.layoutControl.enabled": false,
+  "editor.linkedEditing": true,
+  "security.workspace.trust.untrustedFiles": "open"
 }
+

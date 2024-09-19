@@ -1,0 +1,34 @@
+#!/bin/zsh
+
+timestamp=$(date +"%Y%m%d_%H%M%S")
+output_file="$timestamp.txt"
+
+if [ "$#" -eq 0 ]; then
+  input_files=($(find . -type d \( -name node_modules -o -name .git \) -prune -o -type f ! -name "package-lock.json" ! -name "merge" -print))
+else
+  input_files=("$@")
+fi
+
+echo "Input files: ${input_files[@]}"
+
+touch "$output_file"
+
+merged_count=0
+
+for input_file in "${input_files[@]}"; do
+  echo "Processing file: $input_file"
+  if [ -f "$input_file" ] && [ "$input_file" != "$output_file" ]; then
+    echo "=========== $input_file ===========" >> "$output_file"
+    cat "$input_file" >> "$output_file"
+    echo "" >> "$output_file"
+    ((merged_count++))
+  fi
+done
+
+if [ $merged_count -gt 0 ]; then
+  echo "Merging complete! $merged_count file(s) merged. Output saved to $output_file."
+else
+  echo "No files found to merge."
+  rm "$output_file"
+fi
+

@@ -1,15 +1,19 @@
 #!/bin/zsh
 
-# Get the mute status and volume percentage
+# Get volume information
 VOLINFO="$(wpctl get-volume @DEFAULT_AUDIO_SINK@)"
-VOLONOFF=$(echo $VOLINFO | awk '{print $2}')
-VOL=$(echo $VOLINFO | awk '{print $2 * 100 "%"}')
 
+# Extract the volume and mute state from the volume info
+VOL=$(echo $VOLINFO | awk '{print $2 * 100 "%"}')
+MUTED=$(echo $VOLINFO | grep -o "\[MUTED\]")
+
+# Define icons for volume and mute
 VOLICON=" "
 MUTEICON=" "
 
-if [ "$VOLONOFF" = 0.00 ]; then
-    echo "$MUTEICON"
+# Check if muted
+if [ "$MUTED" = "[MUTED]" ]; then
+    echo "0%"
 else
     echo "$VOL"
 fi

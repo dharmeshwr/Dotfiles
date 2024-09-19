@@ -5,9 +5,12 @@ cache="$cachedir/dmenu_run"
 
 [ ! -e "$cachedir" ] && mkdir -p "$cachedir"
 
+export PATH="/home/ninjafire/.local/bin:$PATH"
+
 IFS=:
 if stest -dqr -n "$cache" $PATH; then
-	stest -flx $PATH | sort -u | tee "$cache"
+  stest -flx $PATH | sort -u | tee "$cache"
 else
-	cat "$cache"
+  cat "$cache"
 fi
+

@@ -18,7 +18,7 @@ return {
 		},
 		keys = {
 			{
-				"<space>f",
+				"<space>k",
 				function()
 					local builtin = require("telescope.builtin")
 					builtin.find_files({
@@ -28,6 +28,7 @@ return {
 				end,
 				desc = "Lists files in your current working directory, respects .gitignore",
 			},
+
 			{
 				"<space>j",
 				function()
@@ -36,6 +37,7 @@ return {
 				end,
 				desc = "Search for a string in your current working directory and get results live as you type, respects .gitignore",
 			},
+
 			{
 				"<space><space>",
 				function()
@@ -44,6 +46,7 @@ return {
 				end,
 				desc = "Lists open buffers",
 			},
+
 			{
 				"\\\\",
 				function()
@@ -52,6 +55,7 @@ return {
 				end,
 				desc = "Resume the previous telescope picker",
 			},
+
 			{
 				"<space>g",
 				function()
@@ -60,6 +64,7 @@ return {
 				end,
 				desc = "Lists Diagnostics for all open buffers or a specific buffer",
 			},
+
 			{
 				"<space>s",
 				function()
@@ -104,6 +109,9 @@ return {
 				winblend = 0,
 				mappings = {
 					n = {},
+				},
+				file_ignore_patterns = {
+					"node_modules",
 				},
 			})
 			opts.pickers = {

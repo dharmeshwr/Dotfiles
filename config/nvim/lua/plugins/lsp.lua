@@ -6,7 +6,6 @@ return {
 			vim.list_extend(opts.ensure_installed, {
 				"luacheck",
 				"shellcheck",
-				"shfmt",
 				"tailwindcss-language-server",
 				"typescript-language-server",
 				"eslint-lsp",

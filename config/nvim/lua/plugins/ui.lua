@@ -4,6 +4,10 @@ return {
 		dependencies = { { "nvim-tree/nvim-web-devicons" } },
 	},
 	{
+		"folke/which-key.nvim",
+		enabled = false,
+	},
+	{
 		"nvim-tree/nvim-tree.nvim",
 		enabled = false,
 	},
@@ -116,13 +120,12 @@ return {
 		lazy = false,
 		priority = 1000,
 		config = function()
-			vim.g.gruvbox_material_enable_italic = true
+			vim.g.gruvbox_material_enable_italic = false
 			vim.g.gruvbox_material_background = "hard"
 			vim.g.gruvbox_material_better_performance = 1
 			vim.g.gruvbox_material_foreground = "mix"
 			vim.g.gruvbox_material_enable_bold = 1
 			vim.g.gruvbox_material_ui_contrast = "high"
-			vim.g.gruvbox_material_inlay_hints_background = "dimmed"
 			vim.g.gruvbox_material_float_style = "dim"
 			vim.cmd.colorscheme("gruvbox-material")
 		end,

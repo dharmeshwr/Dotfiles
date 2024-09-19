@@ -63,24 +63,26 @@ static const char unknown_str[] = "n/a";
  */
 
 static const struct arg args[] = {
-    /* function      format              argument */
+    {run_command, "Hotspot %1s | ",
+     "systemctl is-active hotspot.service | grep -q '^active$' && echo 'On' || "
+     "echo 'Off'"},
+
     {run_command, "%2s | ",
      "if [ $(cat /sys/class/net/enp4s0/operstate 2>/dev/null) == 'up' ]; then "
-     "RX=$(cat /sys/class/net/enp4s0/statistics/rx_bytes); sleep 1; "
-     "RX_NEW=$(cat /sys/class/net/enp4s0/statistics/rx_bytes); SPEED=$(( "
-     "(RX_NEW - RX) / 1024 )); IP=$(ip -o -4 addr show enp4s0 | awk '{print "
-     "$4}' | cut -d/ -f1); echo \"IP $IP | NET $SPEED Kbps\"; elif [ $(cat "
-     "/sys/class/net/wlp3s0/operstate 2>/dev/null) == 'up' ]; then RX=$(cat "
-     "/sys/class/net/wlp3s0/statistics/rx_bytes); sleep 1; RX_NEW=$(cat "
-     "/sys/class/net/wlp3s0/statistics/rx_bytes); SPEED=$(( (RX_NEW - RX) / "
-     "1024 )); IP=$(ip -o -4 addr show wlp3s0 | awk '{print $4}' | cut -d/ "
-     "-f1); echo \"IP $IP \"; else echo \"FUCK\"; fi"},
+     "echo \"Lan\"; "
+     "elif ip link show | grep -q wlan0 && [ $(cat "
+     "/sys/class/net/wlan0/operstate 2>/dev/null) == 'up' ]; then "
+     "echo \"Wifi\"; "
+     "else echo \"Not connected\"; fi"},
+    {cpu_perc, "Cpu %s%% | ", NULL},
 
-    {cpu_perc, "CPU %s%% | ", NULL},
-    {run_command, "VOL %2s | ", "~/.local/bin/volume.sh"},
-    {battery_perc, "BAT %s%% | ", "BAT1"},
-    {run_command, "RAM %s | ",
+    {run_command, "Vol %1s | ", "~/.local/bin/volume.sh"},
+
+    {battery_perc, "Bat %s%% | ", "BAT1"},
+
+    {run_command, "Ram %s | ",
      "free -h | awk '/^Mem/ { print $3\"/\"$2 }' | sed s/i//g"},
+
     {run_command, "%s ", "date '+%b %d %a %I:%M %p'"},
 };
 

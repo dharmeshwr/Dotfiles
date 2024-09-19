@@ -19,9 +19,9 @@ filename="${filename%.cpp}"
 
 # Compile and run
 
-# if g++ -E "$filename.cpp" -o "build/$filename.i" && g++ -c "$filename.cpp"  -o "build/$filename.o" && g++ "utils.h" "$filename.cpp" -o "build/$filename" && ./build/"$filename"; then
 
-if g++ "utils.h" "$filename.cpp" -o "build/$filename" && ./build/"$filename"; then
+# if g++ "utils.h" "$filename.cpp" -o "build/$filename" && ./build/"$filename"; then
+if g++ -E "$filename.cpp" -o "build/$filename.i" && g++ -c "$filename.cpp"  -o "build/$filename.o" && g++ "$filename.cpp" -o "build/$filename" && ./build/"$filename"; then
     echo "\nCompiled and Executed"
 else
     echo "\nError occurred during compilation or execution."

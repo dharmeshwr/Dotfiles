@@ -2,13 +2,13 @@
 
 # Check for debug mode
 debug_mode=0
-if [ "$1" = "-d" ]; then
+if [ "$1" = "--debug" ]; then
     debug_mode=1
     shift
 fi
 
-if [ -n "$1" ]; then
-    filename="$1"
+if [ -n "$2" ]; then
+    filename="$2"
 elif [ ! -t 0 ]; then
     read -r filename
 else
@@ -33,12 +33,15 @@ test_dir="tests"
 passed=0
 failed=0
 
-for input_file in "$test_dir"/*.in; do
+start_time=$SECONDS
+for input_file in $(ls "$test_dir"/*.in | sort -V); do
     base_name=$(basename "$input_file" .in)
     expected_output_file="$test_dir/$base_name.out"
     actual_output_file="build/$base_name.actual"
 
+
     ./build/"$filename" < "$input_file" > "$actual_output_file"
+
 
     if diff -q "$actual_output_file" "$expected_output_file" > /dev/null; then
         echo "\033[32mTest $base_name: Passed\033[0m"
@@ -46,6 +49,7 @@ for input_file in "$test_dir"/*.in; do
     else
         echo "\033[31mTest $base_name: Failed\033[0m"
         if [ $debug_mode -eq 1 ]; then
+            echo "Differences:"
             diff "$actual_output_file" "$expected_output_file"
         fi
         ((failed++))
@@ -53,10 +57,14 @@ for input_file in "$test_dir"/*.in; do
 
     rm "$actual_output_file"
 done
+end_time=$SECONDS
+
+time_taken=$((end_time - start_time))
 
 echo "\nTest Summary:"
 echo "Passed: \033[32m$passed\033[0m"
 echo "Failed: \033[31m$failed\033[0m"
+echo "Runtime: ${time_taken}s"
 
 exit $failed
 
