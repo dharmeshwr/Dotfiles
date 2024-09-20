@@ -1,9 +1,24 @@
 local keymap = vim.keymap
 local opts = { noremap = true, silent = true }
 
+-- Twilight
+keymap.set("n", "tw", ":Twilight<CR>", { noremap = false })
+
 --Clipboard
 keymap.set({ "n", "v" }, "<leader>y", [["+y]])
 keymap.set("n", "<leader>Y", [["+Y]])
+
+-- File commands
+keymap.set("n", "QQ", ":q!<CR>", { noremap = false })
+keymap.set("n", "WW", ":w!<CR>", { noremap = false })
+keymap.set("n", "E", "$", { noremap = false })
+keymap.set("n", "B", "^", { noremap = false })
+keymap.set("n", "TT", ":TransparentToggle<CR>", opts)
+keymap.set("n", "ss", ":noh<CR>", opts)
+
+-- Word wrap navigation
+keymap.set("n", "k", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
+keymap.set("n", "j", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 
 --Code Folding
 keymap.set("n", "-", "<cmd>foldclose<CR>")
@@ -46,6 +61,5 @@ keymap.set("n", "<C-S-j>", "<C-w>-")
 keymap.set("n", "<C-d>", "<C-d>zz")
 keymap.set("n", "<C-u>", "<C-u>zz")
 
-keymap.set("n", "<C-j>", function()
-	vim.diagnostic.goto_next()
-end, opts)
+keymap.set("n", "<C-j>", vim.diagnostic.goto_next, opts)
+

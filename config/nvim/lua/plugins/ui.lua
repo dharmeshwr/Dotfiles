@@ -59,6 +59,18 @@ return {
 		end,
 		config = function()
 			require("noice").setup({
+				views = {
+					cmdline_popup = {
+						border = {
+							style = "none",
+							padding = { 1,1 },
+						},
+						filter_options = {},
+						win_options = {
+							winhighlight = "NormalFloat:NormalFloat,FloatBorder:FloatBorder",
+						},
+					},
+				},
 				cmdline = {
 					view = "cmdline_popup",
 				},
@@ -132,4 +144,14 @@ return {
 	},
 
 	{ "wakatime/vim-wakatime", lazy = false },
+	{ 'nvim-telescope/telescope-symbols.nvim'},
+	{
+		"folke/zen-mode.nvim",
+		opts = {}
+	},
+	{
+    'numToStr/Comment.nvim', -- "gc" to comment visual regions/lines 
+    event = { "BufRead", "BufNewFile" },
+    config = true
+  },
 }

@@ -106,8 +106,15 @@ vim.api.nvim_command("command Q q")
 -- Hide command line when not needed
 -- vim.opt.cmdheight = 0
 
--- Leave a little column on the left side for ~
-vim.opt.signcolumn = "no"
-
 vim.o.scrolloff = 8
 vim.o.sidescrolloff = 8
+
+-- vim.wo.signcolumn = 'yes'
+
+-- Save undo history
+vim.o.undofile = true
+
+vim.o.completeopt = 'menuone,noselect'
+
+-- Concealer for Neorg
+vim.o.conceallevel=2
