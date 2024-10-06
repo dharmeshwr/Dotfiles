@@ -114,7 +114,7 @@ vim.o.sidescrolloff = 8
 -- Save undo history
 vim.o.undofile = true
 
-vim.o.completeopt = 'menuone,noselect'
+vim.o.completeopt = "menuone,noselect"
 
 -- Concealer for Neorg
-vim.o.conceallevel=2
+vim.o.conceallevel = 2

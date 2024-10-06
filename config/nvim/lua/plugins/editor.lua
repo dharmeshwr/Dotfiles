@@ -6,27 +6,27 @@ return {
 		event = "BufReadPre",
 		opts = {},
 	},
-	{  'ThePrimeagen/git-worktree.nvim'},
+	{ "ThePrimeagen/git-worktree.nvim" },
 	{
-    "NeogitOrg/neogit",
-    lazy = false,
-    dependencies = {
-      "nvim-lua/plenary.nvim",         -- required
-      "sindrets/diffview.nvim",        -- optional - Diff integration
-      "nvim-telescope/telescope.nvim", -- optional
-    },
-    config = true
-  },
+		"NeogitOrg/neogit",
+		lazy = false,
+		dependencies = {
+			"nvim-lua/plenary.nvim", -- required
+			"sindrets/diffview.nvim", -- optional - Diff integration
+			"nvim-telescope/telescope.nvim", -- optional
+		},
+		config = true,
+	},
 	{
-    "mistricky/codesnap.nvim",
-    build = "make",
+		"mistricky/codesnap.nvim",
+		build = "make",
 		opts = {
 			border = "rounded",
 			has_breadcrumbs = true,
 			bg_theme = "grape",
-			watermark = ""
-		}
-  },
+			watermark = "",
+		},
+	},
 	{
 		"telescope.nvim",
 		priority = 1000,
@@ -63,7 +63,7 @@ return {
 				desc = "Search for a string in your current working directory and get results live as you type, respects .gitignore",
 			},
 			{
-				"<space>g",
+				"<space>xx",
 				function()
 					local builtin = require("telescope.builtin")
 					builtin.diagnostics()
@@ -151,7 +151,7 @@ return {
 			})
 			opts.pickers = {
 				diagnostics = {
-					theme = "ivy",
+					theme = "dropdown",
 					initial_mode = "normal",
 					layout_config = {
 						preview_cutoff = 9999,
@@ -310,60 +310,60 @@ return {
 		},
 	},
 	{
-    "folke/twilight.nvim",
-    ft = "markdown",
+		"folke/twilight.nvim",
+		ft = "markdown",
 		opts = {
 			dimming = {
-				alpha = 0.25, 
+				alpha = 0.25,
 				color = { "Normal", "#ffffff" },
-				term_bg = "#000000", 
-				inactive = false, 
+				term_bg = "#000000",
+				inactive = false,
 			},
-			context = 10, 
+			context = 10,
 			treesitter = true,
-			expand = { 
+			expand = {
 				"function",
 				"method",
 				"table",
 				"if_statement",
 			},
-			exclude = {}, 
-		}
-  },
+			exclude = {},
+		},
+	},
 	{
-		'rmagatti/goto-preview',
-    config = function()
-      require('goto-preview').setup {
-        width = 120; -- Width of the floating window
-        height = 15; -- Height of the floating window
-        border = {"↖", "─" ,"┐", "│", "┘", "─", "└", "│"}; -- Border characters of the floating window
-        default_mappings = true;
-        debug = false; -- Print debug information
-        opacity = nil; -- 0-100 opacity level of the floating window where 100 is fully transparent.
-        resizing_mappings = false; -- Binds arrow keys to resizing the floating window.
-        post_open_hook = nil; -- A function taking two arguments, a buffer and a window to be ran as a hook.
-        references = { -- Configure the telescope UI for slowing the references cycling window.
-          telescope = require("telescope.themes").get_dropdown({ hide_preview = false })
-        };
-        -- These two configs can also be passed down to the goto-preview definition and implementation calls for one off "peak" functionality.
-        focus_on_open = true; -- Focus the floating window when opening it.
-        dismiss_on_move = false; -- Dismiss the floating window when moving the cursor.
-        force_close = true, -- passed into vim.api.nvim_win_close's second argument. See :h nvim_win_close
-        bufhidden = "wipe", -- the bufhidden option to set on the floating window. See :h bufhidden
-        stack_floating_preview_windows = true, -- Whether to nest floating windows
-        preview_window_title = { enable = true, position = "left" }, -- Whether 
-      }
-    end
-  },
+		"rmagatti/goto-preview",
+		config = function()
+			require("goto-preview").setup({
+				width = 120, -- Width of the floating window
+				height = 15, -- Height of the floating window
+				border = { "↖", "─", "┐", "│", "┘", "─", "└", "│" }, -- Border characters of the floating window
+				default_mappings = true,
+				debug = false, -- Print debug information
+				opacity = nil, -- 0-100 opacity level of the floating window where 100 is fully transparent.
+				resizing_mappings = false, -- Binds arrow keys to resizing the floating window.
+				post_open_hook = nil, -- A function taking two arguments, a buffer and a window to be ran as a hook.
+				references = { -- Configure the telescope UI for slowing the references cycling window.
+					telescope = require("telescope.themes").get_dropdown({ hide_preview = false }),
+				},
+				-- These two configs can also be passed down to the goto-preview definition and implementation calls for one off "peak" functionality.
+				focus_on_open = true, -- Focus the floating window when opening it.
+				dismiss_on_move = false, -- Dismiss the floating window when moving the cursor.
+				force_close = true, -- passed into vim.api.nvim_win_close's second argument. See :h nvim_win_close
+				bufhidden = "wipe", -- the bufhidden option to set on the floating window. See :h bufhidden
+				stack_floating_preview_windows = true, -- Whether to nest floating windows
+				preview_window_title = { enable = true, position = "left" }, -- Whether
+			})
+		end,
+	},
 	{
-		'lewis6991/gitsigns.nvim',
-		opts= {
+		"lewis6991/gitsigns.nvim",
+		opts = {
 			signs = {
-				add = { text = '+' },
-				change = { text = '~' },
-				delete = { text = '_' },
-				topdelete = { text = '‾' },
-				changedelete = { text = '~' },
+				add = { text = "+" },
+				change = { text = "~" },
+				delete = { text = "_" },
+				topdelete = { text = "‾" },
+				changedelete = { text = "~" },
 			},
 			current_line_blame = false,
 			on_attach = function(bufnr)
@@ -376,93 +376,105 @@ return {
 				end
 
 				-- Navigation
-				map('n', ']c', function()
-					if vim.wo.diff then return ']c' end
-					vim.schedule(function() gs.next_hunk() end)
-					return '<Ignore>'
-				end, {expr=true})
+				map("n", "]c", function()
+					if vim.wo.diff then
+						return "]c"
+					end
+					vim.schedule(function()
+						gs.next_hunk()
+					end)
+					return "<Ignore>"
+				end, { expr = true })
 
-				map('n', '[c', function()
-					if vim.wo.diff then return '[c' end
-					vim.schedule(function() gs.prev_hunk() end)
-					return '<Ignore>'
-				end, {expr=true})
+				map("n", "[c", function()
+					if vim.wo.diff then
+						return "[c"
+					end
+					vim.schedule(function()
+						gs.prev_hunk()
+					end)
+					return "<Ignore>"
+				end, { expr = true })
 
 				-- Actions
-				map({'n', 'v'}, '<leader>hs', ':Gitsigns stage_hunk<CR>')
-				map({'n', 'v'}, '<leader>hr', ':Gitsigns reset_hunk<CR>')
-				map('n', '<leader>hS', gs.stage_buffer)
-				map('n', '<leader>ha', gs.stage_hunk)
-				map('n', '<leader>hu', gs.undo_stage_hunk)
-				map('n', '<leader>hR', gs.reset_buffer)
-				map('n', '<leader>hp', gs.preview_hunk)
-				map('n', '<leader>hb', function() gs.blame_line{full=true} end)
-				map('n', '<leader>tB', gs.toggle_current_line_blame)
-				map('n', '<leader>hd', gs.diffthis)
-				map('n', '<leader>hD', function() gs.diffthis('~') end)
+				map({ "n", "v" }, "<leader>hs", ":Gitsigns stage_hunk<CR>")
+				map({ "n", "v" }, "<leader>hr", ":Gitsigns reset_hunk<CR>")
+				map("n", "<leader>hS", gs.stage_buffer)
+				map("n", "<leader>ha", gs.stage_hunk)
+				map("n", "<leader>hu", gs.undo_stage_hunk)
+				map("n", "<leader>hR", gs.reset_buffer)
+				map("n", "<leader>hp", gs.preview_hunk)
+				map("n", "<leader>hb", function()
+					gs.blame_line({ full = true })
+				end)
+				map("n", "<leader>tB", gs.toggle_current_line_blame)
+				map("n", "<leader>hd", gs.diffthis)
+				map("n", "<leader>hD", function()
+					gs.diffthis("~")
+				end)
 
 				-- Text object
-				map({'o', 'x'}, 'ih', ':<C-U>Gitsigns select_hunk<CR>')
-			end
-		}
+				map({ "o", "x" }, "ih", ":<C-U>Gitsigns select_hunk<CR>")
+			end,
+		},
 	},
-	 { -- Autocompletion
-    'hrsh7th/nvim-cmp',
-    event = "InsertEnter",
-    dependencies = {
-      'hrsh7th/cmp-nvim-lsp',
-      'L3MON4D3/LuaSnip',
-      'saadparwaiz1/cmp_luasnip'
-    },
-    config = function()
-      -- nvim-cmp setup
-      local cmp = require 'cmp'
-      local luasnip = require 'luasnip'
+	{ -- Autocompletion
+		"hrsh7th/nvim-cmp",
+		event = "InsertEnter",
+		dependencies = {
+			"hrsh7th/cmp-nvim-lsp",
+			"L3MON4D3/LuaSnip",
+			"saadparwaiz1/cmp_luasnip",
+		},
+		config = function()
+			-- nvim-cmp setup
+			local cmp = require("cmp")
+			local luasnip = require("luasnip")
 
-      cmp.setup({
-        view = {
-          entries = "native"
-        },
-        snippet = {
-          expand = function(args)
-            luasnip.lsp_expand(args.body)
-          end,
-        },
-        mapping = cmp.mapping.preset.insert {
-          ['<C-d>'] = cmp.mapping.scroll_docs(-4),
-          ['<C-f>'] = cmp.mapping.scroll_docs(4),
-          ['<C-Space>'] = cmp.mapping.complete(),
-          ['<CR>'] = cmp.mapping.confirm {
-            behavior = cmp.ConfirmBehavior.Replace,
-            select = true,
-          },
-          ['<Tab>'] = cmp.mapping(function(fallback)
-            if cmp.visible() then
-              cmp.select_next_item()
-            elseif luasnip.expand_or_jumpable() then
-              luasnip.expand_or_jump()
-            else
-              fallback()
-            end
-          end, { 'i', 's' }),
-          ['<S-Tab>'] = cmp.mapping(function(fallback)
-            if cmp.visible() then
-              cmp.select_prev_item()
-            elseif luasnip.jumpable(-1) then
-              luasnip.jump(-1)
-            else
-              fallback()
-            end
-          end, { 'i', 's' }),
-        },
-        sources = {
-          { name = 'nvim_lsp' },
-          { name = 'luasnip' },
-          { name = "neorg" },
-        },
-      })
-    end
-  },
+			cmp.setup({
+				view = {
+					entries = "native",
+				},
+				snippet = {
+					expand = function(args)
+						luasnip.lsp_expand(args.body)
+					end,
+				},
+				mapping = cmp.mapping.preset.insert({
+					["<C-d>"] = cmp.mapping.scroll_docs(-4),
+					["<C-f>"] = cmp.mapping.scroll_docs(4),
+					["<C-Space>"] = cmp.mapping.complete(),
+					["<CR>"] = cmp.mapping.confirm({
+						behavior = cmp.ConfirmBehavior.Replace,
+						select = true,
+					}),
+					["<Tab>"] = cmp.mapping(function(fallback)
+						if cmp.visible() then
+							cmp.select_next_item()
+						elseif luasnip.expand_or_jumpable() then
+							luasnip.expand_or_jump()
+						else
+							fallback()
+						end
+					end, { "i", "s" }),
+					["<S-Tab>"] = cmp.mapping(function(fallback)
+						if cmp.visible() then
+							cmp.select_prev_item()
+						elseif luasnip.jumpable(-1) then
+							luasnip.jump(-1)
+						else
+							fallback()
+						end
+					end, { "i", "s" }),
+				}),
+				sources = {
+					{ name = "nvim_lsp" },
+					{ name = "luasnip" },
+					{ name = "neorg" },
+				},
+			})
+		end,
+	},
 	-- {
 	-- 	"akinsho/toggleterm.nvim",
 	-- 	version = "*",

@@ -16,6 +16,7 @@ return {
 				"vim",
 				"lua",
 				"cpp",
+				"prisma",
 			},
 			ignore_install = { "xml", "printf" },
 			query_linter = {

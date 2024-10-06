@@ -42,6 +42,6 @@
   "window.commandCenter": false,
   "workbench.layoutControl.enabled": false,
   "editor.linkedEditing": true,
-  "security.workspace.trust.untrustedFiles": "open"
+  "security.workspace.trust.untrustedFiles": "open",
+  "explorer.compactFolders": false
 }
-

@@ -63,7 +63,7 @@ return {
 					cmdline_popup = {
 						border = {
 							style = "none",
-							padding = { 1,1 },
+							padding = { 1, 1 },
 						},
 						filter_options = {},
 						win_options = {
@@ -144,14 +144,14 @@ return {
 	},
 
 	{ "wakatime/vim-wakatime", lazy = false },
-	{ 'nvim-telescope/telescope-symbols.nvim'},
+	{ "nvim-telescope/telescope-symbols.nvim" },
 	{
 		"folke/zen-mode.nvim",
-		opts = {}
+		opts = {},
 	},
 	{
-    'numToStr/Comment.nvim', -- "gc" to comment visual regions/lines 
-    event = { "BufRead", "BufNewFile" },
-    config = true
-  },
+		"numToStr/Comment.nvim", -- "gc" to comment visual regions/lines
+		event = { "BufRead", "BufNewFile" },
+		config = true,
+	},
 }

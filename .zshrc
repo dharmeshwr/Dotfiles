@@ -79,10 +79,13 @@ alias cache='paru -Scc'
 alias orphan='paru -Rns $(pacman -Qtdq)'
 alias ts='tesseract'
 alias df='duf'
+alias clearVim='rm ~/.local/state/nvim ~/.local/share/nvim ~/.cache/nvim'
 alias lol='lolcat'
 alias cost='scc'
 alias hotspot='sudo systemctl restart hotspot.service'
 alias stop='sudo systemctl stop hotspot.service'
+alias du='du -shc'
+alias secert='openssl rand -hex 32'
 
 export SSH_AUTH_SOCK=/run/user/$UID/keyring/ssh
 export PATH="/home/ninjafire/.local/bin:$PATH"
@@ -91,3 +94,7 @@ export GTK_PATH="/usr/include/gtk3.0"
 export GTK_THEME=Gruvbox-Dark-BL-LB
 
 
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion

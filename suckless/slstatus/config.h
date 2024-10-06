@@ -72,7 +72,7 @@ static const struct arg args[] = {
      "echo \"Lan\"; "
      "elif ip link show | grep -q wlan0 && [ $(cat "
      "/sys/class/net/wlan0/operstate 2>/dev/null) == 'up' ]; then "
-     "echo \"Wifi\"; "
+     "wifi_name=$(iwgetid wlan0 -r); echo \"Wifi $wifi_name\";"
      "else echo \"Not connected\"; fi"},
     {cpu_perc, "Cpu %s%% | ", NULL},
 
