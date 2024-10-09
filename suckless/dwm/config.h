@@ -13,32 +13,33 @@ static const int systraypinningfailfirst = 1;  /* 1: if pinning fails, display s
 static const int showsystray             = 1;  /* 0 means no systray */
 static const int showbar                 = 1;  /* 0 means no bar */
 static const int topbar                  = 1;  /* 0 means bottom bar */
-// static const char *fonts[]               = {"FiraCode Nerd Font:size=11", "JoyPixels:pixelsize-10:antialias=true:autohint=true"};
-// static const char *fonts[]    = {"FiraCode Nerd Font:size=11", "DejaVu Sans Mono:pixelsize=14:antialias=true:autohint=true"};
-static const char *fonts[] = {
-    "FiraCode Nerd Font:size=11",
-    "Noto Emoji:size=2:antialias=true:autohint=true",
-    "DejaVu Sans Mono:pixelsize=14:antialias=true:autohint=true"};
-static const char dmenufont[] = "FiraCode Nerd Font:size=11";
+// static const char *fonts[] = {
+// "FiraCode Nerd Font:size=11",
+// "Noto Emoji:size=2:antialias=true:autohint=true",
+// "DejaVu Sans Mono:pixelsize=14:antialias=true:autohint=true"};
+// static const char dmenufont[] = "FiraCode Nerd Font:size=11";
 
-// static const char *fonts[]               = {"JetBrainsMono Nerd Font:size=10", "JoyPixels:pixelsize-10:antialias=true:autohint=true"};
-// static const char dmenufont[]            = "JetBrainsMono Nerd Font:size=10";
+static const char *fonts[]    = {"JetBrainsMono Nerd Font:size=11:antialias=true:autohint=true", "JoyPixels:pixelsize-10:antialias=true:autohint=true"};
+static const char dmenufont[] = "JetBrainsMono Nerd Font:size=12";
 
-// static const char col_gray1[] = "#ebddb2"; // New background color (previously text color)
-// static const char col_gray2[] = "#665c54"; // New inactive window border color (previously active text color)
-// static const char col_gray3[] = "#1d2021"; // New text color (previously background color)
-// static const char col_gray4[] = "#3c3836"; // New active window text color (previously inactive border color)
-// static const char col_skin1[] = "#d5c4a1"; // Selected window background (unchanged)
-// static const char col_skin2[] = "#504945"; // Selected window border (unchanged)
-// static const char col_skin3[] = "#ebddb2"; // Selected window border (unchanged)
-//
-static const char col_gray1[]  = "#1d2021"; // Background color
-static const char col_gray2[]  = "#3c3836"; // Inactive window border
-static const char col_gray3[]  = "#ebddb2"; // Text color
-static const char col_gray4[]  = "#ebddb2"; // Active window text color
-static const char col_skin1[]  = "#3c3836"; // Selected window background
-static const char col_skin2[]  = "#504945"; // Selected window border
-static const char col_skin3[]  = "#665c54"; // Selected window border
+// Catppuccin Mocha
+static const char col_gray1[] = "#1e1e2e"; // Background color
+static const char col_gray2[] = "#45475a"; // Inactive window border
+static const char col_gray3[] = "#c6d0f5"; // Text color
+static const char col_gray4[] = "#f4dbd6"; // Active window text color
+static const char col_skin1[] = "#45475a"; // Selected window background
+static const char col_skin2[] = "#313244"; // Selected window border
+static const char col_skin3[] = "#7f849c"; // Selected window border
+
+// Gruvbox
+// static const char col_gray1[]  = "#1d2021"; // Background color
+// static const char col_gray2[]  = "#3c3836"; // Inactive window border
+// static const char col_gray3[]  = "#ebddb2"; // Text color
+// static const char col_gray4[]  = "#ebddb2"; // Active window text color
+// static const char col_skin1[]  = "#3c3836"; // Selected window background
+// static const char col_skin2[]  = "#504945"; // Selected window border
+// static const char col_skin3[]  = "#665c54"; // Selected window border
+
 static const char *colors[][3] = {
     /*               fg         bg         border   */
     [SchemeNorm] = {col_gray3, col_gray1, col_gray2}, // Normal scheme
@@ -52,7 +53,7 @@ typedef struct
 } Sp;
 
 const char *spcmd1[] = {"st", "-n", "sptop", "-g", "160x44+260-100", "-e", "btop", NULL};
-const char *spcmd2[] = {"st", "-n", "spterm", "-g", "160x44+260-100", NULL};
+const char *spcmd2[] = {"st", "-n", "spterm", "-g", "160x36+260-100", NULL};
 const char *spcmd3[] = {"/home/ninjafire/.local/bin/bluetooth", NULL};
 /*const char *spcmd4[] = {"env", "GTK_THEME=Gruvbox-Dark-BL-LB", "pavucontrol", NULL};*/
 const char *spcmd4[] = {"pavucontrol", NULL};
@@ -125,7 +126,7 @@ static Key keys[] = {
     {MODKEY, XK_space, spawn, {.v = dmenucmd}},
     {MODKEY, XK_Return, spawn, {.v = termcmd}},
     {MODKEY, XK_f, spawn, {.v = browsercmd}},
-    {MODKEY, XK_d, spawn, SHCMD("firefox -P ninjafire")},
+    {MODKEY, XK_d, spawn, SHCMD("firefox -P dev")},
     {ControlMask | ShiftMask, XK_p, spawn, SHCMD("firefox --private-window")},
     {Mod1Mask, XK_0, spawn, SHCMD("pcmanfm")},
 

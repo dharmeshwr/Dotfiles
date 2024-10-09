@@ -68,11 +68,10 @@ static const struct arg args[] = {
      "echo 'Off'"},
 
     {run_command, "%2s | ",
-     "if [ $(cat /sys/class/net/enp4s0/operstate 2>/dev/null) == 'up' ]; then "
+     "if [ $(cat /sys/class/net/enp4s0/operstate 2>/dev/null) = 'up' ]; then "
      "echo \"Lan\"; "
-     "elif ip link show | grep -q wlan0 && [ $(cat "
-     "/sys/class/net/wlan0/operstate 2>/dev/null) == 'up' ]; then "
-     "wifi_name=$(iwgetid wlan0 -r); echo \"Wifi $wifi_name\";"
+     "elif [ $(cat /sys/class/net/wlp3s0/operstate 2>/dev/null) = 'up' ]; then "
+     "wifi_name=$(iwgetid wlp3s0 -r); echo \"Wifi $wifi_name\"; "
      "else echo \"Not connected\"; fi"},
     {cpu_perc, "Cpu %s%% | ", NULL},
 

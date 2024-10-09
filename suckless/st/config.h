@@ -6,7 +6,7 @@
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
 static char *font =
-    "FiraCode Nerd Font:pixelsize=16:antialias=true:autohint=true";
+    "JetBrainsMono Nerd Font:pixelsize=18:antialias=true:autohint=true";
 static char *font2[] = {
     "NotoColorEmoji:pixelsize=10:antialias=true:autohint=true"};
 static int borderpx = 0;
@@ -113,39 +113,81 @@ float alpha = 0.8;
 float alphaOffset = 0.0;
 float alphaUnfocus;
 
+// Gruvbox theme
+// static const char *colorname[] = {
+//     /* 8 normal colors */
+//     "#1d2021", /*black*/
+//     "#cc241d", /*red*/
+//     "#98971a", /*green*/
+//     "#d79921", /*yellow*/
+//     "#458588", /*blue*/
+//     "#b16286", /*magenta*/
+//     "#689d6a", /*cyan*/
+//     "#a89984", /*white*/
+
+//     /* 8 bright colors */
+//     "#928374", /*black*/
+//     "#fb4934", /*red*/
+//     "#b8bb26", /*green*/
+//     "#fabd2f", /*yellow*/
+//     "#83a598", /*blue*/
+//     "#d3869b", /*magenta*/
+//     "#8ec07c", /*cyan*/
+//     "#ebdbb2", /*white*/
+
+//     [255] = 0,
+
+//     /* more colors can be added after 255 to use with DefaultXX */
+//     // "#b57614", /* 256 cursor */
+//     // "#555555", /* 257 rev cursor */
+//     // "#d5c4a1", /* 258 bg */
+//     // "#1d2021", /* 259 fg */
+
+//     "#f0c674", /* 256 cursor */
+//     "#555555", /* 257 rev cursor */
+//     "#1d2021", /* 258 bg */
+//     "#ebdbb2", /* 259 fg */
+// };
+
+// /*
+//  * Default colors (colorname index)
+//  * foreground, background, cursor, reverse cursor
+//  */
+// unsigned int defaultfg = 259;
+// unsigned int defaultbg = 258;
+// unsigned int defaultcs = 256;
+// unsigned int defaultrcs = 257;
+// unsigned int background = 258;
+
+// catppuccin theme
 static const char *colorname[] = {
     /* 8 normal colors */
-    "#1d2021", /*black*/
-    "#cc241d", /*red*/
-    "#98971a", /*green*/
-    "#d79921", /*yellow*/
-    "#458588", /*blue*/
-    "#b16286", /*magenta*/
-    "#689d6a", /*cyan*/
-    "#a89984", /*white*/
+    "#1e1e2e", /* black */
+    "#e78284", /* red */
+    "#a6d189", /* green */
+    "#f4bf75", /* yellow */
+    "#89b4fa", /* blue */
+    "#d6a2e0", /* magenta */
+    "#8bd5ca", /* cyan */
+    "#c6d0f5", /* white */
 
     /* 8 bright colors */
-    "#928374", /*black*/
-    "#fb4934", /*red*/
-    "#b8bb26", /*green*/
-    "#fabd2f", /*yellow*/
-    "#83a598", /*blue*/
-    "#d3869b", /*magenta*/
-    "#8ec07c", /*cyan*/
-    "#ebdbb2", /*white*/
+    "#b3b3b3", /* black */
+    "#ef8e70", /* red */
+    "#b3d4ef", /* green */
+    "#f4bf75", /* yellow */
+    "#74c7ec", /* blue */
+    "#c8b6e8", /* magenta */
+    "#91d7e3", /* cyan */
+    "#f4dbd6", /* white */
 
     [255] = 0,
 
     /* more colors can be added after 255 to use with DefaultXX */
-    // "#b57614", /* 256 cursor */
-    // "#555555", /* 257 rev cursor */
-    // "#d5c4a1", /* 258 bg */
-    // "#1d2021", /* 259 fg */
-
-    "#f0c674", /* 256 cursor */
+    "#f4c2b6", /* 256 cursor (rosewater) */
     "#555555", /* 257 rev cursor */
-    "#1d2021", /* 258 bg */
-    "#ebdbb2", /* 259 fg */
+    "#1e1e2e", /* 258 bg */
+    "#c6d0f5", /* 259 fg */
 };
 
 /*

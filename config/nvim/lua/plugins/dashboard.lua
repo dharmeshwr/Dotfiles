@@ -8,7 +8,7 @@ return {
 		local logo = handle:read("*a")
 		handle:close()
 
-		logo = string.rep("\n", 6) .. logo .. "\n"
+		logo = string.rep("\n", 2) .. logo .. "\n"
 
 		local quotes = {
 			{ text = "Talk is cheap. Show me the code.", author = "Linus Torvalds" },
@@ -110,7 +110,6 @@ return {
 				author = "Tom Peters",
 			},
 			{ text = "Innovation distinguishes between a leader and a follower.", author = "Steve Jobs" },
-			{ text = "Sometimes the questions are complicated and the answers are simple.", author = "Dr. Seuss" },
 			{
 				text = "What we want is a machine that can take our creativity and make it better.",
 				author = "Jaron Lanier",
@@ -136,6 +135,7 @@ return {
 				text = "If you can't explain it to a six-year-old, you don't understand it yourself.",
 				author = "Albert Einstein",
 			},
+			{ text = "Sometimes the questions are complicated and the answers are simple.", author = "Dr. Seuss" },
 		}
 
 		local selected_quote = quotes[math.random(#quotes)]
