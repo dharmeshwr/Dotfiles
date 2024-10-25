@@ -126,16 +126,15 @@ static Key keys[] = {
     {MODKEY, XK_space, spawn, {.v = dmenucmd}},
     {MODKEY, XK_Return, spawn, {.v = termcmd}},
     {MODKEY, XK_f, spawn, {.v = browsercmd}},
-    {MODKEY, XK_d, spawn, SHCMD("firefox -P dev")},
+    {MODKEY, XK_d, spawn, SHCMD("firefox -P default")},
     {ControlMask | ShiftMask, XK_p, spawn, SHCMD("firefox --private-window")},
-    {Mod1Mask, XK_0, spawn, SHCMD("pcmanfm")},
+    {Mod1Mask, XK_0, spawn, SHCMD("thunar")},
+    {Mod1Mask, XK_9, spawn, SHCMD("slock")},
 
     /*{ControlMask, XK_1, togglescratch, {.ui = 0}},*/
     {ControlMask, XK_2, togglescratch, {.ui = 1}},
     {ControlMask, XK_3, togglescratch, {.ui = 2}},
     {ControlMask, XK_4, togglescratch, {.ui = 3}},
-
-    {MODKEY | ShiftMask, XK_Delete, spawn, SHCMD("betterlockscreen -l")},
 
     {MODKEY, XK_Print, spawn, SHCMD("echo 'Print Key Pressed' > /tmp/key.log; flameshot screen --path /home/ninjafire/Pictures/Screenshots/")},
     {0, XF86XK_AudioMute, spawn, SHCMD("wpctl set-mute @DEFAULT_SINK@ toggle")},

@@ -5,7 +5,6 @@ export EDITOR='nvim'
 
 eval "$(starship init zsh)"
 eval "$(zoxide init --cmd cd zsh)"
-eval "$(thefuck --alias)"
 # CASE_SENSITIVE="true"
 
 # HYPHEN_INSENSITIVE="true"
@@ -32,8 +31,9 @@ eval "$(thefuck --alias)"
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
 plugins=(
-	git
-	zsh-syntax-highlighting
+    git
+    docker
+    zsh-syntax-highlighting
     zsh-autosuggestions
 )
 
@@ -91,8 +91,9 @@ export SSH_AUTH_SOCK=/run/user/$UID/keyring/ssh
 export PATH="/home/ninjafire/.local/bin:$PATH"
 export BOOST_ROOT="/usr/include/boost"
 export GTK_PATH="/usr/include/gtk3.0"
-export GTK_THEME=Gruvbox-Dark-BL-LB
-
+# export GTK_THEME=Gruvbox-Dark-BL-LB
+export LANG=en_IN.UTF-8
+export LC_ALL=en_IN.UTF-8
 
 
 export NVM_DIR="$HOME/.nvm"
