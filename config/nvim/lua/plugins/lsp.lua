@@ -13,7 +13,7 @@ return {
 				"cpplint",
 				"cpptools",
 				"clangd",
-				"clang-format",
+				-- "clang-format",
 			})
 		end,
 	},

@@ -113,7 +113,7 @@ echo "QT_QPA_PLATFORMTHEME=qt5ct" | sudo tee -a /etc/environment
 
 # Setup display manager
 echo "🖥️  Setting up display manager..."
-cp ~/dotfiles/dwm.desktop /usr/share/xsessions/
+sudo cp ~/dotfiles/dwm.desktop /usr/share/xsessions/
 
 # Copy configurations
 echo "⚙️  Copying configurations..."
@@ -127,12 +127,12 @@ cp -r ~/dotfiles/config/bin ~/.local/
 if confirm "Do you want to setup LightDM?"; then
   echo "🔑 Setting up LightDM..."
   paru -S --noconfirm figlet lightdm-gtk-greeter accountsservice bat gnome-keyring
-  cp ~/dotfiles/profile.jpg ~/.face
-  chmod 644 ~/.face
-  sudo systemctl enable accounts-daemon
-  sudo systemctl start accounts-daemon
-  sudo chmod 755 /var/lib/AccountsService/users
-  sudo chmod 755 /var/lib/AccountsService/icons
+  # cp ~/dotfiles/profile.jpg ~/.face
+  # chmod 644 ~/.face
+  # sudo systemctl enable accounts-daemon
+  # sudo systemctl start accounts-daemon
+  # sudo chmod 755 /var/lib/AccountsService/users
+  # sudo chmod 755 /var/lib/AccountsService/icons
   sudo cp -r ~/dotfiles/lightdm/* /etc/lightdm/
   sudo mkdir -p /usr/share/backgrounds /usr/share/themes
   sudo cp ~/dotfiles/wallpaper.jpg /usr/share/backgrounds/01.jpg
@@ -165,7 +165,7 @@ fi
 
 # Generate locale
 echo "🌍 Generating locale..."
-sudo locale-gen
+# sudo locale-gen
 
 # Setup Git and SSH
 if confirm "Do you want to setup Git and SSH?"; then
@@ -187,6 +187,7 @@ fi
 # Install additional utilities
 echo "🔧 Installing additional utilities..."
 paru -S --noconfirm tmux cava fastfetch preload udisks2 ufw
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 cp ~/dotfiles/.tmux.conf ~
 
 # Enable services

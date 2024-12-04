@@ -1,0 +1,9 @@
+#!/bin/bash
+
+current_day=$(date +%j)
+
+total_days=$(date -d "$(date +%Y)-12-31" +%j)
+
+days_left=$((total_days - current_day))
+
+echo "$days_left days left"

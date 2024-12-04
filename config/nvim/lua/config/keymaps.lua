@@ -61,5 +61,6 @@ keymap.set("n", "<C-S-j>", "<C-w>-")
 keymap.set("n", "<C-d>", "<C-d>zz")
 keymap.set("n", "<C-u>", "<C-u>zz")
 
-keymap.set("n", "<C-j>", vim.diagnostic.goto_next, opts)
+keymap.set("x", "<Leader>p", '"_dp')
 
+-- vim.cmd([[colorscheme solarized-osaka-night]])

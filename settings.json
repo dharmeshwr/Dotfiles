@@ -1,7 +1,6 @@
 {
-  "workbench.colorTheme": "Gruvbox Dark Hard",
   "window.menuBarVisibility": "hidden",
-  "editor.fontFamily": "\"FiraCode Nerd Font\" ",
+  "editor.fontFamily": "\"JetBrainsMono Nerd Font\" ",
   "editor.autoClosingBrackets": "always",
   "editor.autoClosingComments": "always",
   "editor.lineHeight": 1.8,
@@ -24,24 +23,49 @@
     "**/.git/objects/**": true,
     "**/node_modules/**": true
   },
+  "search.exclude": {
+    "public/**": true,
+    "node_modules/**": true,
+    "coverage/**": true,
+    "dist/**": true,
+    "generated/**": true,
+    ".cache/**": true,
+    ".git/**": true,
+    "**/package-lock.json": true,
+    "**/pnpm-lock.yaml": true
+  },
   "editor.cursorSmoothCaretAnimation": "on",
   "editor.renderWhitespace": "trailing",
-  "editor.fontSize": 16,
+  "editor.fontSize": 17,
   "editor.lineNumbers": "relative",
   "editor.hover.sticky": false,
   "editor.stickyScroll.enabled": false,
   "editor.minimap.enabled": false,
   "workbench.startupEditor": "none",
-  "workbench.iconTheme": "eq-material-theme-icons-darker",
+  "workbench.iconTheme": "material-icon-theme",
   "workbench.colorCustomizations": {
     "errorLens.errorBackground": "#cc241d00",
-    "errorLens.errorForeground": "#665c54",
-    "editorError.foreground": "#665c54"
+    "errorLens.warningBackground": "#cc241d00",
+    "errorLens.errorForeground": "#cacacaaa",
+    "errorLens.warningForeground": "#cacacaaa",
+    "editorError.foreground": "#665c5400",
+    "editorWarning.foreground": "#665c5400"
   },
   "workbench.activityBar.location": "bottom",
   "window.commandCenter": false,
   "workbench.layoutControl.enabled": false,
   "editor.linkedEditing": true,
   "security.workspace.trust.untrustedFiles": "open",
-  "explorer.compactFolders": false
+  "explorer.compactFolders": false,
+  "workbench.colorTheme": "Catppuccin Mocha",
+  "files.exclude": {
+    "**/.next": true,
+    "**/next-env.d.ts": true,
+    "**/node_modules": true
+  },
+  "git.openRepositoryInParentFolders": "never",
+  "files.associations": {
+    "*.css": "tailwindcss"
+  }
 }
+

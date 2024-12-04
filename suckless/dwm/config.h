@@ -117,6 +117,7 @@ static const Layout layouts[] = {
 static char dmenumon[2]         = "0";
 static const char *dmenucmd[]   = {"dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_skin2, "-sf", col_gray4, NULL};
 static const char *termcmd[]    = {"st", "-g", "140x44+280-120", NULL};
+static const char *kittycmd[]   = {"kitty", NULL};
 static const char *browsercmd[] = {"firefox", NULL};
 
 #include <X11/XF86keysym.h>
