@@ -107,7 +107,7 @@ fi
 
 # Install theme-related packages
 echo "🎨 Installing theme packages..."
-paru -S --noconfirm unzip qt5ct lxappearance tree xdotool
+paru -S --noconfirm unzip qt5ct lxappearance tree xdotool brightnessctl
 mkdir -p ~/.themes ~/.icons
 echo "QT_QPA_PLATFORMTHEME=qt5ct" | sudo tee -a /etc/environment
 
@@ -188,6 +188,7 @@ fi
 echo "🔧 Installing additional utilities..."
 paru -S --noconfirm tmux cava fastfetch preload udisks2 ufw
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+cp ~/dotfiles/pacman.conf /etc/pacman.conf
 cp ~/dotfiles/.tmux.conf ~
 
 # Enable services

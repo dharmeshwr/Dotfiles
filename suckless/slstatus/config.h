@@ -67,12 +67,11 @@ static const struct arg args[] = {
      "systemctl is-active hotspot.service | grep -q '^active$' && echo 'On' || "
      "echo 'Off'"},
 
-    {run_command, "%2s | ",
-     "if [ $(cat /sys/class/net/enp4s0/operstate 2>/dev/null) = 'up' ]; then "
-     "echo \"Lan\"; "
-     "elif [ $(cat /sys/class/net/wlan0/operstate 2>/dev/null) = 'up' ]; then "
-     "wifi_name=$(iwgetid wlan0 -r); echo \"Wifi $wifi_name\"; "
-     "else echo \"Not connected\"; fi"},
+    // {run_command, "%2s | ",
+    //  "if [ $(cat /sys/class/net/enp4s0/operstate 2>/dev/null) = 'up' ]; then
+    //  " "echo \"Lan\"; " "elif [ $(cat /sys/class/net/wlan0/operstate
+    //  2>/dev/null) = 'up' ]; then " "wifi_name=$(iwgetid wlan0 -r); echo
+    //  \"Wifi $wifi_name\"; " "else echo \"Not connected\"; fi"},
     {cpu_perc, "Cpu %s%% | ", NULL},
 
     {run_command, "Vol %1s | ", "~/.local/bin/volume.sh"},

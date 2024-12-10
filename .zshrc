@@ -14,6 +14,8 @@ export MICRO_TRUECOLOR=1
 # [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 # [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
 
+export XAUTHORITY=/home/ninjafire/.Xauthority
+export DISPLAY=:0
 export PNPM_HOME="/home/ninjafire/.local/share/pnpm"
 case ":$PATH:" in
   *":$PNPM_HOME:"*) ;;
@@ -49,9 +51,9 @@ alias recommit="git commit --amend --no-edit"
 alias editcommit="git commit --amend"
 alias df='cd ../frontend'
 alias db='cd ../backend'
-alias vv="cat ~/workspace/TODOS"
-alias ee="nvim ~/workspace/TODOS"
-alias aa="cat >> ~/workspace/TODOS"
+alias vv="bat ~/Workspace/.Todo"
+alias ee="nvim ~/Workspace/.Todo"
+alias aa="bat >> ~/Workspace/.Todo"
 alias starship="nvim  ~/.config/starship.toml"
 alias ls='exa --grid --color auto --icons --sort=type'
 alias ll='exa --long --color always --icons --sort=type'
@@ -72,7 +74,10 @@ alias waves='sudo systemctl restart hotspot.service'
 alias stop='sudo systemctl stop hotspot.service'
 alias du='du -shc'
 alias secret='openssl rand -hex 32'
+alias mirrors='sudo reflector --verbose --sort rate -l 30 --save /etc/pacman.d/mirrorlist'
 
+cat ~/Workspace/.Todo
+#
 # CASE_SENSITIVE="true"
 
 # HYPHEN_INSENSITIVE="true"
