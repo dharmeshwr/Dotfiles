@@ -1,0 +1,8 @@
+max-history=3
+font=SF Mono
+border-radius=5
+background-color=#d5c4a1
+text-color=#282828
+border-color=#7c6f64
+anchor=top-right
+progress-color=over #ebdbb2

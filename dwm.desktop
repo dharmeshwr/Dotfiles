@@ -1,6 +1,0 @@
-[Desktop Entry]
-Name=dwm
-Comment=Dynamic Window Manager
-Exec=/home/ninjafire/.xinitrc
-Type=XSession
-
