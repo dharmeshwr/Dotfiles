@@ -1,8 +1,10 @@
 #!/bin/bash
 
-/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
+xhost +si:localuser:$USER &
 
-notify-osd &
+/usr/libexec/polkit-gnome-authentication-agent-1 &
+
+#notify-osd &
 
 nm-applet &
 
@@ -10,7 +12,9 @@ xmodmap ~/.Xmodmap
 
 slstatus &
 
-sudo preload &
+#sudo preload &
+
+feh --bg-scale ~/Pictures/wall.jpg &
 
 while :; do
   ssh-agent dwm || break

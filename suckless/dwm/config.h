@@ -19,8 +19,8 @@ static const int topbar                  = 1;  /* 0 means bottom bar */
 // "DejaVu Sans Mono:pixelsize=14:antialias=true:autohint=true"};
 // static const char dmenufont[] = "FiraCode Nerd Font:size=11";
 
-static const char *fonts[]    = {"JetBrainsMono Nerd Font:size=11:antialias=true:autohint=true", "JoyPixels:pixelsize-10:antialias=true:autohint=true"};
-static const char dmenufont[] = "SF Mono:size=12";
+static const char *fonts[]    = {"MartianMono NF:size=11:antialias=true:autohint=true", "JoyPixels:pixelsize-10:antialias=true:autohint=true"};
+static const char dmenufont[] = "MartianMono NF:size=12";
 
 // Catppuccin Mocha
 // static const char col_gray1[] = "#1e1e2e"; // Background color
@@ -53,7 +53,7 @@ typedef struct
 } Sp;
 
 const char *spcmd1[] = {"st", "-n", "sptop", "-g", "160x44+260-100", "-e", "btop", NULL};
-const char *spcmd2[] = {"st", "-n", "spterm", "-g", "160x36+260-100", NULL};
+const char *spcmd2[] = {"st", "-n", "spterm", "-g", "120x36+260-100", NULL};
 const char *spcmd3[] = {"/home/ninjafire/.local/bin/bluetooth", NULL};
 /*const char *spcmd4[] = {"env", "GTK_THEME=Gruvbox-Dark-BL-LB", "pavucontrol", NULL};*/
 const char *spcmd4[] = {"pavucontrol", NULL};
@@ -118,7 +118,7 @@ static char dmenumon[2]         = "0";
 static const char *dmenucmd[]   = {"dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_skin2, "-sf", col_gray4, NULL};
 static const char *termcmd[]    = {"st", "-g", "140x44+280-120", NULL};
 static const char *kittycmd[]   = {"kitty", NULL};
-static const char *browsercmd[] = {"firefox-developer-edition", NULL};
+static const char *browsercmd[] = {"firefox", NULL};
 
 #include <X11/XF86keysym.h>
 
@@ -127,8 +127,8 @@ static Key keys[] = {
     {MODKEY, XK_space, spawn, {.v = dmenucmd}},
     {MODKEY, XK_Return, spawn, {.v = termcmd}},
     {MODKEY, XK_f, spawn, {.v = browsercmd}},
-    {MODKEY, XK_d, spawn, SHCMD("firefox-developer-edition -P default")},
-    {ControlMask | ShiftMask, XK_p, spawn, SHCMD("firefox-developer-edition --private-window")},
+    {MODKEY, XK_d, spawn, SHCMD("firefox -P default")},
+    {ControlMask | ShiftMask, XK_p, spawn, SHCMD("firefox --private-window")},
     {Mod1Mask, XK_0, spawn, SHCMD("pcmanfm")},
     {Mod1Mask, XK_9, spawn, SHCMD("slock")},
 

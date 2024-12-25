@@ -42,6 +42,7 @@ alias mivn="NVIM_APPNAME=mivn nvim"
 
 alias ..='cd ..'
 alias ....='cd ../..'
+alias zapu='sudo zypper'
 alias zshconf="nvim ~/.zshrc"
 alias ohmyzsh="nvim ~/.oh-my-zsh"
 alias nv='nvim'
@@ -55,10 +56,10 @@ alias vv="bat ~/Workspace/.Todo"
 alias ee="nvim ~/Workspace/.Todo"
 alias aa="bat >> ~/Workspace/.Todo"
 alias starship="nvim  ~/.config/starship.toml"
-alias ls='exa --grid --color auto --icons --sort=type'
-alias ll='exa --long --color always --icons --sort=type'
-alias la='exa --grid --all --color auto --icons --sort=type'
-alias lla='exa --long --all --color auto --icons --sort=type'
+alias ls='eza --grid --color auto --icons --sort=type'
+alias ll='eza --long --color always --icons --sort=type'
+alias la='eza --grid --all --color auto --icons --sort=type'
+alias lla='eza --long --all --color auto --icons --sort=type'
 alias daddy='sudo'
 alias gf='onefetch'
 alias rm='rm -vrf'

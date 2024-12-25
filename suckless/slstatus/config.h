@@ -1,13 +1,36 @@
-/* See LICENSE file for copyright and license details. */
-
-/* interval between updates (in ms) */
 const unsigned int interval = 1000;
-
-/* text to show if no value can be retrieved */
 static const char unknown_str[] = "n/a";
-
-/* maximum output string length */
 #define MAXLEN 2048
+
+static const struct arg args[] = {
+    {netspeed_rx, "%s| ", "wlp3s0"},
+
+    {wifi_essid, "%s", "wlp3s0"},
+    {wifi_perc, " (%s%%) | ", "wlp3s0"},
+
+    {run_command, "Shh %s | ",
+     "amixer get Master | awk -F'[][]' '/%/ { print $2 }' | head -n1"},
+
+    {run_command, "Bam %s | ",
+     "free -h | awk '/^Mem/ { print $3\"/\"$2 }' | sed s/i//g"},
+
+    {cpu_perc, "Mvp %s%% | ", NULL},
+
+    {run_command, "%s ", "date '+%b %d %a %I:%M %p'"},
+
+    /* {run_command, "Hotspot %1s | ", "systemctl is-active hotspot.service |
+       grep -q '^active$' && echo 'On' || echo 'Off'"}, */
+
+    // {run_command, "%2s | ",
+    //  "if [ $(cat /sys/class/net/enp4s0/operstate 2>/dev/null) = 'up' ]; then
+    //  " "echo \"Lan\"; " "elif [ $(cat /sys/class/net/wlan0/operstate
+    //  2>/dev/null) = 'up' ]; then " "wifi_name=$(iwgetid wlan0 -r); echo
+    //  \"Wifi $wifi_name\"; " "else echo \"Not connected\"; fi"},
+
+    /* {run_command, "Vol %1s | ", "~/.local/bin/volume.sh"}, */
+
+    /* {battery_perc, "Bat %s%% | ", "BAT1"}, */
+};
 
 /*
  * function            description                     argument (example)
@@ -61,41 +84,3 @@ static const char unknown_str[] = "n/a";
  * wifi_perc           WiFi signal in percent          interface name (wlan0)
  * wifi_essid          WiFi ESSID                      interface name (wlan0)
  */
-
-static const struct arg args[] = {
-    {run_command, "Hotspot %1s | ",
-     "systemctl is-active hotspot.service | grep -q '^active$' && echo 'On' || "
-     "echo 'Off'"},
-
-    // {run_command, "%2s | ",
-    //  "if [ $(cat /sys/class/net/enp4s0/operstate 2>/dev/null) = 'up' ]; then
-    //  " "echo \"Lan\"; " "elif [ $(cat /sys/class/net/wlan0/operstate
-    //  2>/dev/null) = 'up' ]; then " "wifi_name=$(iwgetid wlan0 -r); echo
-    //  \"Wifi $wifi_name\"; " "else echo \"Not connected\"; fi"},
-    {cpu_perc, "Cpu %s%% | ", NULL},
-
-    {run_command, "Vol %1s | ", "~/.local/bin/volume.sh"},
-
-    {battery_perc, "Bat %s%% | ", "BAT1"},
-
-    {run_command, "Ram %s | ",
-     "free -h | awk '/^Mem/ { print $3\"/\"$2 }' | sed s/i//g"},
-
-    {run_command, "%s ", "date '+%b %d %a %I:%M %p'"},
-};
-
-/*
-{ run_command,	"^c#cc6666^ %2s", "cpuicon.sh" },
-{ cpu_perc,	"^c#c5c8c6^ %s%% ", NULL },
-
-{ run_command,	"^c#b5bd68^ %2s", "memicon.sh" },
-{ ram_perc,	"^c#c8c5c6^ %s%% ", NULL },
-
-{ run_command,	"^c#f0c674^ %2s", "homeicon.sh" },
-{ disk_perc,	"^c#c5c8c6^ %s%% ", "/home/ninjafire/" },
-
-{ run_command,	"^c#81a2be^ %2s", "neticon.sh" },
-{ run_command,	"^c#c5c8c6^ %2s", "ip.sh" },
-
-{ run_command,	"^c#c5c8c6^ %s", "volume.sh" },
-*/
