@@ -135,7 +135,7 @@ if confirm "Do you want to setup LightDM?"; then
   # sudo chmod 755 /var/lib/AccountsService/icons
   sudo cp -r ~/dotfiles/lightdm/* /etc/lightdm/
   sudo mkdir -p /usr/share/backgrounds /usr/share/themes
-  sudo cp ~/dotfiles/wallpaper.jpg /usr/share/backgrounds/01.jpg
+  sudo cp ~/dotfiles/wallpaper.jpg /usr/share/backgrounds/wallpaper.jpg
 fi
 
 # Setup VS Code
@@ -151,7 +151,7 @@ if confirm "Do you want to setup Plymouth boot splash?"; then
   echo "🎨 Setting up Plymouth..."
   paru -S --noconfirm plymouth plymouth-theme-minimal-dark-git
   sudo plymouth-set-default-theme -R minimal-dark
-  sudo dracut --force
+  sudo mkinitcpio
   echo "⚠️  Remember to add 'quiet splash vt.global_cursor_default=0' to your kernel parameters"
 fi
 

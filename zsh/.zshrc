@@ -3,17 +3,13 @@
 export ZSH="$HOME/.oh-my-zsh"
 export EDITOR='nvim'
 export SSH_AUTH_SOCK=/run/user/$UID/keyring/ssh
-export PATH="$(npm bin -g):/home/ninjafire/.local/bin:$PATH"
+export PATH="/home/ninjafire/.local/bin:$PATH"
 export BOOST_ROOT="/usr/include/boost"
 export GTK_PATH="/usr/include/gtk3.0"
-export GTK_THEME=Gruvbox-Dark-BL-LB
+export GTK_THEME=Gruvbox-Dark
 export LANG=en_IN.UTF-8
 export LC_ALL=en_IN.UTF-8
 export MICRO_TRUECOLOR=1
-# export NVM_DIR="$HOME/.nvm"
-# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
-
 export XAUTHORITY=/home/ninjafire/.Xauthority
 export DISPLAY=:0
 export PNPM_HOME="/home/ninjafire/.local/share/pnpm"
@@ -42,9 +38,8 @@ alias mivn="NVIM_APPNAME=mivn nvim"
 
 alias ..='cd ..'
 alias ....='cd ../..'
-alias zapu='sudo zypper'
-alias zshconf="nvim ~/.zshrc"
-alias ohmyzsh="nvim ~/.oh-my-zsh"
+alias zconf="nvim ~/.zshrc"
+alias omz="nvim ~/.oh-my-zsh"
 alias nv='nvim'
 alias vn="sudo nvim"
 alias uncommit="git reset HEAD~1"
@@ -52,16 +47,15 @@ alias recommit="git commit --amend --no-edit"
 alias editcommit="git commit --amend"
 alias df='cd ../frontend'
 alias db='cd ../backend'
-alias vv="bat ~/Workspace/.Todo"
-alias ee="nvim ~/Workspace/.Todo"
-alias aa="bat >> ~/Workspace/.Todo"
-alias starship="nvim  ~/.config/starship.toml"
+alias vv="bat ~/Workspace/.todo"
+alias ee="nvim ~/Workspace/.todo"
+alias aa="bat >> ~/Workspace/.todo"
+alias starconf="nvim  ~/.config/starship.toml"
 alias ls='eza --grid --color auto --icons --sort=type'
 alias ll='eza --long --color always --icons --sort=type'
 alias la='eza --grid --all --color auto --icons --sort=type'
 alias lla='eza --long --all --color auto --icons --sort=type'
 alias daddy='sudo'
-alias gf='onefetch'
 alias rm='rm -vrf'
 alias cache='paru -Scc'
 alias orphan='paru -Rns $(pacman -Qtdq)'
@@ -76,6 +70,10 @@ alias stop='sudo systemctl stop hotspot.service'
 alias du='du -shc'
 alias secret='openssl rand -hex 32'
 alias mirrors='sudo reflector --verbose --sort rate -l 30 --save /etc/pacman.d/mirrorlist'
+alias dots='cd ~/Dotfiles'
+alias conf='cd ~/.config'
+alias rebuild='sudo make clean install'
+alias patch='patch -p1 < '
 
 # CASE_SENSITIVE="true"
 

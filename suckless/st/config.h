@@ -1,11 +1,5 @@
-/* See LICENSE file for copyright and license details. */
-
-/*
- * appearance
- *
- * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
- */
-static char *font = "MartianMono Nerd Font:pixelsize=18:antialias=true:autohint=true";
+static char *font =
+    "MartianMono Nerd Font:pixelsize=18:antialias=true:autohint=true";
 static char *font2[] = {
     "NotoColorEmoji:pixelsize=15:antialias=true:autohint=true"};
 static int borderpx = 0;

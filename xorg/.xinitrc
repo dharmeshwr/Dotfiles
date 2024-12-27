@@ -1,20 +1,23 @@
 #!/bin/bash
 
+export GTK_THEME=Gruvbox-Dark 
+
 xhost +si:localuser:$USER &
 
-/usr/libexec/polkit-gnome-authentication-agent-1 &
+/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 
-#notify-osd &
-
-nm-applet &
-
-xmodmap ~/.Xmodmap
+# notify-osd &
+dunst &
 
 slstatus &
 
-#sudo preload &
+xmodmap ~/.Xmodmap
 
-feh --bg-scale ~/Pictures/wall.jpg &
+nm-applet &
+
+# sudo preload &
+
+# feh --bg-scale ~/Pictures/wall.jpg &
 
 while :; do
   ssh-agent dwm || break

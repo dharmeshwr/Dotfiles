@@ -1,2 +1,5 @@
 suckless/**/*.o
 gtk/.icons
+code/.config/Code\ -\ OSS/*
+!code/.config/Code\ -\ OSS/User/keybindings.json
+!code/.config/Code\ -\ OSS/User/settings.json

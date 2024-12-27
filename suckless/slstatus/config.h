@@ -3,20 +3,21 @@ static const char unknown_str[] = "n/a";
 #define MAXLEN 2048
 
 static const struct arg args[] = {
-    {netspeed_rx, "%s| ", "wlp3s0"},
+    /* {netspeed_rx, "| %s", "enp0s20f0u3u1"}, */
 
-    {wifi_essid, "%s", "wlp3s0"},
-    {wifi_perc, " (%s%%) | ", "wlp3s0"},
+    {cpu_perc, "| Sun %s%% ", NULL},
 
-    {run_command, "Shh %s | ",
-     "amixer get Master | awk -F'[][]' '/%/ { print $2 }' | head -n1"},
+    /* {wifi_essid, "%s", "wlp3s0"}, */
+    /* {wifi_perc, " (%s%%) | ", "wlp3s0"}, */
 
-    {run_command, "Bam %s | ",
+    {run_command, "| Shh %s%% ",
+     "pactl get-sink-volume @DEFAULT_SINK@ | awk -F '[ %]+' '/Volume/ {print "
+     "100 - $5}'"},
+
+    {run_command, "| Sam %s ",
      "free -h | awk '/^Mem/ { print $3\"/\"$2 }' | sed s/i//g"},
 
-    {cpu_perc, "Mvp %s%% | ", NULL},
-
-    {run_command, "%s ", "date '+%b %d %a %I:%M %p'"},
+    {run_command, "| %s ", "date '+%b %d %a %I:%M %p'"},
 
     /* {run_command, "Hotspot %1s | ", "systemctl is-active hotspot.service |
        grep -q '^active$' && echo 'On' || echo 'Off'"}, */

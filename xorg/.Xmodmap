@@ -8,6 +8,6 @@ clear lock
 clear control
 keycode 66 = Control_L
 keycode 37 = Escape
-keycode 65 = space underscore
+! keycode 65 = space underscore
 add lock = Caps_Lock
 add control = Control_L Control_R

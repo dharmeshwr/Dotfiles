@@ -1,92 +1,85 @@
-#   █████╗ ██╗      █████╗  ██████╗██████╗ ██╗████████╗████████╗██╗   ██╗
-#  ██╔══██╗██║     ██╔══██╗██╔════╝██╔══██╗██║╚══██╔══╝╚══██╔══╝╚██╗ ██╔╝
-#  ███████║██║     ███████║██║     ██████╔╝██║   ██║      ██║    ╚████╔╝ 
-#  ██╔══██║██║     ██╔══██║██║     ██╔══██╗██║   ██║      ██║     ╚██╔╝  
-#  ██║  ██║███████╗██║  ██║╚██████╗██║  ██║██║   ██║      ██║      ██║   
-#  ╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝ ╚═════╝╚═╝  ╚═╝╚═╝   ╚═╝      ╚═╝      ╚═╝   
-
 [colors.primary]
-background = '#1E1E2E' # base
-foreground = '#CDD6F4' # text
+background = '#282828' # dark0
+foreground = '#ebdbb2' # light1
 # Bright and dim foreground colors
-dim_foreground = '#CDD6F4' # text
-bright_foreground = '#CDD6F4' # text
+dim_foreground = '#a89984' # gray
+bright_foreground = '#fbf1c7' # light0
 
 # Cursor colors
 [colors.cursor]
-text = '#1E1E2E' # base
-cursor = '#F5E0DC' # rosewater
+text = '#282828' # dark0
+cursor = '#fb4934' # red
 
 [colors.vi_mode_cursor]
-text = '#1E1E2E' # base
-cursor = '#B4BEFE' # lavender
+text = '#282828' # dark0
+cursor = '#83a598' # aqua
 
 # Search colors
 [colors.search.matches]
-foreground = '#1E1E2E' # base
-background = '#A6ADC8' # subtext0
+foreground = '#282828' # dark0
+background = '#fabd2f' # yellow
 
 [colors.search.focused_match]
-foreground = '#1E1E2E' # base
-background = '#A6E3A1' # green
+foreground = '#282828' # dark0
+background = '#b8bb26' # green
 
 [colors.footer_bar]
-foreground = '#1E1E2E' # base
-background = '#A6ADC8' # subtext0
+foreground = '#282828' # dark0
+background = '#d3869b' # purple
 
 # Keyboard regex hints
 [colors.hints.start]
-foreground = '#1E1E2E' # base
-background = '#F9E2AF' # yellow
+foreground = '#282828' # dark0
+background = '#fe8019' # orange
 
 [colors.hints.end]
-foreground = '#1E1E2E' # base
-background = '#A6ADC8' # subtext0
+foreground = '#282828' # dark0
+background = '#83a598' # aqua
 
 # Selection colors
 [colors.selection]
-text = '#1E1E2E' # base
-background = '#F5E0DC' # rosewater
+text = '#282828' # dark0
+background = '#928374' # gray
 
 # Normal colors
 [colors.normal]
-black = '#45475A' # surface1
-red = '#F38BA8' # red
-green = '#A6E3A1' # green
-yellow = '#F9E2AF' # yellowgs = ["/usr/share/sounds/freedesktop/stereo/dialog-error.oga"] }
-blue = '#89B4FA' # blue
-magenta = '#F5C2E7' # pink
-cyan = '#94E2D5' # teal
-white = '#BAC2DE' # subtext1
+black = '#282828' # dark0
+red = '#cc241d' # red
+green = '#98971a' # green
+yellow = '#d79921' # yellow
+blue = '#458588' # blue
+magenta = '#b16286' # purple
+cyan = '#689d6a' # aqua
+white = '#a89984' # gray
 
 # Bright colors
 [colors.bright]
-black = '#585B70' # surface2
-red = '#F38BA8' # red
-green = '#A6E3A1' # green
-yellow = '#F9E2AF' # yellow
-blue = '#89B4FA' # blue
-magenta = '#F5C2E7' # pink
-cyan = '#94E2D5' # teal
-white = '#A6ADC8' # subtext0
+black = '#928374' # gray
+red = '#fb4934' # bright red
+green = '#b8bb26' # bright green
+yellow = '#fabd2f' # bright yellow
+blue = '#83a598' # bright blue
+magenta = '#d3869b' # bright purple
+cyan = '#8ec07c' # bright aqua
+white = '#ebdbb2' # light1
 
 # Dim colors
 [colors.dim]
-black = '#45475A' # surface1
-red = '#F38BA8' # red
-green = '#A6E3A1' # green
-yellow = '#F9E2AF' # yellow
-blue = '#89B4FA' # blue
-magenta = '#F5C2E7' # pink
-cyan = '#94E2D5' # teal
-white = '#BAC2DE' # subtext1
+black = '#3c3836' # dark1
+red = '#9d0006' # dark red
+green = '#79740e' # dark green
+yellow = '#b57614' # dark yellow
+blue = '#076678' # dark blue
+magenta = '#8f3f71' # dark purple
+cyan = '#427b58' # dark aqua
+white = '#928374' # gray
 
 [font]
-size = 8
+size = 9
 
 [font.normal]
-family = "FiraCode Nerd Font"
-style = "Medium"
+family = "MartianMono Nerd Font"
+style = "Regular"
 
 [window]
 padding = {x = 5, y = 5}

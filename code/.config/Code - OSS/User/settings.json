@@ -1,6 +1,6 @@
 {
   "window.menuBarVisibility": "hidden",
-  "editor.fontFamily": "\"JetBrainsMono Nerd Font\" ",
+  "editor.fontFamily": "\"MartianMono Nerd Font\" ",
   "editor.autoClosingBrackets": "always",
   "editor.autoClosingComments": "always",
   "editor.lineHeight": 1.8,
@@ -57,7 +57,6 @@
   "editor.linkedEditing": true,
   "security.workspace.trust.untrustedFiles": "open",
   "explorer.compactFolders": false,
-  "workbench.colorTheme": "Catppuccin Mocha",
   "files.exclude": {
     "**/.next": true,
     "**/next-env.d.ts": true,
@@ -66,6 +65,6 @@
   "git.openRepositoryInParentFolders": "never",
   "files.associations": {
     "*.css": "tailwindcss"
-  }
+  },
+  "workbench.colorTheme": "Gruvbox Dark Hard"
 }
-
