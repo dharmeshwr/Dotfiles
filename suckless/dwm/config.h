@@ -54,7 +54,7 @@ typedef struct
 
 const char *spcmd1[] = {"st", "-n", "sptop", "-g", "160x44+260-100", "-e", "btop", NULL};
 const char *spcmd2[] = {"st", "-n", "spterm", "-g", "120x36+260-100", NULL};
-const char *spcmd3[] = {"/home/ninjafire/.local/bin/bluetooth", NULL};
+const char *spcmd3[] = {"blueman-manager", NULL};
 /*const char *spcmd4[] = {"env", "GTK_THEME=Gruvbox-Dark-BL-LB", "pavucontrol", NULL};*/
 const char *spcmd4[] = {"pavucontrol", NULL};
 
@@ -114,9 +114,10 @@ static const Layout layouts[] = {
         .v = (const char *[]) { "/bin/zsh", "-c", cmd, NULL } \
     }
 
-static char dmenumon[2]       = "0";
-static const char *dmenucmd[] = {"env", "LANG=en_US.UTF-8", "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_skin2, "-sf", col_gray4, NULL};
-static const char *termcmd[]  = {"st", "-g", "140x44+280-120", NULL};
+static char dmenumon[2]              = "0";
+static const char *dmenucmd[]        = {"env", "LANG=en_US.UTF-8", "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_skin2, "-sf", col_gray4, NULL};
+static const char *dmenucmddesktop[] = {"env", "LANG=en_US.UTF-8", "dmenu_run_desktop", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_skin2, "-sf", col_gray4, NULL};
+static const char *termcmd[]         = {"st", "-g", "140x44+280-120", NULL};
 /* static const char *kittycmd[]   = {"kitty", NULL}; */
 static const char *browsercmd[] = {"firefox", NULL};
 
@@ -125,6 +126,7 @@ static const char *browsercmd[] = {"firefox", NULL};
 static Key keys[] = {
     /* modifier, key, function, argument */
     {MODKEY, XK_space, spawn, {.v = dmenucmd}},
+    {MODKEY | ShiftMask, XK_space, spawn, {.v = dmenucmddesktop}},
     {MODKEY, XK_Return, spawn, {.v = termcmd}},
     {MODKEY, XK_f, spawn, {.v = browsercmd}},
     {MODKEY, XK_d, spawn, SHCMD("firefox -P default")},

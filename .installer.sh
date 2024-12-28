@@ -65,7 +65,8 @@ paru -Syyu --noconfirm
 
 # Install X11 and related packages
 echo "🖥️  Installing X11 packages..."
-paru -S --noconfirm picom xsel xclip xorg-apps openssh
+paru -S --noconfirm xdg-desktop-portal glfw-x11 picom xsel xclip xorg-apps openssh
+paru -S adw-gtk-theme gtk-engine-murrine gtk-engines
 
 # Install suckless tools
 if confirm "Do you want to install suckless tools (dwm, dmenu, etc)?"; then
@@ -127,12 +128,13 @@ cp -r ~/dotfiles/config/bin ~/.local/
 if confirm "Do you want to setup LightDM?"; then
   echo "🔑 Setting up LightDM..."
   paru -S --noconfirm figlet lightdm-gtk-greeter accountsservice bat gnome-keyring
-  # cp ~/dotfiles/profile.jpg ~/.face
-  # chmod 644 ~/.face
-  # sudo systemctl enable accounts-daemon
-  # sudo systemctl start accounts-daemon
-  # sudo chmod 755 /var/lib/AccountsService/users
-  # sudo chmod 755 /var/lib/AccountsService/icons
+  cp ~/dotfiles/profile.jpg ~/.face
+  sudo cp ~/dotfiles/profile.jpg /var/lib/AccountsService/icons/ninjafire.png
+  chmod 644 ~/.face
+  sudo systemctl enable accounts-daemon
+  sudo systemctl start accounts-daemon
+  sudo chmod 755 /var/lib/AccountsService/users
+  sudo chmod 755 /var/lib/AccountsService/icons
   sudo cp -r ~/dotfiles/lightdm/* /etc/lightdm/
   sudo mkdir -p /usr/share/backgrounds /usr/share/themes
   sudo cp ~/dotfiles/wallpaper.jpg /usr/share/backgrounds/wallpaper.jpg
@@ -186,7 +188,7 @@ fi
 
 # Install additional utilities
 echo "🔧 Installing additional utilities..."
-paru -S --noconfirm tmux cava fastfetch preload udisks2 ufw
+paru -S --noconfirm tmux cava fastfetch preload udisks2 upower ufw
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 cp ~/dotfiles/pacman.conf /etc/pacman.conf
 cp ~/dotfiles/.tmux.conf ~
@@ -197,6 +199,8 @@ sudo systemctl enable udisks2
 sudo systemctl start udisks2
 sudo systemctl enable ufw.service
 sudo systemctl start ufw.service
+sudo systemctl start upower
+sudo systemctl enable upower
 sudo ufw allow ssh
 
 echo "✅ Setup complete! Please reboot your system for all changes to take effect."

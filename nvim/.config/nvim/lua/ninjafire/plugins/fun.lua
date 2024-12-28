@@ -9,6 +9,7 @@ return {
   },
   {
     "mistricky/codesnap.nvim",
+    enabled = false,
     build = "make",
     keys = {
       { "<space>cc", "<cmd>CodeSnap<cr>",     mode = "x", desc = "Save selected code snapshot into clipboard" },
@@ -21,5 +22,34 @@ return {
       has_line_number = true,
       code_font_family = "SF Mono",
     },
+  },
+  {
+    "utilyre/barbecue.nvim",
+    name = "barbecue",
+    enabled = false,
+    version = "*",
+    dependencies = {
+      "SmiteshP/nvim-navic",
+      "nvim-tree/nvim-web-devicons", -- optional dependency
+    },
+    opts = {
+    },
+    config = function()
+      require("barbecue").setup({
+        create_autocmd = false,
+      })
+
+      vim.api.nvim_create_autocmd({
+        "WinScrolled",
+        "BufWinEnter",
+        "CursorHold",
+        "InsertLeave",
+      }, {
+        group = vim.api.nvim_create_augroup("barbecue.updater", {}),
+        callback = function()
+          require("barbecue.ui").update()
+        end,
+      })
+    end,
   },
 }

@@ -1,5 +1,6 @@
 #!/bin/bash
 
+export XDG_CACHE_HOME=/home/ninjafire/.cache
 export GTK_THEME=Gruvbox-Dark 
 
 xhost +si:localuser:$USER &

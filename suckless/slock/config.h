@@ -6,7 +6,7 @@ static const char *colorname[NUMCOLS] = {
     [BACKGROUND] = "#282828", /* Background color */
     [INIT] = "#EBDDB2",       /* After initialization */
     [INPUT] = "#458588",      /* During input */
-    [FAILED] = "#CC241D",     /* Wrong password (failed) */
+    [FAILED] = "#9D0006",     /* Wrong password (failed) */
 };
 
 /* treat a cleared input like a wrong password (color) */
