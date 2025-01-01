@@ -9,6 +9,8 @@ return {
       "3rd/image.nvim",
     },
     opts = {
+      close_if_last_window = true,
+      enable_git_status = false,
       popup_border_style = "rounded",
       window = {
         position = "left",
@@ -18,11 +20,21 @@ return {
           nowait = true,
         },
       },
-    },
-    filesystem = {
-      always_show = {
-        ".env"
-      }
+      filesystem = {
+        follow_current_file = { enabled = true },
+        hijack_netrw_behavior = "open_default",
+        filtered_items = {
+          visible = true,          -- Show hidden files
+          hide_dotfiles = false,   -- Do not hide dotfiles (files starting with .)
+          hide_gitignored = false, -- Do not hide files ignored by git
+          hide_hidden = false,     -- Do not hide hidden files (like .git or node_modules)
+          never_show = { ".git", "node_modules" },
+          always_show_by_pattern = {
+            ".env*",
+            ".gitignore",
+          }
+        },
+      },
     },
     keys = {
       {

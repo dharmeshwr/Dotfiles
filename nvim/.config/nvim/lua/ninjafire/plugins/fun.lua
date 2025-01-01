@@ -5,6 +5,23 @@ return {
     version = "*",
     config = function()
       vim.keymap.set("n", "<space>ssc", "<cmd>Screenkey<CR>")
+      require("screenkey").setup({
+        win_opts = {
+          width = 10,
+          height = 1,
+          border = "single",
+          title = "",
+          title_pos = "center",
+          style = "minimal",
+        }
+      })
+    end
+  },
+  {
+    'eandrju/cellular-automaton.nvim',
+    config = function()
+      vim.keymap.set("n", "<leader>fcm", "<cmd>CellularAutomaton make_it_rain<CR>")
+      vim.keymap.set("n", "<leader>fcg", "<cmd>CellularAutomaton game_of_life<CR>")
     end
   },
   {
@@ -38,7 +55,6 @@ return {
       require("barbecue").setup({
         create_autocmd = false,
       })
-
       vim.api.nvim_create_autocmd({
         "WinScrolled",
         "BufWinEnter",

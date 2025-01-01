@@ -1,4 +1,3 @@
-/* appearance */
 static const unsigned int borderpx       = 1;  /* border pixel of windows */
 static const unsigned int snap           = 32; /* snap pixel */
 static const unsigned int gappih         = 0;  /* horiz inner gap between windows */
@@ -13,32 +12,21 @@ static const int systraypinningfailfirst = 1;  /* 1: if pinning fails, display s
 static const int showsystray             = 1;  /* 0 means no systray */
 static const int showbar                 = 1;  /* 0 means no bar */
 static const int topbar                  = 1;  /* 0 means bottom bar */
-// static const char *fonts[] = {
-// "FiraCode Nerd Font:size=11",
-// "Noto Emoji:size=2:antialias=true:autohint=true",
-// "DejaVu Sans Mono:pixelsize=14:antialias=true:autohint=true"};
-// static const char dmenufont[] = "FiraCode Nerd Font:size=11";
 
-static const char *fonts[]    = {"MartianMono NF:size=11:antialias=true:autohint=true", "JoyPixels:pixelsize-10:antialias=true:autohint=true"};
+static const char *fonts[] = {
+    "MartianMono NF:size=11:antialias=true:autohint=true",
+    "Noto Emoji:size=2:antialias=true:autohint=true",
+    "JoyPixels:pixelsize-10:antialias=true:autohint=true"};
 static const char dmenufont[] = "MartianMono NF:size=12";
-
-// Catppuccin Mocha
-// static const char col_gray1[] = "#1e1e2e"; // Background color
-// static const char col_gray2[] = "#45475a"; // Inactive window border
-// static const char col_gray3[] = "#c6d0f5"; // Text color
-// static const char col_gray4[] = "#f4dbd6"; // Active window text color
-// static const char col_skin1[] = "#45475a"; // Selected window background
-// static const char col_skin2[] = "#313244"; // Selected window border
-// static const char col_skin3[] = "#7f849c"; // Selected window border
 
 // Gruvbox
 static const char col_gray1[] = "#1d2021"; // Background color
 static const char col_gray2[] = "#3c3836"; // Inactive window border
 static const char col_gray3[] = "#ebddb2"; // Text color
 static const char col_gray4[] = "#ebddb2"; // Active window text color
-static const char col_skin1[] = "#3c3836"; // Selected window background
+static const char col_skin1[] = "#504945"; // Selected window background
 static const char col_skin2[] = "#504945"; // Selected window border
-static const char col_skin3[] = "#665c54"; // Selected window border
+static const char col_skin3[] = "#7c6f64"; // Selected window border
 
 static const char *colors[][3] = {
     /*               fg         bg         border   */
@@ -53,20 +41,19 @@ typedef struct
 } Sp;
 
 const char *spcmd1[] = {"st", "-n", "sptop", "-g", "160x44+260-100", "-e", "btop", NULL};
-const char *spcmd2[] = {"st", "-n", "spterm", "-g", "120x36+260-100", NULL};
+const char *spcmd2[] = {"st", "-n", "spterm", "-g", "120x30+260-100", NULL};
 const char *spcmd3[] = {"blueman-manager", NULL};
-/*const char *spcmd4[] = {"env", "GTK_THEME=Gruvbox-Dark-BL-LB", "pavucontrol", NULL};*/
 const char *spcmd4[] = {"pavucontrol", NULL};
 
 static Sp scratchpads[] = {
-    /* name          cmd  */
     {"sptop", spcmd1},
     {"spterm", spcmd2},
     {"spblueman", spcmd3},
     {"spaudio", spcmd4},
 };
 
-// static const char *tags[] = {"WWW", "VIM", "LIV", "TER", "DIR", "RAN", "REC", "DIS", "MUS"};
+/* static const char *tags[] = {"WWW", "VIM", "LIV", "TER", "DIR", "RAN", "REC", "DIS", "MUS"}; */
+/* static const char *tags[] = {"α", "β", "γ", "δ", "ε", "ζ", "η", "θ", "ι"}; */
 static const char *tags[] = {"1", "2", "3", "4", "5", "6", "7", "8", "9"};
 
 static const Rule rules[] = {
@@ -86,7 +73,6 @@ static const Rule rules[] = {
     {NULL, "pavucontrol", NULL, SPTAG(3), 1, 0, 0, -1},
 };
 
-/* layout(s) */
 static const float mfact        = 0.50; /* factor of master area size [0.05..0.95] */
 static const int nmaster        = 1;    /* number of clients in master area */
 static const int resizehints    = 0;    /* 1 means respect size hints in tiled resizals */
@@ -98,7 +84,7 @@ static const int lockfullscreen = 1;    /* 1 will force focus on the fullscreen 
 static const Layout layouts[] = {
     {"[]=", tile},
     {"><>", NULL},
-    {"[M]", monocle},
+    {"|󰊓|", monocle},
     {"[D]", deck},
 };
 
@@ -117,9 +103,8 @@ static const Layout layouts[] = {
 static char dmenumon[2]              = "0";
 static const char *dmenucmd[]        = {"env", "LANG=en_US.UTF-8", "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_skin2, "-sf", col_gray4, NULL};
 static const char *dmenucmddesktop[] = {"env", "LANG=en_US.UTF-8", "dmenu_run_desktop", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_skin2, "-sf", col_gray4, NULL};
-static const char *termcmd[]         = {"st", "-g", "140x44+280-120", NULL};
-/* static const char *kittycmd[]   = {"kitty", NULL}; */
-static const char *browsercmd[] = {"firefox", NULL};
+static const char *termcmd[]         = {"st", "-g", "140x35+280-120", NULL};
+static const char *browsercmd[]      = {"firefox", NULL};
 
 #include <X11/XF86keysym.h>
 
@@ -165,14 +150,14 @@ static Key keys[] = {
 
     {MODKEY, XK_backslash, zoom, {0}},
 
-    {MODKEY | Mod1Mask, XK_u, incrgaps, {.i = +1}},
-    {MODKEY | Mod1Mask | ShiftMask, XK_u, incrgaps, {.i = -1}},
+    {MODKEY | Mod1Mask, XK_u, incrgaps, {.i = +2}},
+    {MODKEY | Mod1Mask | ShiftMask, XK_u, incrgaps, {.i = -2}},
 
-    {MODKEY | Mod1Mask, XK_i, incrigaps, {.i = +1}},
-    {MODKEY | Mod1Mask | ShiftMask, XK_i, incrigaps, {.i = -1}},
+    {MODKEY | Mod1Mask, XK_i, incrigaps, {.i = +3}},
+    {MODKEY | Mod1Mask | ShiftMask, XK_i, incrigaps, {.i = -3}},
 
-    {MODKEY | Mod1Mask, XK_o, incrogaps, {.i = +1}},
-    {MODKEY | Mod1Mask | ShiftMask, XK_o, incrogaps, {.i = -1}},
+    {MODKEY | Mod1Mask, XK_o, incrogaps, {.i = +2}},
+    {MODKEY | Mod1Mask | ShiftMask, XK_o, incrogaps, {.i = -2}},
 
     {MODKEY | Mod1Mask, XK_6, incrihgaps, {.i = +1}},
     {MODKEY | Mod1Mask | ShiftMask, XK_6, incrihgaps, {.i = -1}},
@@ -225,8 +210,6 @@ static Key keys[] = {
                                 TAGKEYS(XK_8, 7)
                                     TAGKEYS(XK_9, 8)};
 
-/* button definitions */
-/* click can be ClkTagBar, ClkLtSymbol, ClkStatusText, ClkWinTitle, ClkClientWin, or ClkRootWin */
 static Button buttons[] = {
     /* click                event mask      button          function        argument */
     {ClkLtSymbol, 0, Button4, setlayout, {0}},

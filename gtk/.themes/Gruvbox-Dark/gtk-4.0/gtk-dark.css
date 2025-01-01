@@ -31,6 +31,8 @@ dnd {
   color: #fbf1c7;
 }
 
+* {border-radius: 0px}
+
 .normal-icons {
   -gtk-icon-size: 16px;
 }

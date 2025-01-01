@@ -1,7 +1,9 @@
 # zmodload zsh/zprof 
-
-
 gacp() {
+  if [ -z "$1" ]; then
+    echo "Error: Commit message is required."
+    return 1
+  fi
   git add .
   git commit -m "$1"
   git push
@@ -16,7 +18,7 @@ export PATH="/home/ninjafire/.local/bin:/home/ninjafire/.local/share/pnpm:$PATH"
 export GTK_PATH="/usr/include/gtk3.0"
 export XDG_CACHE_HOME=/home/ninjafire/.cache
 export XAUTHORITY=/home/ninjafire/.Xauthority
-export EDITOR='nvim'
+export EDITOR='/usr/bin/nvim'
 export GTK_THEME=Gruvbox-Dark
 export LANG=en_US.UTF-8
 export MICRO_TRUECOLOR=1
@@ -68,6 +70,7 @@ alias orphan='paru -Rns $(pacman -Qtdq)'
 alias mirrors='sudo reflector --verbose --sort rate -l 30 --save /etc/pacman.d/mirrorlist'
 
 alias rm='rm -vrf'
+alias cp='cp -r'
 alias ts='tesseract'
 alias df='duf'
 alias lol='lolcat'
