@@ -9,6 +9,10 @@ gacp() {
   git push
 }
 
+run() {
+  g++ "$1.cpp" helper.cpp && ./a.out
+}
+
 # eval "$(starship init zsh)"
 eval "$(zoxide init --cmd cd zsh)"
 
@@ -23,6 +27,7 @@ export GTK_THEME=Gruvbox-Dark
 export LANG=en_US.UTF-8
 export MICRO_TRUECOLOR=1
 export GDK_BACKEND=x11
+export GTK_USE_PORTAL=0
 export DISPLAY=:0
 
 HYPHEN_INSENSITIVE="true"

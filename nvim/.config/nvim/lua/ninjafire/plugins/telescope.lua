@@ -12,7 +12,14 @@ return {
         pickers = {
           find_files = {
             theme = "ivy",
+            find_command = { "rg", "--files", "--sortr=modified" },
             hidden = true
+          },
+          buffers = {
+            theme = "ivy",
+          },
+          live_grep = {
+            theme = "ivy",
           },
         },
         defaults = {
@@ -36,6 +43,11 @@ return {
       vim.keymap.set("n", "<space>en", function()
         require("telescope.builtin").find_files({
           cwd = vim.fn.stdpath("config"),
+        })
+      end)
+      vim.keymap.set("n", "<space>wr", function()
+        require("telescope.builtin").find_files({
+          cwd = "/home/ninjafire/Workspace/"
         })
       end)
     end,

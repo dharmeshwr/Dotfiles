@@ -14,11 +14,13 @@ slstatus &
 
 xmodmap ~/.Xmodmap
 
+# flameshot &
 nm-applet &
 
 # sudo preload &
 
 # feh --bg-scale ~/Pictures/wall.jpg &
+# feh --randomize --bg-fill --no-fehbg ~/Pictures/Wallpapers/*
 
 while :; do
   ssh-agent dwm || break

@@ -1,6 +1,7 @@
 return {
   {
     "neovim/nvim-lspconfig",
+
     dependencies = {
       {
         "folke/lazydev.nvim",
@@ -14,19 +15,15 @@ return {
       { 'saghen/blink.cmp' },
       { "williamboman/mason.nvim", config = true }
     },
+
     config = function()
       local capabilities = require('blink.cmp').get_lsp_capabilities()
+
       require('mason-lspconfig').setup_handlers {
         function(server_name)
           require("lspconfig")[server_name].setup { capabilities = capabilities }
         end
       }
-
-      -- configuration if mason is not installed
-      -- local lspconfig = require("lspconfig")
-      -- lspconfig.lua_ls.setup({capabilities = capabilities})
-      -- lspconfig.ts_ls.setup({capabilities = capabilities})
-      -- lspconfig.clangd.setup({capabilities = capabilities})
 
       vim.api.nvim_create_autocmd("LspAttach", {
         callback = function(args)
@@ -43,6 +40,9 @@ return {
           end
         end
       })
+
+
+      vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, {})
     end,
     opts = {
       inlayHints = { enabled = true }

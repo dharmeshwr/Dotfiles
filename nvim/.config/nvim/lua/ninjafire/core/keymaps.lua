@@ -70,4 +70,25 @@ keymap.set('n', '-', "<cmd>Oil<CR>")
 
 keymap.set('n', '\\\\', function() vim.diagnostic.setqflist() end)
 
+keymap.set('n', '<space>rs', function()
+  local currentStatus = vim.o.laststatus;
+  if currentStatus == 3 then
+    vim.o.laststatus = 0;
+    vim.o.cmdheight = 0
+  else
+    vim.o.laststatus = 3;
+    vim.o.cmdheight = 1
+  end
+end)
+
+-- Duplicate a line
+keymap.set('n', 'dq', 'yyp')
+
+-- Duplicate a line with commenting the previous one
+keymap.set('n', 'cd', function()
+  vim.cmd('normal! yy')
+  vim.cmd('normal gcc')
+  vim.cmd('normal! p')
+end)
+
 return {}

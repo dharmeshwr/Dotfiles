@@ -1,0 +1,54 @@
+#!/bin/bash
+# mail-check.sh - Script to check for new mail and send notifications with logging
+
+# Set up logging
+LOG_FILE="/tmp/mail_check.log"
+
+# Function to log messages
+log_message() {
+    echo "$(date '+%Y-%m-%d %H:%M:%S') - $1" >> "$LOG_FILE"
+}
+
+# Directory where your mail is stored
+MAILDIR="$HOME/.local/share/mail/"
+
+# File to store the previous mail count
+COUNT_FILE="/tmp/mail_count"
+
+log_message "Starting mail check"
+log_message "Checking directory: $MAILDIR"
+
+# Function to count all emails in the Inbox
+count_new_mail() {
+    local count=$(find "$MAILDIR" -type f -path "*/new/*" | wc -l)
+    log_message "Found $count messages"
+    echo "$count"
+}
+
+# Get current count
+current_count=$(count_new_mail)
+
+# If count file doesn't exist, create it with current count
+if [ ! -f "$COUNT_FILE" ]; then
+    echo "$current_count" > "$COUNT_FILE"
+    log_message "Created new count file with count: $current_count"
+    exit 0
+fi
+
+# Read previous count
+previous_count=$(cat "$COUNT_FILE")
+log_message "Previous count: $previous_count, Current count: $current_count"
+
+# Compare counts
+if [ "$current_count" -gt "$previous_count" ]; then
+    new_messages=$((current_count - previous_count))
+    log_message "Sending notification for $new_messages new message(s)"
+    dunstify -u normal "New Mail" "You have $new_messages new message(s)"
+else
+    log_message "No new messages detected"
+fi
+
+# Update count file
+echo "$current_count" > "$COUNT_FILE"
+log_message "Updated count file"
+log_message "Finished mail check"

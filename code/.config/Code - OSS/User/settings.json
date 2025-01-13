@@ -13,7 +13,6 @@
   "diffEditor.hideUnchangedRegions.enabled": true,
   "workbench.editor.enablePreview": false,
   "editor.minimap.autohide": true,
-  "editor.cursorBlinking": "expand",
   "terminal.integrated.cursorStyle": "line",
   "editor.fontLigatures": true,
   "editor.quickSuggestionsDelay": 0,
@@ -35,6 +34,8 @@
     "**/pnpm-lock.yaml": true
   },
   "editor.cursorSmoothCaretAnimation": "on",
+  "editor.smoothScrolling": true,
+  "editor.cursorBlinking": "smooth",
   "editor.renderWhitespace": "trailing",
   "editor.fontSize": 17,
   "editor.lineNumbers": "relative",
@@ -42,6 +43,7 @@
   "editor.stickyScroll.enabled": false,
   "editor.minimap.enabled": false,
   "workbench.startupEditor": "none",
+  "workbench.list.smoothScrolling": true,
   "workbench.iconTheme": "material-icon-theme",
   "workbench.colorCustomizations": {
     "errorLens.errorBackground": "#cc241d00",
@@ -59,12 +61,14 @@
   "explorer.compactFolders": false,
   "files.exclude": {
     "**/.next": true,
-    "**/next-env.d.ts": true,
-    "**/node_modules": true
+    "**/next-env.d.ts": true
+    // "**/node_modules": true
   },
   "git.openRepositoryInParentFolders": "never",
   "files.associations": {
     "*.css": "tailwindcss"
   },
-  "workbench.colorTheme": "Gruvbox Dark Hard"
+  "workbench.colorTheme": "Gruvbox Dark Hard",
+  "terminal.integrated.smoothScrolling": true,
+  "terminal.integrated.cursorBlinking": true
 }
