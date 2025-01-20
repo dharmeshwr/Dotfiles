@@ -20,10 +20,6 @@ keymap.set("n", "j", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true }
 -- keymap.set("n", "-", "<cmd>foldclose<CR>")
 -- keymap.set("n", "+", "<cmd>foldopen<CR>")
 
---Move
-keymap.set("v", "J", ":m '>+1<CR>gv=gv")
-keymap.set("v", "K", ":m '<-2<CR>gv=gv")
-
 keymap.set("n", "x", '"_x')
 
 -- Increment/decrement
