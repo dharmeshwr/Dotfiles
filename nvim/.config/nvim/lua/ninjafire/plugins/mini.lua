@@ -53,17 +53,25 @@ return {
       }
 
       -----------------------------------------------------------
+
+      local function generate_ascii_art(text)
+        local handle = io.popen('figlet -f standard "' .. text .. '"')
+        local result = handle:read("*a")
+        handle:close()
+        return result
+      end
+
+      local function get_current_directory_name()
+        local cwd = vim.fn.getcwd()
+        return vim.fn.fnamemodify(cwd, ':t')
+      end
+
+      local header = generate_ascii_art(get_current_directory_name())
+
       local starter = require 'mini.starter'
       starter.setup {
         autoopen = true,
-        header = [[
-███╗   ██╗██╗███╗   ██╗     ██╗ █████╗ ███████╗██╗██████╗ ███████╗
-████╗  ██║██║████╗  ██║     ██║██╔══██╗██╔════╝██║██╔══██╗██╔════╝
-██╔██╗ ██║██║██╔██╗ ██║     ██║███████║█████╗  ██║██████╔╝█████╗
-██║╚██╗██║██║██║╚██╗██║██   ██║██╔══██║██╔══╝  ██║██╔══██╗██╔══╝
-██║ ╚████║██║██║ ╚████║╚█████╔╝██║  ██║██║     ██║██║  ██║███████╗
-╚═╝  ╚═══╝╚═╝╚═╝  ╚═══╝ ╚════╝ ╚═╝  ╚═╝╚═╝     ╚═╝╚═╝  ╚═╝╚══════╝
-              ]],
+        header = header,
         items = {
           { name = "Create Note",  action = ":lua create_note()",                                       section = "" },
           { name = "Open file",    action = ":Telescope find_files",                                    section = "" },

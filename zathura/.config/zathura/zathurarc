@@ -1,4 +1,44 @@
 set page-padding 1
+set window-title-basename "true"
+set selection-clipboard "clipboard"
+
+set notification-error-bg       rgba(204,36,29,1)     # Gruvbox Red
+set notification-error-fg       rgba(235,219,178,1)   # Gruvbox Foreground
+set notification-warning-bg     rgba(215,153,33,1)    # Gruvbox Orange
+set notification-warning-fg     rgba(29,32,33,1)      # Gruvbox Background (Darker)
+set notification-bg             rgba(29,32,33,1)      # Gruvbox Background (Darker)
+set notification-fg             rgba(235,219,178,1)   # Gruvbox Foreground
+
+set completion-bg               rgba(29,32,33,1)      # Gruvbox Background (Darker)
+set completion-fg               rgba(168,153,132,1)   # Gruvbox Comment
+set completion-group-bg         rgba(29,32,33,1)      # Gruvbox Background (Darker)
+set completion-group-fg         rgba(168,153,132,1)   # Gruvbox Comment
+set completion-highlight-bg     rgba(60,56,54,1)      # Gruvbox Selection
+set completion-highlight-fg     rgba(235,219,178,1)   # Gruvbox Foreground
+
+set index-bg                    rgba(29,32,33,1)      # Gruvbox Background (Darker)
+set index-fg                    rgba(235,219,178,1)   # Gruvbox Foreground
+set index-active-bg             rgba(60,56,54,1)      # Gruvbox Current Line
+set index-active-fg             rgba(235,219,178,1)   # Gruvbox Foreground
+
+set inputbar-bg                 rgba(29,32,33,1)      # Gruvbox Background (Darker)
+set inputbar-fg                 rgba(235,219,178,1)   # Gruvbox Foreground
+set statusbar-bg                rgba(29,32,33,1)      # Gruvbox Background (Darker)
+set statusbar-fg                rgba(235,219,178,1)   # Gruvbox Foreground
+
+set highlight-color             rgba(215,153,33,0.5)  # Gruvbox Orange
+set highlight-active-color      rgba(211,134,155,0.5) # Gruvbox Pink
+
+set default-bg                  rgba(29,32,33,1)      # Gruvbox Background (Darker)
+set default-fg                  rgba(235,219,178,1)   # Gruvbox Foreground
+
+set render-loading              true
+set render-loading-fg           rgba(29,32,33,1)      # Gruvbox Background (Darker)
+set render-loading-bg           rgba(235,219,178,1)   # Gruvbox Foreground
+
+set recolor-lightcolor          rgba(29,32,33,1)      # Gruvbox Background (Darker)
+set recolor-darkcolor           rgba(235,219,178,1)   # Gruvbox Foreground
+
 map u scroll half-up
 map d scroll half-down
 map D toggle_page_mode
@@ -6,3 +46,6 @@ map r reload
 map R rotate
 map i recolor
 map p print
+
+set adjust-open width
+set recolor true

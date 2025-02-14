@@ -19,6 +19,10 @@ return {
           "ts_ls",
           "tailwindcss",
           "clangd",
+          "eslint",
+          "cssls",
+          "html",
+          "jsonls",
         }
       })
     end

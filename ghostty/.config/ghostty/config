@@ -1,9 +1,10 @@
 theme = GruvboxDarkHard
 font-size = 13
 font-family = MartianMono Nerd Font
+shell-integration-features = no-cursor
 background = 1C2021
 foreground = EBDBB2
-adjust-cell-height = 30%
+adjust-cell-height = 40%
 mouse-hide-while-typing = true
 mouse-scroll-multiplier = 2
 window-padding-balance = true
@@ -17,6 +18,8 @@ font-feature= liga
 font-feature= ss01
 # background-opacity = 0.85
 # background-blur-radius = 20
+confirm-close-surface = false
+copy-on-select = clipboard
 clipboard-read = "allow"
 clipboard-paste-protection = false
 

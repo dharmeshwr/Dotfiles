@@ -10,7 +10,7 @@ gacp() {
 }
 
 run() {
-  g++ "$1.cpp" helper.cpp && ./a.out
+  g++ "$1" helper.cpp && ./a.out
 }
 
 # eval "$(starship init zsh)"
@@ -61,9 +61,9 @@ alias uncommit="git reset HEAD~1"
 alias recommit="git commit --amend --no-edit"
 alias editcommit="git commit --amend"
 
-alias vv="bat ~/Workspace/.todo"
-alias ee="nvim ~/Workspace/.todo"
-alias aa="bat >> ~/Workspace/.todo"
+alias vv="bat --theme='gruvbox-dark' ~/Workspace/.todo.md"
+alias ee="nvim ~/Workspace/.todo.md"
+alias aa="bat >> ~/Workspace/.todo.md"
 
 alias ls='eza --grid --color auto --icons --sort=type'
 alias ll='eza --long --color always --icons --sort=type'
@@ -75,7 +75,7 @@ alias orphan='paru -Rns $(pacman -Qtdq)'
 alias mirrors='sudo reflector --verbose --sort rate -l 30 --save /etc/pacman.d/mirrorlist'
 
 alias rm='rm -vrf'
-alias cp='cp -r'
+alias cp='cp -rv'
 alias ts='tesseract'
 alias df='duf'
 alias lol='lolcat'
@@ -90,3 +90,8 @@ alias rebuild='sudo make clean install'
 alias patch='patch -p1 < '
 
 # zprof
+export PATH="/home/ninjafire/.local/bin:/home/ninjafire/.local/bin:/home/ninjafire/.local/bin:/home/ninjafire/.local/share/pnpm:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl"
+export PATH="/home/ninjafire/.local/bin:/home/ninjafire/.local/bin:/home/ninjafire/.local/bin:/home/ninjafire/.local/share/pnpm:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl"
+export PATH="/home/ninjafire/.local/bin:/home/ninjafire/.local/bin:/home/ninjafire/.local/bin:/home/ninjafire/.local/share/pnpm:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl"
+export PATH="/home/ninjafire/.local/bin:/home/ninjafire/.local/bin:/home/ninjafire/.local/bin:/home/ninjafire/.local/share/pnpm:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl"
+export PATH="/home/ninjafire/.local/bin:/home/ninjafire/.local/bin:/home/ninjafire/.local/bin:/home/ninjafire/.local/share/pnpm:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl"

@@ -68,7 +68,7 @@
   "files.associations": {
     "*.css": "tailwindcss"
   },
-  "workbench.colorTheme": "Gruvbox Dark Hard",
+  "workbench.colorTheme": "GitHub Dark Default",
   "terminal.integrated.smoothScrolling": true,
   "terminal.integrated.cursorBlinking": true
 }

@@ -1,0 +1,113 @@
+#!/bin/bash
+
+set -e #exit on error
+
+SCRIPT_NAME=$(basename $0)
+SCRIPT_PATH="$HOME/.local/bin/$SCRIPT_NAME"
+CONF_PATH="$HOME/.local/share/$SCRIPT_NAME"
+QUIET=false
+
+log() {
+  if [[ $QUIET == false ]]; then
+    printf "$1"
+  fi
+}
+
+remover() {
+  rm -rf "$HOME/.local/share/$SCRIPT_NAME" "$HOME/.local/bin/$SCRIPT_NAME"
+  printf "rm -rf "$HOME/.local/share/$SCRIPT_NAME" "$HOME/.local/bin/$SCRIPT_NAME"\n"
+  cat <<EOF
+-------------------------------
+   Removed successfully !!
+-------------------------------
+EOF
+}
+
+helper() {
+  cat <<EOF
+Usage:
+  $SCRIPT_NAME <directory>              to create the app
+  $SCRIPT_NAME -q/--quiet <directory>   to quietly create the app
+  $SCRIPT_NAME -r/--remove              to remove the script
+  $SCRIPT_NAME -h/--help                to help you
+EOF
+}
+
+creator() {
+  printf 'This will create a app with eslint, prettier, nodemon and typescript setup\n' 
+
+  if [[ ! -d "$DEST_DIR_PATH" ]]; then 
+    printf "# Creating directory\n" 
+    mkdir -p "$DEST_DIR_PATH"
+  fi
+
+  printf "# Coping all config files in your app \n" 
+  for file in "$CONF_PATH/config"/* "$CONF_PATH/config"/.*; do
+
+    local filename=$(basename "$file")
+    log "Coping $filename\n"
+
+    local dest_file="$DEST_DIR_PATH/$filename"
+
+    if [ -e "$dest_file" ]; then
+      local backup_file="$dest_file-backup"
+      mv $dest_file $backup_file
+    fi
+
+    cp -r $file $DEST_DIR_PATH
+  done
+
+  printf "# Installing packages\n" 
+  if [[ $QUIET == false ]]; then
+    (cd $DEST_DIR_PATH && npm install)
+  else
+    (cd $DEST_DIR_PATH && npm install 2>/dev/null 1>/dev/null)
+  fi
+
+  printf "# Running the app\n" 
+  (cd $DEST_DIR_PATH && npm run start)
+}
+
+if [[ -z $1 ]]; then
+  echo 'No directory provided'
+  echo "Usage: $SCRIPT_NAME <directory>"
+  echo "For more, $SCRIPT_NAME --help"
+  exit 1
+fi
+
+if [[ $1 == "-r" || $1 == "--remove" ]]; then 
+  remover 
+  exit
+fi
+
+if [[ $1 == "-h" || $1 == "--help" ]]; then 
+  helper
+  exit
+fi
+
+if [[ $1 == "-q" || $1 == '--quiet' ]]; then 
+  if [[ -z $2 ]]; then
+    echo "No directory provided"
+    echo "Usage: $SCRIPT_NAME --quiet <directory>"
+    exit 1
+  fi
+
+  QUIET=true 
+  DEST_DIR_PATH=$(realpath "$2") 
+  creator 
+  exit
+fi
+
+if [[ $1 == -* ]]; then
+  echo 'Invalid flag provided'
+  echo "For more, $SCRIPT_NAME --help"
+  exit 1
+fi
+
+if [[ $1 == * ]]; then
+  DEST_DIR_PATH=$(realpath "$1")
+  creator
+  exit
+fi
+
+
