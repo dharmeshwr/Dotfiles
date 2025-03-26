@@ -31,5 +31,5 @@ require("lazy").setup({
     { import = "ninjafire.plugins" },
     { import = "ninjafire.core" },
   },
-  install = { colorscheme = { "gruvbox-material" } },
+  install = { colorscheme = { "solarized-osaka" } },
 })

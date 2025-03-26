@@ -16,10 +16,12 @@ dunst &
 
 slstatus &
 
-xmodmap ~/.Xmodmap
+xmodmap ~/.Xmodmap &
 
 # flameshot &
 nm-applet &
+
+xrandr --output HDMI-1-1 --mode 1920x1080 --above eDP-1 &
 
 # sudo preload &
 

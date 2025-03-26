@@ -105,7 +105,7 @@ static char dmenumon[2]              = "0";
 static const char *dmenucmd[]        = {"env", "LANG=en_US.UTF-8", "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_skin2, "-sf", col_gray4, NULL};
 static const char *dmenucmddesktop[] = {"env", "LANG=en_US.UTF-8", "dmenu_run_desktop", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_skin2, "-sf", col_gray4, NULL};
 static const char *termcmd[]         = {"st", "-g", "140x35+280-120", NULL};
-static const char *browsercmd[]      = {"firefox", NULL};
+static const char *browsercmd[]      = {"zen", NULL};
 
 #include <X11/XF86keysym.h>
 
@@ -115,9 +115,8 @@ static Key keys[] = {
     {MODKEY | ShiftMask, XK_space, spawn, {.v = dmenucmddesktop}},
     {MODKEY, XK_Return, spawn, {.v = termcmd}},
     {MODKEY, XK_f, spawn, {.v = browsercmd}},
-    {MODKEY, XK_d, spawn, SHCMD("firefox -P default")},
     {MODKEY | ShiftMask, XK_c, spawn, SHCMD("killall dwm")},
-    {ControlMask | ShiftMask, XK_p, spawn, SHCMD("firefox --private-window")},
+    {ControlMask | ShiftMask, XK_p, spawn, SHCMD("zen --private-window")},
     {Mod1Mask, XK_0, spawn, SHCMD("pcmanfm")},
     {Mod1Mask, XK_9, spawn, SHCMD("slock")},
 

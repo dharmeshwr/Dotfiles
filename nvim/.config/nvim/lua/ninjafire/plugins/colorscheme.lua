@@ -8,6 +8,7 @@ return {
   {
     "sainnhe/gruvbox-material",
     lazy = false,
+    enabled = true,
     priority = 1000,
     config = function()
       vim.g.gruvbox_material_enable_italic = false
@@ -20,4 +21,12 @@ return {
       vim.cmd.colorscheme("gruvbox-material")
     end,
   },
+  {
+    "craftzdog/solarized-osaka.nvim",
+    lazy = false,
+    enabled = false,
+    priority = 1000,
+    config = function() vim.cmd("colorscheme solarized-osaka") end,
+    opts = {},
+  }
 }

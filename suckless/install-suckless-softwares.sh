@@ -7,9 +7,10 @@ cat <<< "
  1. Gruvbox-Dark 🎨
  2. Gruvbox-Light 🎨
  3. Catppuccin 🍮
+ 4. Solarized
 " | lolcat
 
-read -p "Enter your choice (1/2/3): " choice
+read -p "Enter your choice (1/2/3/4): " choice
 
 install-dependencies() {
   if [[ $1 != "y" ]]; then
@@ -48,6 +49,9 @@ case $choice in
     ;;
   3)
     install-theme "catppuccin-suckless" "Catppuccin"
+    ;;
+  4)
+    install-theme "solarized-suckless" "Solarized"
     ;;
   *)
     printf "Invalid option! Try again, nya~! 😺 \n" | lolcat

@@ -41,6 +41,7 @@
     mouse_right_click = do_action
     close = ctrl+space
     close_all = ctrl+shift+space
+    history = ctrl+grave
     context = ctrl+shift+period
 [experimental]
     per_monitor_dpi = false
@@ -57,7 +58,7 @@
     timeout = 10
     icon = dialog-information-symbolic
 [urgency_critical]
-    background = "#9d0006"
+    background = "#cc241d"
     foreground = "#fbf1c7"
     frame_color = "#9d0006"
     timeout = 0

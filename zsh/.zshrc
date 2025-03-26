@@ -9,6 +9,10 @@ gacp() {
   git push
 }
 
+count() {
+ N=$1; while [[ $((--N)) > 0 ]]; do echo $N | figlet -c | lolcat && sleep 1; done
+}
+
 run() {
   g++ "$1" helper.cpp && ./a.out
 }
@@ -56,6 +60,8 @@ alias vn="sudo nvim"
 alias zconf="nvim ~/.zshrc"
 alias clearvim='rm ~/.local/state/nvim ~/.local/share/nvim ~/.cache/nvim'
 alias clearmivn='rm ~/.local/state/mivn ~/.local/share/mivn ~/.cache/mivn'
+alias syncwall='sudo cp ~/Pictures/wall.png /usr/share/backgrounds/wallpaper.png'
+alias syncprofile='sudo cp ~/Pictures/profile.png /var/lib/AccountsService/icons/ninjafire.png'
 
 alias uncommit="git reset HEAD~1"
 alias recommit="git commit --amend --no-edit"
@@ -90,8 +96,3 @@ alias rebuild='sudo make clean install'
 alias patch='patch -p1 < '
 
 # zprof
-export PATH="/home/ninjafire/.local/bin:/home/ninjafire/.local/bin:/home/ninjafire/.local/bin:/home/ninjafire/.local/share/pnpm:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl"
-export PATH="/home/ninjafire/.local/bin:/home/ninjafire/.local/bin:/home/ninjafire/.local/bin:/home/ninjafire/.local/share/pnpm:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl"
-export PATH="/home/ninjafire/.local/bin:/home/ninjafire/.local/bin:/home/ninjafire/.local/bin:/home/ninjafire/.local/share/pnpm:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl"
-export PATH="/home/ninjafire/.local/bin:/home/ninjafire/.local/bin:/home/ninjafire/.local/bin:/home/ninjafire/.local/share/pnpm:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl"
-export PATH="/home/ninjafire/.local/bin:/home/ninjafire/.local/bin:/home/ninjafire/.local/bin:/home/ninjafire/.local/share/pnpm:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl"

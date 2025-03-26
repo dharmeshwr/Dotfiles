@@ -26,7 +26,7 @@ return {
   },
   {
     "mistricky/codesnap.nvim",
-    enabled = false,
+    enabled = true,
     build = "make",
     keys = {
       { "<space>cc", "<cmd>CodeSnap<cr>",     mode = "x", desc = "Save selected code snapshot into clipboard" },
@@ -68,4 +68,10 @@ return {
       })
     end,
   },
+  {
+    "nvzone/typr",
+    dependencies = "nvzone/volt",
+    opts = {},
+    cmd = { "Typr", "TyprStats" },
+  }
 }

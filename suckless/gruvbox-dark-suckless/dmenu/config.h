@@ -17,12 +17,12 @@ static const char *colors[SchemeLast][2] = {
     // [SchemeOutHighlight] = {"#ebddb2", "#ebddb2"},
 
     // Gruvbox
-    [SchemeNorm] = {"#bbbbbb", "#222222"},
-    [SchemeSel] = {"#eeeeee", "#504945"},
-    [SchemeSelHighlight] = {"#ffc978", "#504945"},
-    [SchemeNormHighlight] = {"#ffc978", "#222222"},
-    [SchemeOut] = {"#000000", "#00ffff"},
-    [SchemeOutHighlight] = {"#ffc978", "#00ffff"},
+    [SchemeNorm] = {"#ebdbb2", "#1d2021"},
+    [SchemeSel] = {"#d79921", "#3c3836"},
+    [SchemeSelHighlight] = {"#b8bb26", "#3c3836"},
+    [SchemeNormHighlight] = {"#b8bb26", "#1d2021"},
+    [SchemeOut] = {"#282828", "#83a598"},
+    [SchemeOutHighlight] = {"#fe8019", "#83a598"},
 
     // catppuccin mocha
     // [SchemeNorm] = {"#c6d0f5", "#1e1e2e"}, // Normal text on background

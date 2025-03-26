@@ -22,7 +22,7 @@ return {
       },
       sources = {
         default = { 'lsp', 'path', 'snippets', 'buffer', "markdown" },
-        cmdline = {},
+        -- cmdline = {},
         providers = {
           markdown = {
             name = 'RenderMarkdown',
