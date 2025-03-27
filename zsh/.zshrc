@@ -37,7 +37,7 @@ export DISPLAY=:0
 HYPHEN_INSENSITIVE="true"
 HIST_STAMPS="mm/dd/yyyy"
 
-ZSH_THEME="steeef"
+ZSH_THEME="robbyrussell"
 DISABLE_AUTO_UPDATE="true"
 plugins=(
     git

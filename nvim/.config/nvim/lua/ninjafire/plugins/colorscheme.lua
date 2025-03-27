@@ -8,7 +8,7 @@ return {
   {
     "sainnhe/gruvbox-material",
     lazy = false,
-    enabled = true,
+    enabled = false,
     priority = 1000,
     config = function()
       vim.g.gruvbox_material_enable_italic = false
@@ -27,6 +27,13 @@ return {
     enabled = false,
     priority = 1000,
     config = function() vim.cmd("colorscheme solarized-osaka") end,
+    opts = {},
+  },
+  {
+    "folke/tokyonight.nvim",
+    lazy = false,
+    priority = 1000,
+    config = function() vim.cmd("colorscheme tokyonight") end,
     opts = {},
   }
 }

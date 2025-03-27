@@ -15,3 +15,16 @@ vim.api.nvim_create_autocmd("TermOpen", {
     vim.opt.relativenumber = false
   end,
 })
+
+function create_note()
+  local notes_dir = vim.fn.expand("~/Workspace/notes")
+  local note_name = vim.fn.input("Note name: ")
+  if note_name == nil or note_name == '' then
+    vim.cmd("enew")
+  else
+    local file_name = note_name .. ".md"
+    local note_path = notes_dir .. "/" .. file_name
+    vim.fn.mkdir(notes_dir, "p")
+    vim.cmd("edit " .. note_path)
+  end
+end

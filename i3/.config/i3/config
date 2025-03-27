@@ -2,7 +2,7 @@ set $fm eDP-1
 set $sm HDMI-1-1
 set $mod Mod4
 set $alt Mod1
-set $term st
+set $term kitty
 
 font pango:MartianMono Nerd Font 9
 
