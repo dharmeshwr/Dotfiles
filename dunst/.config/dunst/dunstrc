@@ -8,11 +8,11 @@
     padding = 10
     horizontal_padding = 8
     frame_width = 1
-    frame_color = "#504945"
+    frame_color = "#1A1B26"  # Tokyo Night background color
     separator_color = auto
     sort = yes
     idle_threshold = 120
-    font = MartianMono Nerd Font, 9
+    font = JetBrainsMono Nerd Font, 9
     line_height = 0
     markup = full
     format = "<b>%s</b>\n%b"
@@ -26,15 +26,15 @@
     show_indicators = yes
     icon_position = left
     max_icon_size = 24
-    icon_path = /usr/share/icons/Gruvbox-Plus-Dark/panel/22:/usr/share/icons/Gruvbox-Plus-Dark/status/24:/usr/share/icons/Gruvbox-Plus-Dark/apps/24:/usr/share/icons/Gruvbox-Plus-Dark/status/symbolic:/usr/share/icons/Gruvbox-Plus-Dark/apps/symbolic:/usr/share/icons/Gruvbox-Plus-Dark/devices/24:/usr/share/icons/Gruvbox-Plus-Dark/devices/symbolic:/usr/share/icons/hicolor/24x24/apps:/usr/share/icons/hicolor/24x24/status
+    icon_path = /usr/share/icons/TokyoNight-SE/panel/22:/usr/share/icons/TokyoNight-SE/status/24:/usr/share/icons/TokyoNight-SE/apps/24:/usr/share/icons/TokyoNight-SE/status/symbolic:/usr/share/icons/TokyoNight-SE/apps/symbolic:/usr/share/icons/TokyoNight-SE/devices/24:/usr/share/icons/TokyoNight-SE/devices/symbolic:/usr/share/icons/hicolor/24x24/apps:/usr/share/icons/hicolor/24x24/status
     sticky_history = yes
     history_length = 20
     dmenu = /usr/bin/dmenu_run -p dunst:
-    browser = /usr/bin/firfox --new-tab
+    browser = /usr/bin/waterfox --new-tab
     always_run_script = true
     title = Dunst
     class = Dunst
-    corner_radius = 0
+    corner_radius = 5  # Optional: more rounded corners
     force_xinerama = false
     mouse_left_click = close_current
     mouse_middle_click = close_all
@@ -43,25 +43,27 @@
     close_all = ctrl+shift+space
     history = ctrl+grave
     context = ctrl+shift+period
+
 [experimental]
     per_monitor_dpi = false
+
 [urgency_low]
-    background  = "#282828"
-    foreground  = "#928374"
-    frame_color = "#504945"
+    background  = "#16161D"  # Dark background for low urgency
+    foreground  = "#A9B1D6"  # Light blue-gray foreground
+    frame_color = "#2C2F3F"  # Darker frame color
     timeout = 10
     icon = dialog-information-symbolic
+
 [urgency_normal]
-    background = "#1d2021"
-    foreground = "#ebdbb2"
-    frame_color = "#a89984"
+    background = "#1A1B26"  # Tokyo Night background color for normal urgency
+    foreground = "#C0CAF5"  # Light purple foreground for normal urgency
+    frame_color = "#3E4756"  # Slightly lighter frame
     timeout = 10
     icon = dialog-information-symbolic
+
 [urgency_critical]
-    background = "#cc241d"
-    foreground = "#fbf1c7"
-    frame_color = "#9d0006"
+    background = "#F7768E"  # Critical background color (dark pink/red)
+    foreground = "#F5F5F7"  # Light foreground for critical
+    frame_color = "#9D0006"  # Bright red frame color
     timeout = 0
     icon = dialog-warning-symbolic
-
-

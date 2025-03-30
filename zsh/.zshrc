@@ -27,7 +27,7 @@ export GTK_PATH="/usr/include/gtk3.0"
 export XDG_CACHE_HOME=/home/ninjafire/.cache
 export XAUTHORITY=/home/ninjafire/.Xauthority
 export EDITOR='/usr/bin/nvim'
-export GTK_THEME=Gruvbox-Dark
+export GTK_THEME=Tokyonight-Dark
 export LANG=en_US.UTF-8
 export MICRO_TRUECOLOR=1
 export GDK_BACKEND=x11
@@ -43,6 +43,8 @@ plugins=(
     git
     zsh-syntax-highlighting
     zsh-autosuggestions
+    you-should-use
+    auto-notify
 )
 
 source $ZSH/oh-my-zsh.sh
