@@ -3,14 +3,17 @@ set $sm HDMI-1-1
 set $mod Mod4
 set $alt Mod1
 set $term st
+set $browser firefox
 
-font pango:JetBrainsMono Nerd Font 9
+font pango:MartianMono NF 9
 
+exec --no-startup-id feh --bg-scale ~/Pictures/wall2.png &
 exec --no-startup-id dex --autostart --environment i3
-exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock -u -i ~/Pictures/lockscreen.png --nofork
+exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock  -i ~/Pictures/lockscreen.png --nofork
 exec --no-startup-id xrdb ~/.Xresources
 exec --no-startup-id dunst
 exec --no-startup-id nm-applet
+exec --no-startup-id obsidian
 exec --no-startup-id mailspring
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 
 exec --no-startup-id xrandr --output HDMI-1-1 --mode 1920x1080 --above eDP-1 
@@ -49,27 +52,30 @@ floating_modifier $mod
 
 tiling_drag modifier titlebar
 
-bindsym $mod+f exec waterfox
+bindsym $mod+f exec $browser
 
-bindsym $mod+d exec waterfox -P dev
+bindsym $mod+d exec $browser -P work
 
-bindsym $alt+0 exec pcmanfm
+bindsym $alt+0 exec nautilus
 
-bindsym $alt+9 exec --no-startup-id i3lock -u -i ~/Pictures/lockscreen.png 
+bindsym $alt+9 exec --no-startup-id i3lock -i ~/Pictures/lockscreen.png 
 
 bindsym $mod+Return exec $term
 
+bindsym $mod+p exec pavucontrol
+
 bindsym $mod+w kill
+
+bindsym Print exec --no-startup-id flameshot screen --path ~/Pictures/Screenshots
+bindsym Shift+Print exec --no-startup-id flameshot gui --path ~/Pictures/Screenshots
+bindsym Ctrl+Print exec --no-startup-id flameshot gui --clipboard
 
 bindsym $mod+Shift+s exec --no-startup-id killall dunst || dunst
 
-bindsym $mod+space exec --no-startup-id  ~/.config/rofi/launchers/launcher.sh
-bindsym Control+Shift+r exec --no-startup-id  ~/.config/rofi/run/run.sh
-bindsym Control+Shift+f exec --no-startup-id  ~/.config/rofi/filebrowser/filebrowser.sh
-bindsym $mod+c exec --no-startup-id  ~/.config/rofi/clipboard/clipboard.sh
-bindsym Control+Shift+e exec --no-startup-id  ~/.config/rofi/emoji/emoji.sh
+bindsym $mod+space exec --no-startup-id  dmenu_run
+bindsym Control+Shift+e exec --no-startup-id  rofi -show emoji -theme ~/.config/rofi/theme.rasi
 
-bindsym Control+Shift+p exec --no-startup-id waterfox --private-window
+bindsym Control+Shift+p exec --no-startup-id $browser --private-window
 
 for_window [class="^.*"] border pixel 1
 
@@ -130,6 +136,7 @@ set $ws8 "8"
 set $ws9 "9"
 set $ws10 "10"
 
+assign [class="obsidian"] 6
 assign [class="Mailspring"] 7
 assign [class="discord"] 8
 assign [class="Spotify"] 9
@@ -197,25 +204,10 @@ bar {
     tray_output primary
     output $fm
     workspace_buttons yes
-    colors {
-      background #1a1b26 
-      statusline #c0caf5 
-      separator  #3b4261 
-      focused_workspace  #9ece6a #7aa2f7 #1a1b26
-    }
 }
 
 bar {
     tray_output none
     output $sm
     workspace_buttons yes
-    colors {
-      background #1a1b26
-      statusline #c0caf5
-      separator  #3b4261 
-      focused_workspace  #9ece6a #7aa2f7 #1a1b26 
-    }
 }
-
-client.focused   #1a1b26 #6272a4 #c0caf5 #6272a4  
-

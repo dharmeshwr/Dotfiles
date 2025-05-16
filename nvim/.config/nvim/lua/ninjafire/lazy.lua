@@ -31,5 +31,5 @@ require("lazy").setup({
     { import = "ninjafire.plugins" },
     { import = "ninjafire.core" },
   },
-  install = { colorscheme = { "tokyonight" } },
+  install = { colorscheme = { "github-theme" } },
 })

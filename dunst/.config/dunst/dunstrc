@@ -8,11 +8,11 @@
     padding = 10
     horizontal_padding = 8
     frame_width = 1
-    frame_color = "#1A1B26"  # Tokyo Night background color
+    frame_color = "#ffffff"  # Subtle dark border
     separator_color = auto
     sort = yes
     idle_threshold = 120
-    font = JetBrainsMono Nerd Font, 9
+    font = Adwaita Sans, 9
     line_height = 0
     markup = full
     format = "<b>%s</b>\n%b"
@@ -26,15 +26,15 @@
     show_indicators = yes
     icon_position = left
     max_icon_size = 24
-    icon_path = /usr/share/icons/TokyoNight-SE/panel/22:/usr/share/icons/TokyoNight-SE/status/24:/usr/share/icons/TokyoNight-SE/apps/24:/usr/share/icons/TokyoNight-SE/status/symbolic:/usr/share/icons/TokyoNight-SE/apps/symbolic:/usr/share/icons/TokyoNight-SE/devices/24:/usr/share/icons/TokyoNight-SE/devices/symbolic:/usr/share/icons/hicolor/24x24/apps:/usr/share/icons/hicolor/24x24/status
+    icon_path = /usr/share/icons/hicolor/24x24/apps:/usr/share/icons/hicolor/24x24/status
     sticky_history = yes
     history_length = 20
     dmenu = /usr/bin/dmenu_run -p dunst:
-    browser = /usr/bin/waterfox --new-tab
+    browser = /usr/bin/xdg-open
     always_run_script = true
     title = Dunst
     class = Dunst
-    corner_radius = 5  # Optional: more rounded corners
+    corner_radius = 4  # Slight rounding for subtle style
     force_xinerama = false
     mouse_left_click = close_current
     mouse_middle_click = close_all
@@ -48,22 +48,22 @@
     per_monitor_dpi = false
 
 [urgency_low]
-    background  = "#16161D"  # Dark background for low urgency
-    foreground  = "#A9B1D6"  # Light blue-gray foreground
-    frame_color = "#2C2F3F"  # Darker frame color
-    timeout = 10
+    background  = "#000000"  # Dark grey background
+    foreground  = "#D8DEE9"  # Soft white text
+    frame_color = "#3B4252"  # Slightly lighter frame
+    timeout = 8
     icon = dialog-information-symbolic
 
 [urgency_normal]
-    background = "#1A1B26"  # Tokyo Night background color for normal urgency
-    foreground = "#C0CAF5"  # Light purple foreground for normal urgency
-    frame_color = "#3E4756"  # Slightly lighter frame
+    background = "#000000"
+    foreground = "#ECEFF4"
+    frame_color = "#4C566A"
     timeout = 10
     icon = dialog-information-symbolic
 
 [urgency_critical]
-    background = "#F7768E"  # Critical background color (dark pink/red)
-    foreground = "#F5F5F7"  # Light foreground for critical
-    frame_color = "#9D0006"  # Bright red frame color
+    background = "#BF616A"  # Red tone for critical alerts
+    foreground = "#ECEFF4"
+    frame_color = "#A54242"
     timeout = 0
     icon = dialog-warning-symbolic

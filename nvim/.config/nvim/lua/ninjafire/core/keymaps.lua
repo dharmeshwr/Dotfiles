@@ -16,33 +16,20 @@ keymap.set("n", "<C-c>", "<cmd>noh<CR>", { noremap = false })
 keymap.set("n", "k", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
 keymap.set("n", "j", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 
---Code Folding
--- keymap.set("n", "-", "<cmd>foldclose<CR>")
--- keymap.set("n", "+", "<cmd>foldopen<CR>")
-
 keymap.set("n", "x", '"_x')
-
--- Increment/decrement
-keymap.set("n", "+", "<C-a>")
-keymap.set("n", "-", "<C-x>")
 
 -- Select all
 keymap.set("n", "<C-a>", "gg<S-v>G")
-
--- Save file and quit
-keymap.set("n", "<Leader>w", ":update<Return>", opts)
-keymap.set("n", "<Leader>q", ":quit<Return>", opts)
-keymap.set("n", "<Leader>Q", ":qa<Return>", opts)
 
 -- Split window
 -- keymap.set("n", "ss", ":split<Return>", opts)
 -- keymap.set("n", "sv", ":vsplit<Return>", opts)
 
 -- Move window
-keymap.set("n", "sh", "<C-w>h")
-keymap.set("n", "sk", "<C-w>k")
-keymap.set("n", "sj", "<C-w>j")
-keymap.set("n", "sl", "<C-w>l")
+keymap.set("n", "sh", "<C-w><C-h>")
+keymap.set("n", "sk", "<C-w><C-k>")
+keymap.set("n", "sj", "<C-w><C-j>")
+keymap.set("n", "sl", "<C-w><C-l>")
 
 -- Resize window
 keymap.set("n", "<C-S-h>", "<C-w><")
@@ -50,6 +37,7 @@ keymap.set("n", "<C-S-l>", "<C-w>>")
 keymap.set("n", "<C-S-k>", "<C-w>+")
 keymap.set("n", "<C-S-j>", "<C-w>-")
 
+-- Up/Down navigation
 keymap.set("n", "<C-d>", "<C-d>zz")
 keymap.set("n", "<C-u>", "<C-u>zz")
 
@@ -64,8 +52,11 @@ keymap.set("n", "<c-k>", "<cmd>cprev<CR>")
 
 keymap.set('n', '-', "<cmd>Oil<CR>")
 
-keymap.set('n', '\\\\', function() vim.diagnostic.setqflist() end)
+-- In case you don't have trouble.nvim
+-- keymap.set('n', '\\\\', function() vim.diagnostic.setqflist() end)
+-- keymap.set('n', '|', '<cmd>cclose<CR>', { desc = 'Close quickfix list' })
 
+-- Hide status bar
 keymap.set('n', '<space>rs', function()
   local currentStatus = vim.o.laststatus;
   if currentStatus == 3 then
@@ -81,7 +72,7 @@ end)
 keymap.set('n', 'dq', 'yyp')
 
 -- Duplicate a line with commenting the previous one
-keymap.set('n', 'cd', function()
+keymap.set('n', 'zc', function()
   vim.cmd('normal! yy')
   vim.cmd('normal gcc')
   vim.cmd('normal! p')

@@ -6,8 +6,8 @@
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
 static char *font =
-    "JetBrainsMono Nerd "
-    "Font:pixelsize=18:antialias=true:autohint=true:weight=semibold";
+    "MartianMono Nerd "
+    "Font:pixelsize=16:antialias=true:autohint=true:weight=semibold";
 #if FONT2_PATCH
 /* Spare fonts */
 static char *font2[] = {
@@ -65,7 +65,7 @@ char *vtiden = "\033[?6c";
 
 /* Kerning / character bounding-box multipliers */
 static float cwscale = 1.0;
-static float chscale = 1.1;
+static float chscale = 1.4;
 
 /*
  * word delimiter string
@@ -176,34 +176,32 @@ float alphaUnfocused = 0.6;
 #endif // ALPHA_FOCUS_HIGHLIGHT_PATCH
 #endif // ALPHA_PATCH
 
-/* Tokyo Night Terminal Colors */
 static const char *colorname[] = {
-    /* 8 normal colors */
-    "#1a1b26", /* black (background) */
-    "#ff5c8f", /* red */
-    "#9ece6a", /* green */
-    "#e0af68", /* yellow */
-    "#7aa2f7", /* blue */
-    "#bb9af7", /* magenta */
-    "#7dcfff", /* cyan */
-    "#a9b1d6", /* white */
+    "#000000", /* 0: black (background) */
+    "#ff5555", /* 1: red */
+    "#55ff55", /* 2: green */
+    "#ffff55", /* 3: yellow */
+    "#5555ff", /* 4: blue */
+    "#ff55ff", /* 5: magenta */
+    "#55ffff", /* 6: cyan */
+    "#bbbbbb", /* 7: white (light foreground) */
 
     /* 8 bright colors */
-    "#414868", /* black */
-    "#ff6c6b", /* red */
-    "#a9b665", /* green */
-    "#e0c780", /* yellow */
-    "#6f83d4", /* blue */
-    "#bb9af7", /* magenta */
-    "#79d6f0", /* cyan */
-    "#c0caf5", /* white */
+    "#555555", /* 8: bright black (gray) */
+    "#ff5555", /* 9: bright red */
+    "#55ff55", /* 10: bright green */
+    "#ffff55", /* 11: bright yellow */
+    "#5555ff", /* 12: bright blue */
+    "#ff55ff", /* 13: bright magenta */
+    "#55ffff", /* 14: bright cyan */
+    "#ffffff", /* 15: bright white */
 
     [255] = 0,
 
-    "#c0caf5", /* 256 cursor */
-    "#1a1b26", /* 257 rev cursor */
-    "#1a1b26", /* 258 bg */
-    "#c0caf5", /* 259 fg */
+    "#bbbbbb", /* 256: cursor-color */
+    "#ffffff", /* 257: cursor-text */
+    "#000000", /* 258: background */
+    "#ffffff", /* 259: foreground */
 };
 
 /*

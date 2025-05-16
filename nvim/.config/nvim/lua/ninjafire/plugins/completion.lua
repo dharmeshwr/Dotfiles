@@ -1,9 +1,29 @@
 return {
   {
+    'codota/tabnine-nvim',
+    build = "./dl_binaries.sh",
+    config = function()
+      require('tabnine').setup({
+        disable_auto_comment = true,
+        accept_keymap = "<Tab>",
+        dismiss_keymap = "<C-]>",
+        debounce_ms = 800,
+        suggestion_color = { gui = "#808080", cterm = 244 },
+        exclude_filetypes = { "TelescopePrompt", "NvimTree" },
+        log_file_path = nil,
+        ignore_certificate_errors = false,
+        workspace_folders = {
+          paths = { "/home/ninjafire/Workspace" },
+        },
+      })
+    end
+  },
+  {
     'saghen/blink.cmp',
     dependencies = 'rafamadriz/friendly-snippets',
     version = 'v0.*',
     opts = {
+      signature = { enabled = true },
       keymap = {
         preset = 'default', -- "default, super-tab, enter"
         ['<A-1>'] = { function(cmp) cmp.accept({ index = 1 }) end },
@@ -34,17 +54,17 @@ return {
       completion = {
         menu = {
           draw = {
-            columns = { { 'item_idx' }, { 'kind_icon' }, { 'label', 'label_description', gap = 1 } },
+            columns = { { 'item_idx' }, { 'kind_icon' }, { 'label', 'label_description', gap = 1 }, { 'source_id' } },
             components = {
               item_idx = {
                 text = function(ctx) return tostring(ctx.idx) end,
                 highlight = 'BlinkCmpItemIdx'
               }
             }
-          }
+          },
+          border = 'single',
         }
-      }
-      -- signature = { enabled = true }
+      },
     },
     opts_extend = { "sources.default" }
   },

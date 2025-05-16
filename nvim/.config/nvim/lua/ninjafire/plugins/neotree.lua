@@ -37,7 +37,7 @@ return {
     },
     keys = {
       {
-        "<space>ee",
+        "<F2>",
         function()
           require("neo-tree.command").execute({ toggle = true })
         end,

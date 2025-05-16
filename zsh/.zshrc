@@ -22,7 +22,9 @@ eval "$(zoxide init --cmd cd zsh)"
 
 export ZSH="$HOME/.oh-my-zsh"
 export SSH_AUTH_SOCK=/run/user/$UID/keyring/ssh
-export PATH="/home/ninjafire/.local/bin:/home/ninjafire/.local/share/pnpm:$PATH"
+export BUN_INSTALL="$HOME/.bun"
+export PNPM_HOME="$HOME/.local/share/pnpm"
+export PATH="$HOME/.local/bin:$PNPM_HOME:$BUN_INSTALL/bin:$PATH"
 export GTK_PATH="/usr/include/gtk3.0"
 export XDG_CACHE_HOME=/home/ninjafire/.cache
 export XAUTHORITY=/home/ninjafire/.Xauthority
@@ -48,6 +50,7 @@ plugins=(
 )
 
 source $ZSH/oh-my-zsh.sh
+[ -s "/home/ninjafire/.bun/_bun" ] && source "/home/ninjafire/.bun/_bun"
 
 alias mivn="NVIM_APPNAME=mivn nvim"
 alias ..='cd ..'
@@ -98,3 +101,7 @@ alias rebuild='sudo make clean install'
 alias patch='patch -p1 < '
 
 # zprof
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion

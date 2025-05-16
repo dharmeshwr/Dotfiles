@@ -69,9 +69,15 @@ return {
     end,
   },
   {
+    -- monkey type
     "nvzone/typr",
     dependencies = "nvzone/volt",
     opts = {},
     cmd = { "Typr", "TyprStats" },
+  },
+  {
+    -- show the lsp progress messages in the bottom right
+    "j-hui/fidget.nvim",
+    opts = {},
   }
 }

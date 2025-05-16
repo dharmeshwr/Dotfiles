@@ -1,5 +1,4 @@
 {
-  "window.menuBarVisibility": "hidden",
   "editor.fontFamily": "\"MartianMono Nerd Font\" ",
   "editor.autoClosingBrackets": "always",
   "editor.autoClosingComments": "always",
@@ -9,7 +8,6 @@
   "editor.formatOnSave": true,
   "editor.formatOnPaste": true,
   "explorer.confirmDelete": false,
-  "workbench.productIconTheme": "icons-carbon",
   "diffEditor.hideUnchangedRegions.enabled": true,
   "workbench.editor.enablePreview": false,
   "editor.minimap.autohide": true,
@@ -37,14 +35,12 @@
   "editor.smoothScrolling": true,
   "editor.cursorBlinking": "smooth",
   "editor.renderWhitespace": "trailing",
-  "editor.fontSize": 17,
   "editor.lineNumbers": "relative",
   "editor.hover.sticky": false,
   "editor.stickyScroll.enabled": false,
   "editor.minimap.enabled": false,
   "workbench.startupEditor": "none",
   "workbench.list.smoothScrolling": true,
-  "workbench.iconTheme": "material-icon-theme",
   "workbench.colorCustomizations": {
     "errorLens.errorBackground": "#cc241d00",
     "errorLens.warningBackground": "#cc241d00",
@@ -54,8 +50,6 @@
     "editorWarning.foreground": "#665c5400"
   },
   "workbench.activityBar.location": "bottom",
-  "window.commandCenter": false,
-  "workbench.layoutControl.enabled": false,
   "editor.linkedEditing": true,
   "security.workspace.trust.untrustedFiles": "open",
   "explorer.compactFolders": false,
@@ -68,7 +62,12 @@
   "files.associations": {
     "*.css": "tailwindcss"
   },
-  "workbench.colorTheme": "Gruvbox Dark Hard",
+  "workbench.colorTheme": "GitHub Dark Default",
   "terminal.integrated.smoothScrolling": true,
-  "terminal.integrated.cursorBlinking": true
+  "terminal.integrated.cursorBlinking": true,
+  "workbench.iconTheme": "material-icon-theme",
+  "chat.commandCenter.enabled": false,
+  "window.menuBarVisibility": "compact",
+  "window.commandCenter": false,
+  "workbench.layoutControl.enabled": false
 }
