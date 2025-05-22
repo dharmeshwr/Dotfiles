@@ -1,0 +1,71 @@
+[init]
+  defaultBranch = master
+
+[user]
+  name = Dharmeshwr
+  email = dharmeshwr@gmail.com
+  signingkey = 8DE00B65C24109FE
+
+[commit]
+  gpgSign = true
+
+[color]
+    ui = auto 
+
+[core]
+    editor = micro
+    compression = 9
+    whitespace = error
+    preloadindex = true
+
+[log]
+    abbrevCommit = true  # short commits
+    graphColors = blue,yellow,cyan,magenta,green,red
+
+[push]
+    autoSetupRemote = true  # easier to push new branches
+    default = current
+
+[pull]
+  default = current  
+
+[url "git@github.com:dharmeshwr/"]
+  insteadOf = "dk:"
+
+[url "git@github.com:"]
+  insteadOf = "gh:"
+
+[diff]
+  context = 3
+  renames = copies
+  interHunkContext = 10
+
+[alias]
+  lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+  ap = add --patch
+  co = checkout 
+  br = branch 
+  st = status
+  staged = diff --cached
+  unstage = reset HEAD~1
+  editcommit = commit --amend
+  recommit = commit --amend --no-edit
+
+[color "blame"]
+    highlightRecent = black bold,1 year ago,white,1 month ago,default,7 days ago,blue
+
+[color "branch"]
+    current  = magenta
+    local    = default
+    remote   = yellow
+    upstream = green
+    plain    = blue
+
+[color "diff"]
+    meta       = black bold
+    frag       = magenta
+    context    = white
+    whitespace = yellow reverse
+
+[interactive]
+  singlekey = true

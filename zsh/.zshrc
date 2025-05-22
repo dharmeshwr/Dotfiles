@@ -17,6 +17,12 @@ run() {
   g++ "$1" helper.cpp && ./a.out
 }
 
+load_VM() {
+  sudo modprobe vboxdrv
+  sudo modprobe vboxnetflt
+  sudo modprobe vboxnetadp
+}
+
 # eval "$(starship init zsh)"
 eval "$(zoxide init --cmd cd zsh)"
 
@@ -68,10 +74,6 @@ alias clearmivn='rm ~/.local/state/mivn ~/.local/share/mivn ~/.cache/mivn'
 alias syncwall='sudo cp ~/Pictures/wall.png /usr/share/backgrounds/wallpaper.png'
 alias syncprofile='sudo cp ~/Pictures/profile.png /var/lib/AccountsService/icons/ninjafire.png'
 
-alias uncommit="git reset HEAD~1"
-alias recommit="git commit --amend --no-edit"
-alias editcommit="git commit --amend"
-
 alias vv="bat --theme='gruvbox-dark' ~/Workspace/.todo.md"
 alias ee="nvim ~/Workspace/.todo.md"
 alias aa="bat >> ~/Workspace/.todo.md"
@@ -93,6 +95,7 @@ alias lol='lolcat'
 alias cost='scc'
 alias du='du -shc'
 alias secret='openssl rand -hex 32'
+alias pu='sudo pacman -Sy --needed archlinux-keyring && sudo pacman -Su'
 
 alias waves='sudo systemctl restart hotspot.service'
 alias stop='sudo systemctl stop hotspot.service'
@@ -102,6 +105,6 @@ alias patch='patch -p1 < '
 
 # zprof
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+# export NVM_DIR="$HOME/.nvm"
+# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" 
+# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" 
