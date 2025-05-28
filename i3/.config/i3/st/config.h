@@ -5,9 +5,8 @@
  *
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
-static char *font =
-    "MartianMono Nerd "
-    "Font:pixelsize=16:antialias=true:autohint=true:weight=semibold";
+static char *font = "MartianMono Nerd "
+                    "Font:pixelsize=16:antialias=true:autohint=true";
 #if FONT2_PATCH
 /* Spare fonts */
 static char *font2[] = {

@@ -8,12 +8,13 @@
 
 [commit]
   gpgSign = true
+  template = ~/.config/git/template
 
 [color]
     ui = auto 
 
 [core]
-    editor = micro
+    editor = nvim
     compression = 9
     whitespace = error
     preloadindex = true

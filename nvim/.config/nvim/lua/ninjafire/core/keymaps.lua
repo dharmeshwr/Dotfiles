@@ -52,12 +52,8 @@ keymap.set("n", "<c-k>", "<cmd>cprev<CR>")
 
 keymap.set('n', '-', "<cmd>Oil<CR>")
 
--- In case you don't have trouble.nvim
--- keymap.set('n', '\\\\', function() vim.diagnostic.setqflist() end)
--- keymap.set('n', '|', '<cmd>cclose<CR>', { desc = 'Close quickfix list' })
-
--- Hide status bar
-keymap.set('n', '<space>rs', function()
+-- toggle status bar
+keymap.set('n', '<F3>', function()
   local currentStatus = vim.o.laststatus;
   if currentStatus == 3 then
     vim.o.laststatus = 0;
@@ -66,6 +62,14 @@ keymap.set('n', '<space>rs', function()
     vim.o.laststatus = 3;
     vim.o.cmdheight = 1
   end
+end)
+
+-- toggle diagnostics lines
+keymap.set('n', '\\\\', function()
+  local current_config = vim.diagnostic.config() or {}
+  local is_enabled = current_config.virtual_lines or false
+
+  vim.diagnostic.config({ virtual_lines = not is_enabled })
 end)
 
 -- Duplicate a line

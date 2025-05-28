@@ -45,6 +45,10 @@ creator() {
   for file in "$CONF_PATH/config"/* "$CONF_PATH/config"/.*; do
 
     local filename=$(basename "$file")
+    if [[ "$filename" = "." ]] || [[ "$filename" = ".." ]]; then
+      continue 
+    fi
+
     log "Coping $filename\n"
 
     local dest_file="$DEST_DIR_PATH/$filename"
@@ -93,7 +97,7 @@ if [[ $1 == "-q" || $1 == '--quiet' ]]; then
   fi
 
   QUIET=true 
-  DEST_DIR_PATH=$(realpath "$2") 
+  DEST_DIR_PATH=$2 
   creator 
   exit
 fi
@@ -105,7 +109,7 @@ if [[ $1 == -* ]]; then
 fi
 
 if [[ $1 == * ]]; then
-  DEST_DIR_PATH=$(realpath "$1")
+  DEST_DIR_PATH=$1
   creator
   exit
 fi
