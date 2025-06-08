@@ -6,7 +6,7 @@
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
 static char *font = "MartianMono Nerd "
-                    "Font:pixelsize=16:antialias=true:autohint=true";
+                    "Font:pixelsize=14:antialias=true:autohint=true";
 #if FONT2_PATCH
 /* Spare fonts */
 static char *font2[] = {
@@ -165,7 +165,7 @@ unsigned int tabspaces = 8;
 
 #if ALPHA_PATCH
 /* bg opacity */
-float alpha = 0.2;
+float alpha = 0.8;
 #if ALPHA_GRADIENT_PATCH
 float grad_alpha = 0.54; // alpha value that'll change
 float stat_alpha = 0.46; // constant alpha value that'll get added to grad_alpha
@@ -176,31 +176,33 @@ float alphaUnfocused = 0.6;
 #endif // ALPHA_PATCH
 
 static const char *colorname[] = {
-    "#000000", /* 0: black (background) */
-    "#ff5555", /* 1: red */
-    "#55ff55", /* 2: green */
-    "#ffff55", /* 3: yellow */
-    "#5555ff", /* 4: blue */
-    "#ff55ff", /* 5: magenta */
-    "#55ffff", /* 6: cyan */
-    "#bbbbbb", /* 7: white (light foreground) */
+    /* 0-7: normal colors */
+    "#1a1b26", /* 0: black (background) */
+    "#f7768e", /* 1: red */
+    "#9ece6a", /* 2: green */
+    "#e0af68", /* 3: yellow */
+    "#7aa2f7", /* 4: blue */
+    "#bb9af7", /* 5: magenta */
+    "#7dcfff", /* 6: cyan */
+    "#a9b1d6", /* 7: white (light fg) */
 
-    /* 8 bright colors */
-    "#555555", /* 8: bright black (gray) */
-    "#ff5555", /* 9: bright red */
-    "#55ff55", /* 10: bright green */
-    "#ffff55", /* 11: bright yellow */
-    "#5555ff", /* 12: bright blue */
-    "#ff55ff", /* 13: bright magenta */
-    "#55ffff", /* 14: bright cyan */
-    "#ffffff", /* 15: bright white */
+    /* 8-15: bright colors */
+    "#414868", /* 8: bright black (gray) */
+    "#f7768e", /* 9: bright red */
+    "#9ece6a", /* 10: bright green */
+    "#e0af68", /* 11: bright yellow */
+    "#7aa2f7", /* 12: bright blue */
+    "#bb9af7", /* 13: bright magenta */
+    "#7dcfff", /* 14: bright cyan */
+    "#c0caf5", /* 15: bright white */
 
     [255] = 0,
 
-    "#bbbbbb", /* 256: cursor-color */
-    "#ffffff", /* 257: cursor-text */
-    "#000000", /* 258: background */
-    "#ffffff", /* 259: foreground */
+    /* Extended colors */
+    "#c0caf5", /* 256: cursor-color */
+    "#1a1b26", /* 257: cursor-text */
+    "#1a1b26", /* 258: background */
+    "#c0caf5", /* 259: foreground */
 };
 
 /*

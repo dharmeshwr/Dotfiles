@@ -27,7 +27,7 @@ return {
           hide_dotfiles = false,   -- Do not hide dotfiles (files starting with .)
           hide_gitignored = false, -- Do not hide files ignored by git
           hide_hidden = false,     -- Do not hide hidden files (like .git or node_modules)
-          never_show = { ".git", "node_modules" },
+          never_show = { ".git", "node_modules", "__pycache__" },
           always_show_by_pattern = {
             ".env*",
             ".gitignore",

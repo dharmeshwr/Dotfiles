@@ -52,9 +52,12 @@ return {
         },
       },
       completion = {
+        ghost_text = {
+          enabled = false
+        },
         menu = {
           draw = {
-            columns = { { 'item_idx' }, { 'kind_icon' }, { 'label', 'label_description', gap = 1 }, { 'source_id' } },
+            columns = { { 'item_idx' }, { 'kind_icon', 'label', 'label_description', gap = 1 }, { "kind", gap = 1 } },
             components = {
               item_idx = {
                 text = function(ctx) return tostring(ctx.idx) end,
@@ -62,7 +65,7 @@ return {
               }
             }
           },
-          border = 'single',
+          -- border = 'single',
         }
       },
     },

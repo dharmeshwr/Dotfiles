@@ -8,11 +8,11 @@
     padding = 10
     horizontal_padding = 8
     frame_width = 1
-    frame_color = "#ffffff"  # Subtle dark border
+    frame_color = "#414868"  # Tokyo Night border
     separator_color = auto
     sort = yes
     idle_threshold = 120
-    font = Adwaita Sans, 9
+    font = SpaceMono Nerd Font Mono,  9
     line_height = 0
     markup = full
     format = "<b>%s</b>\n%b"
@@ -26,7 +26,7 @@
     show_indicators = yes
     icon_position = left
     max_icon_size = 24
-    icon_path = /usr/share/icons/hicolor/24x24/apps:/usr/share/icons/hicolor/24x24/status
+    icon_path = /usr/share/icons/BigSur-black/BigSur-black/apps/22:/usr/share/icons/BigSur-black/BigSur-black/status/22
     sticky_history = yes
     history_length = 20
     dmenu = /usr/bin/dmenu_run -p dunst:
@@ -34,7 +34,7 @@
     always_run_script = true
     title = Dunst
     class = Dunst
-    corner_radius = 4  # Slight rounding for subtle style
+    corner_radius = 4
     force_xinerama = false
     mouse_left_click = close_current
     mouse_middle_click = close_all
@@ -48,22 +48,22 @@
     per_monitor_dpi = false
 
 [urgency_low]
-    background  = "#000000"  # Dark grey background
-    foreground  = "#D8DEE9"  # Soft white text
-    frame_color = "#3B4252"  # Slightly lighter frame
+    background  = "#1a1b26"
+    foreground  = "#c0caf5"
+    frame_color = "#414868"
     timeout = 8
     icon = dialog-information-symbolic
 
 [urgency_normal]
-    background = "#000000"
-    foreground = "#ECEFF4"
-    frame_color = "#4C566A"
+    background = "#1a1b26"
+    foreground = "#c0caf5"
+    frame_color = "#7aa2f7"
     timeout = 10
     icon = dialog-information-symbolic
 
 [urgency_critical]
-    background = "#BF616A"  # Red tone for critical alerts
-    foreground = "#ECEFF4"
-    frame_color = "#A54242"
+    background = "#1a1b26"
+    foreground = "#f7768e"
+    frame_color = "#f7768e"
     timeout = 0
     icon = dialog-warning-symbolic

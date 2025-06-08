@@ -4,7 +4,7 @@
 [user]
   name = Dharmeshwr
   email = dharmeshwr@gmail.com
-  signingkey = 8DE00B65C24109FE
+  signingkey = 2CEA86CE78EF0DC67121874B3A33B951D1DAB86C
 
 [commit]
   gpgSign = true
@@ -18,6 +18,11 @@
     compression = 9
     whitespace = error
     preloadindex = true
+
+[status]
+  branch = true
+  showStash = true
+  showUntrackedFiles = all
 
 [log]
     abbrevCommit = true  # short commits

@@ -1,5 +1,13 @@
 require("ninjafire.lazy")
 
+-- Transparency
+-- vim.cmd [[
+--   highlight Normal guibg=none
+--   highlight NonText guibg=none
+--   highlight Normal ctermbg=none
+--   highlight NonText ctermbg=none
+-- ]]
+
 vim.api.nvim_create_autocmd("TextYankPost", {
   desc = "Highlight when yanking(copying) text",
   group = vim.api.nvim_create_augroup("kickstart-highlight-yank", { clear = true }),

@@ -74,9 +74,9 @@ alias clearmivn='rm ~/.local/state/mivn ~/.local/share/mivn ~/.cache/mivn'
 alias syncwall='sudo cp ~/Pictures/wall.png /usr/share/backgrounds/wallpaper.png'
 alias syncprofile='sudo cp ~/Pictures/profile.png /var/lib/AccountsService/icons/ninjafire.png'
 
-alias vv="bat --theme='gruvbox-dark' ~/Workspace/.todo.md"
-alias ee="nvim ~/Workspace/.todo.md"
-alias aa="bat >> ~/Workspace/.todo.md"
+alias vv="bat --theme='gruvbox-dark' ~/Workspace/notes/.todo.md"
+alias ee="nvim ~/Workspace/notes/.todo.md"
+alias aa="bat >> ~/Workspace/notes/.todo.md"
 
 alias ls='eza --grid --color auto --icons --sort=type'
 alias ll='eza --long --color always --icons --sort=type'
@@ -90,7 +90,7 @@ alias mirrors='sudo reflector --verbose --sort rate -l 30 --save /etc/pacman.d/m
 alias rm='rm -vrf'
 alias cp='cp -rv'
 alias ts='tesseract'
-alias df='duf'
+# alias df='duf'
 alias lol='lolcat'
 alias cost='scc'
 alias du='du -shc'

@@ -37,7 +37,7 @@ return {
       has_breadcrumbs = true,
       bg_theme = "bamboo",
       has_line_number = true,
-      code_font_family = "SF Mono",
+      code_font_family = "MartianMono Nerd Font",
     },
   },
   {

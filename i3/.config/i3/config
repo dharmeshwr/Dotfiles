@@ -5,17 +5,18 @@ set $alt Mod1
 set $term st
 set $browser firefox
 
-font pango:MartianMono NF 9
+font pango:MartianMono NF 8
 
-exec --no-startup-id feh --bg-scale ~/Pictures/wall2.png &
-exec --no-startup-id dex --autostart --environment i3
+exec --no-startup-id ~/.config/i3/random-wall.sh
+# exec --no-startup-id dex --autostart --environment i3
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock  -i ~/Pictures/lockscreen.png --nofork
 exec --no-startup-id xrdb ~/.Xresources
 exec --no-startup-id dunst
 exec --no-startup-id nm-applet
 exec --no-startup-id obsidian
 exec --no-startup-id mailspring
-exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 
+# exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 
+exec --no-startup-id /usr/lib/polkit-1/polkitd
 exec --no-startup-id xrandr --output HDMI-1-1 --mode 1920x1080 --above eDP-1 
 
 for_window [instance="dropdown"] floating enable
@@ -63,6 +64,8 @@ bindsym $alt+9 exec --no-startup-id i3lock -i ~/Pictures/lockscreen.png
 bindsym $mod+Return exec $term
 
 bindsym $mod+p exec pavucontrol
+
+bindsym $mod+y exec ~/.config/i3/random-wall.sh
 
 bindsym $mod+w kill
 
