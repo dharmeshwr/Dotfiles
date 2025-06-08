@@ -1,14 +1,5 @@
-/*
- *
- * Author  : Aditya Shakya
- * Mail    : adi1090x@gmail.com
- * Github  : @adi1090x
- * Twitter : @adi1090x
- *
- */
-
 configuration {
-	font:							"JetBrainsMono Nerd Font Mono 10";
+	font:							"SpaceMono Nerd Font Mono 11";
     show-icons:                     true;
 	icon-theme: 					"WhiteSur";
     display-drun: 					"";
