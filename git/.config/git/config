@@ -4,7 +4,7 @@
 [user]
   name = Dharmeshwr
   email = dharmeshwr@gmail.com
-  signingkey = 2CEA86CE78EF0DC67121874B3A33B951D1DAB86C
+  signingkey = B93EEC97575096FA007A5E28AFC642FFADE783AC
 
 [commit]
   gpgSign = true

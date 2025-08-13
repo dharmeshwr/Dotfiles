@@ -43,9 +43,9 @@ return {
       vim.keymap.set("n", "<space>fd", require("telescope.builtin").find_files)
       vim.keymap.set("n", "<space>fg", require("telescope.builtin").live_grep)
       vim.keymap.set('n', '<space>sw', require("telescope.builtin").grep_string)
-      vim.keymap.set('n', '<space><space>', require("telescope.builtin").resume)
+      vim.keymap.set('n', '<space>ff', require("telescope.builtin").resume)
 
-      vim.keymap.set("n", "<space>ff", require("telescope.builtin").buffers)
+      vim.keymap.set("n", "<space><space>", require("telescope.builtin").buffers)
       vim.keymap.set("n", "<space>fh", require("telescope.builtin").help_tags)
       vim.keymap.set("n", "<space>bb", require("telescope.builtin").builtin)
       vim.keymap.set("n", "<space>cc", require("telescope.builtin").commands)

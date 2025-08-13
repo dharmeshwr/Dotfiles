@@ -8,7 +8,7 @@ return {
   {
     "sainnhe/gruvbox-material",
     lazy = false,
-    enabled = false,
+    enabled = true,
     priority = 1000,
     config = function()
       vim.g.gruvbox_material_enable_italic = false
@@ -33,7 +33,7 @@ return {
     "folke/tokyonight.nvim",
     lazy = false,
     priority = 1000,
-    enabled = true,
+    enabled = false,
     config = function() vim.cmd("colorscheme tokyonight") end,
     opts = {},
   },
@@ -47,5 +47,5 @@ return {
       require('github-theme').setup({})
       vim.cmd('colorscheme github_dark_default')
     end,
-  }
+  },
 }

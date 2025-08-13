@@ -3,18 +3,23 @@ set $sm HDMI-1-1
 set $mod Mod4
 set $alt Mod1
 set $term st
-set $browser firefox
+set $browser zen
+set $emailClient mailspring --password-store="gnome-libsecret" &
+set $fileManager pcmanfm
 
-font pango:MartianMono NF 8
+# font pango:JetBrainsMono Nerd Font Semibold 9
+font pango:OverpassM Nerd Font Semibold 8
+# font pango:DejaVu Sans Mono 8
 
-exec --no-startup-id ~/.config/i3/random-wall.sh
+# exec --no-startup-id ~/.config/i3/random-wall.sh
+exec --no-startup-id feh --bg-fill ~/Pictures/wallpapers/4k/893848.png
 # exec --no-startup-id dex --autostart --environment i3
-exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock  -i ~/Pictures/lockscreen.png --nofork
-exec --no-startup-id xrdb ~/.Xresources
+# exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock  -i ~/Pictures/lockscreen.png --nofork
+exec --no-startup-id xrdb merge ~/.Xresources
 exec --no-startup-id dunst
 exec --no-startup-id nm-applet
 exec --no-startup-id obsidian
-exec --no-startup-id mailspring
+exec --no-startup-id $emailClient
 # exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 
 exec --no-startup-id /usr/lib/polkit-1/polkitd
 exec --no-startup-id xrandr --output HDMI-1-1 --mode 1920x1080 --above eDP-1 
@@ -49,15 +54,17 @@ bindsym XF86AudioMicMute exec --no-startup-id wpctl set-mute @DEFAULT_SOURCE@ to
 bindsym XF86MonBrightnessDown exec --no-startup-id  brightnessctl set 10%- && $refresh_i3status
 bindsym XF86MonBrightnessUp exec --no-startup-id  brightnessctl set 10%+ && $refresh_i3status
 
+for_window [class="rev"] floating enable
+
 floating_modifier $mod
 
 tiling_drag modifier titlebar
 
 bindsym $mod+f exec $browser
 
-bindsym $mod+d exec $browser -P work
+# bindsym $mod+d exec $browser -P work
 
-bindsym $alt+0 exec nautilus
+bindsym $alt+0 exec $filemanager
 
 bindsym $alt+9 exec --no-startup-id i3lock -i ~/Pictures/lockscreen.png 
 
@@ -69,16 +76,16 @@ bindsym $mod+y exec ~/.config/i3/random-wall.sh
 
 bindsym $mod+w kill
 
-bindsym Print exec --no-startup-id flameshot screen --path ~/Pictures/Screenshots
-bindsym Shift+Print exec --no-startup-id flameshot gui --path ~/Pictures/Screenshots
+bindsym Print exec --no-startup-id flameshot screen --path ~/Pictures/Screenshots/screenshot
+bindsym Shift+Print exec --no-startup-id flameshot gui --path ~/Pictures/Screenshots/screenshot
 bindsym Ctrl+Print exec --no-startup-id flameshot gui --clipboard
 
 bindsym $mod+Shift+s exec --no-startup-id killall dunst || dunst
 
-bindsym $mod+space exec --no-startup-id  dmenu_run
-bindsym Control+Shift+e exec --no-startup-id  rofi -show emoji -theme ~/.config/rofi/theme.rasi
+bindsym $mod+space exec --no-startup-id ~/.config/rofi/launchers/launcher.sh
+# bindsym $mod+Shift+space exec --no-startup-id dmenu_run
 
-bindsym Control+Shift+p exec --no-startup-id $browser --private-window
+bindsym Control+Shift+p exec --no-startup-id firefox --private-window
 
 for_window [class="^.*"] border pixel 1
 
@@ -106,13 +113,13 @@ bindsym $mod+h split h
 
 bindsym $mod+v split v
 
-bindsym $mod+Shift+f fullscreen toggle
+# bindsym $mod+Shift+f fullscreen toggle
 
 bindsym $mod+s layout stacking
 bindsym $mod+t layout tabbed
 bindsym $mod+e layout toggle split
 
-bindsym $mod+Shift+space floating toggle
+bindsym $mod+Shift+f floating toggle
 
 bindsym $mod+Shift+d focus mode_toggle
 

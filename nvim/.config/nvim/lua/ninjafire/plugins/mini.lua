@@ -69,21 +69,21 @@ return {
       local header = generate_ascii_art(get_current_directory_name())
 
       local starter = require 'mini.starter'
-      starter.setup {
-        autoopen = true,
-        header = header,
-        items = {
-          { name = "Create Note",  action = ":lua create_note()",                                       section = "" },
-          { name = "Open file",    action = ":Telescope find_files",                                    section = "" },
-          { name = "Recent Files", action = ":lua require('telescope').extensions.recent_files.pick()", section = "" },
-          { name = "Quit Neovim",  action = ":qa!",                                                     section = "" }
-        },
-        -- content_hooks = {
-        --   starter.gen_hook.adding_bullet("- "),
-        --   starter.gen_hook.aligning("center", "center")
-        -- },
-        footer = ""
-      }
+      -- starter.setup {
+      --   autoopen = true,
+      --   header = header,
+      --   items = {
+      --     { name = "Create Note",  action = ":lua create_note()",                                       section = "" },
+      --     { name = "Open file",    action = ":Telescope find_files",                                    section = "" },
+      --     { name = "Recent Files", action = ":lua require('telescope').extensions.recent_files.pick()", section = "" },
+      --     { name = "Quit Neovim",  action = ":qa!",                                                     section = "" }
+      --   },
+      --   -- content_hooks = {
+      --   --   starter.gen_hook.adding_bullet("- "),
+      --   --   starter.gen_hook.aligning("center", "center")
+      --   -- },
+      --   footer = ""
+      -- }
 
       -----------------------------------------------------------
       local sessions = require('mini.sessions')

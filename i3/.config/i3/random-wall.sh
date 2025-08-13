@@ -7,14 +7,14 @@ BASE_DIR=~/Pictures/wallpapers
 case $DAY in
     Mon)   FOLDER="4k" ;;
     Tue)   FOLDER="anime" ;;
-    Wed)   FOLDER="animated" ;;
+    Wed)   FOLDER="misc" ;;
     Thu)   FOLDER="cars" ;;
-    Fri)   FOLDER="monochrome" ;;
-    Sat)   FOLDER="anime" ;;      
-    Sun)   FOLDER="4k" ;;        
-    *)     FOLDER="anime" ;;    
+    Fri)   FOLDER="tokyo-night" ;;
+    Sat)   FOLDER="decay" ;;      
+    Sun)   FOLDER="gradients" ;;        
+    *)     FOLDER="space" ;;    
 esac
 
 WALL=$(find "$BASE_DIR/$FOLDER" -type f | shuf -n 1)
 
-feh --bg-scale "${WALL}" 
+feh --bg-fill "${WALL}" 

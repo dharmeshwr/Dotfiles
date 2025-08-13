@@ -1,0 +1,203 @@
+"$schema" = 'https://starship.rs/config-schema.json'
+
+# Left side prompt
+format = """
+$username\
+$hostname\
+$directory\
+$git_branch\
+$git_state\
+$git_status\
+$git_metrics\
+$fill\
+$c\
+$cpp\
+$rust\
+$golang\
+$nodejs\
+$php\
+$java\
+$kotlin\
+$haskell\
+$python\
+$docker_context\
+$package\
+$line_break\
+$character\
+"""
+
+# Right side prompt 
+right_format = """
+$jobs\
+${custom.home}\
+$cmd_duration\
+"""
+palette = 'gruvbox_dark'
+
+[palettes.gruvbox_dark]
+color_fg0 = '#fbf1c7'
+color_bg1 = '#3c3836'
+color_bg3 = '#665c54'
+color_blue = '#83a598'
+color_aqua = '#8ec07c'
+color_green = '#b8bb26'
+color_orange = '#fe8019'
+color_purple = '#d3869b'
+color_red = '#fb4934'
+color_yellow = '#fabd2f'
+
+[os]
+disabled = false
+style = "fg:color_purple"
+
+[os.symbols]
+Windows = "󰍲"
+Ubuntu = "󰕈"
+Macos = "󰀵"
+Linux = "󰌽"
+Gentoo = "󰣨"
+Fedora = "󰣛"
+Alpine = ""
+Amazon = ""
+Android = ""
+Arch = "󰣇"
+Void=" "
+
+[sudo]
+format = "[$symbol]($style)"
+style = "fg:color_fg0"
+symbol = "󰌾 "
+disabled = false
+
+[username]
+show_always = true
+style_user = "fg:color_orange"
+style_root = "fg:color_red"
+format = '[$user]($style)'
+
+[hostname]
+ssh_only = false
+style = "fg:color_yellow"
+format = '[ at ]($style)[$hostname](fg:color_yellow)'
+
+[directory]
+style = "fg:color_aqua"
+format = '[ in ]($style)[$path](fg:color_aqua)'
+read_only = " 󰌾"
+truncation_length = 3
+truncation_symbol = ""
+
+[directory.substitutions]
+"~" = "~"
+
+[git_branch]
+symbol = ""
+style = "fg:color_blue"
+format = '[ on ]($style)[$symbol$branch](fg:color_blue)'
+
+[git_status]
+style = "fg:color_red"
+format = '[$all_status $ahead_behind]($style)'
+conflicted = "="
+ahead = "⇡"
+behind = "⇣"
+diverged = "⇕"
+up_to_date = ""
+untracked = "?"
+stashed = "$"
+modified = "!"
+staged = "+"
+renamed = "»"
+deleted = "✘"
+
+[git_state]
+format = '\([$state( $progress_current/$progress_total)]($style)\) '
+style = "fg:red"
+
+[git_metrics]
+format = '([+$added ]($added_style))([-$deleted]($deleted_style))'
+added_style = 'dimmed fg:color_green'
+deleted_style = 'dimmed fg:color_red'
+ignore_submodules = true
+disabled = false
+
+[fill]
+symbol = " "
+
+[time]
+disabled = false
+format = "[ $time]($style)"
+time_format = "%I:%M %p"
+utc_time_offset = "local"
+style = "dimmed fg:color_fg0"
+
+[cmd_duration]
+format = "[ took ]($style)[$duration]($style)"
+style = "fg:yellow"
+
+[character]
+disabled = false
+success_symbol = '[](bold fg:color_green)'
+error_symbol = '[](bold fg:color_red)'
+vimcmd_symbol = '[](bold fg:color_green)'
+vimcmd_replace_one_symbol = '[](bold fg:color_purple)'
+vimcmd_replace_symbol = '[](bold fg:color_purple)'
+vimcmd_visual_symbol = '[](bold fg:color_yellow)'
+
+[jobs]
+format = "[$symbol$number]($style) "
+style = "fg:color_fg0"
+
+# Language/tool detection (shown with icons after git info)
+[nodejs]
+symbol = ""
+style = "fg:color_green"
+format = '[ ($symbol$version)]($style)'
+[python]
+symbol = ""
+style = "fg:color_green"
+format = '[ ($symbol$version)]($style)'
+[rust]
+symbol = ""
+style = "fg:color_green"
+format = '[ ($symbol$version)]($style)'
+[golang]
+symbol = ""
+style = "fg:color_green"
+format = '[ ($symbol$version)]($style)'
+[java]
+symbol = ""
+style = "fg:color_green"
+format = '[ ($symbol$version)]($style)'
+[c]
+symbol = ""
+style = "fg:color_green"
+format = '[ ($symbol$version)]($style)'
+[cpp]
+symbol = ""
+style = "fg:color_green"
+format = '[ ($symbol$version)]($style)'
+[php]
+symbol = ""
+style = "fg:color_green"
+format = '[ ($symbol$version)]($style)'
+[kotlin]
+symbol = ""
+style = "fg:color_green"
+format = '[ ($symbol$version)]($style)'
+[haskell]
+symbol = ""
+style = "fg:color_green"
+format = '[ ($symbol$version)]($style)'
+
+[package]
+symbol = "" 
+format = " $version"
+
+[line_break]
+disabled = false
+
+[custom.home]
+when = "test $HOME = $PWD"
+format = " "
+style = "bright-white"

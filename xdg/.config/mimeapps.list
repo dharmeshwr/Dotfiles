@@ -1,0 +1,9 @@
+[Default Applications]
+text/plain=neovim.desktop
+image/jpeg=sxiv.desktop
+image/png=sxiv.desktop
+application/pdf=zathura.desktop
+application/zip=engrampa.desktop
+x-scheme-handler/http=firefox.desktop
+x-scheme-handler/https=firefox.desktop
+inode/directory=pcmanfm.desktop

@@ -1,5 +1,7 @@
 [global]
     monitor = 0
+    origin = bottom-right
+    offset = (0, 23) 
     follow = mouse
     indicate_hidden = yes
     shrink = yes
@@ -8,11 +10,11 @@
     padding = 10
     horizontal_padding = 8
     frame_width = 1
-    frame_color = "#414868"  # Tokyo Night border
+    frame_color = "#504945"  # Gruvbox dark border
     separator_color = auto
     sort = yes
     idle_threshold = 120
-    font = SpaceMono Nerd Font Mono,  9
+    font = SF Mono, 10
     line_height = 0
     markup = full
     format = "<b>%s</b>\n%b"
@@ -48,22 +50,22 @@
     per_monitor_dpi = false
 
 [urgency_low]
-    background  = "#1a1b26"
-    foreground  = "#c0caf5"
-    frame_color = "#414868"
+    background  = "#282828"
+    foreground  = "#ebdbb2"
+    frame_color = "#504945"
     timeout = 8
     icon = dialog-information-symbolic
 
 [urgency_normal]
-    background = "#1a1b26"
-    foreground = "#c0caf5"
-    frame_color = "#7aa2f7"
+    background = "#282828"
+    foreground = "#ebdbb2"
+    frame_color = "#83a598"
     timeout = 10
     icon = dialog-information-symbolic
 
 [urgency_critical]
-    background = "#1a1b26"
-    foreground = "#f7768e"
-    frame_color = "#f7768e"
+    background = "#282828"
+    foreground = "#fb4934"
+    frame_color = "#fb4934"
     timeout = 0
     icon = dialog-warning-symbolic

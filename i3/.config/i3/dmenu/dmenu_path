@@ -6,7 +6,6 @@ cache="$cachedir/dmenu_run"
 [ ! -e "$cachedir" ] && mkdir -p "$cachedir"
 
 export PATH="/home/ninjafire/.local/bin:/sbin:$PATH"
-export PATH=$PATH:/var/lib/flatpak/exports/bin:~/.local/share/flatpak/exports/bin
 
 IFS=:
 if stest -dqr -n "$cache" $PATH; then
