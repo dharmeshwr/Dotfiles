@@ -4,6 +4,8 @@ set fish_greeting ""
 
 set -gx TERM xterm-256color
 
+abbr clip "xsel --clipboard"
+
 alias nv 'nvim'
 alias clearvim 'rm ~/.local/state/nvim ~/.local/share/nvim ~/.cache/nvim'
 

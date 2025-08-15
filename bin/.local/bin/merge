@@ -1,18 +1,32 @@
-#!/bin/zsh
+#!/bin/bash
 
 timestamp=$(date +"%Y%m%d_%H%M%S")
 output_file="$timestamp.txt"
 
 if [ "$#" -eq 0 ]; then
+  # No arguments - find all files in current directory recursively
   input_files=($(find . -type d \( -name node_modules -o -name .git \) -prune -o -type f ! -name "package-lock.json" ! -name "merge" -print))
 else
-  input_files=("$@")
+  # Arguments provided - process each one
+  input_files=()
+  for arg in "$@"; do
+    if [ -d "$arg" ]; then
+      # It's a directory - find all files recursively inside it
+      echo "Processing directory: $arg"
+      while IFS= read -r -d '' file; do
+        input_files+=("$file")
+      done < <(find "$arg" -type d \( -name node_modules -o -name .git \) -prune -o -type f ! -name "package-lock.json" ! -name "merge" -print0)
+    elif [ -f "$arg" ]; then
+      # It's a file - add it directly
+      input_files+=("$arg")
+    else
+      echo "Warning: '$arg' is neither a file nor a directory, skipping..."
+    fi
+  done
 fi
 
 echo "Input files: ${input_files[@]}"
-
 touch "$output_file"
-
 merged_count=0
 
 for input_file in "${input_files[@]}"; do
@@ -31,4 +45,3 @@ else
   echo "No files found to merge."
   rm "$output_file"
 fi
-

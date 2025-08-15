@@ -127,4 +127,6 @@ vim.o.conceallevel = 2
 
 vim.opt.numberwidth = 1
 
+vim.opt.termguicolors = true
+
 return {}
