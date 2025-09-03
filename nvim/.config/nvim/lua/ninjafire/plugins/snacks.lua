@@ -28,16 +28,15 @@ return {
             {
               section = "terminal",
               icon = " ",
-              title = "Git Status",
-              cmd =
-              "set output $(git --no-pager diff --stat -B -M -C); [ -n \"$output\" ] && echo \"$output\" || echo 'That's right, It's empty'",
+              title = "Git Diff",
+              cmd = "git --no-pager diff --stat -B -M -C || echo \"That's right, It's empty\"",
               height = 10,
             },
             {
               section = "terminal",
               icon = " ",
               title = "Branch Info",
-              cmd = "git branch -vv && echo '' && git remote -v",
+              cmd = "git branch -vv",
               height = 6,
             },
           }

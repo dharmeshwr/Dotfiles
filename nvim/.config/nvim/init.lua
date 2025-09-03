@@ -8,6 +8,11 @@ require("ninjafire.lazy")
 --   highlight NonText ctermbg=none
 -- ]]
 
+-- vim.api.nvim_create_autocmd("BufWritePost", {
+--   pattern = "~/.local/src/dwmblocks/config.h",
+--   command = "!cd ~/.local/src/dwmblocks/ && sudo make clean install && { kill -q dwmblocks; setsid dwmblocks & }",
+-- })
+
 vim.api.nvim_create_autocmd("TextYankPost", {
   desc = "Highlight when yanking(copying) text",
   group = vim.api.nvim_create_augroup("kickstart-highlight-yank", { clear = true }),

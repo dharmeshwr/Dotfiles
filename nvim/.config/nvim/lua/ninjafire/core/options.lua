@@ -1,6 +1,9 @@
 -- Set leader key to space
 vim.g.mapleader = " "
 
+-- Hide command line
+vim.o.cmdheight = 0
+
 -- Use system clipboard
 vim.opt.clipboard:append("unnamedplus")
 

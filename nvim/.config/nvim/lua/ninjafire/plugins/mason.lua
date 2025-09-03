@@ -5,9 +5,6 @@ return {
       'williamboman/mason-lspconfig.nvim',
       'WhoIsSethDaniel/mason-tool-installer.nvim',
     },
-    config = function()
-      vim.keymap.set('n', "<space>m", "<cmd>Mason<CR>")
-    end
   },
   {
     'williamboman/mason-lspconfig.nvim',
