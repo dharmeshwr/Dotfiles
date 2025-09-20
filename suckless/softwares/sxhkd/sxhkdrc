@@ -8,7 +8,7 @@ alt + 9
   slock
 
 ctrl + shift + p
-  firefox --private-window
+  thorium-browser --incognito
 
 super + p
   pavucontrol
@@ -28,11 +28,14 @@ XF86AudioLowerVolume
 XF86AudioMute
   wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
 
-super + shift + p
-  sudo poweroff
-
 super + shift + r
-  sudo reboot now
+    pkill -x dwm
+
+super + t
+  theme-switcher
+
+super + shift + c
+  out
 
 Print  
   flameshot screen --path ~/Pictures/Screenshots/screenshot
@@ -42,3 +45,6 @@ shift + Print
 
 ctrl + Print  
   flameshot gui --clipboard
+
+super + c
+  ffplay -fast /dev/video0

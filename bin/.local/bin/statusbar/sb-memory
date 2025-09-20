@@ -1,0 +1,9 @@
+#!/bin/sh
+
+case $BLOCK_BUTTON in
+	1) notify-send "Memory logs" "$(ps axch -o cmd,%mem | awk '{cmd[$1]+=$2} END {for (i in cmd) print i, cmd[i]}' | sort -nrk2 | head)" ;;
+  2) setsid -f "$TERMINAL" -e "$EDITOR" "$0" ;;
+  3) setsid -f "$TERMINAL" -e btop ;;
+esac
+
+free -h | awk '/^Mem/ { print $3"/"$2 }' | sed s/i//g

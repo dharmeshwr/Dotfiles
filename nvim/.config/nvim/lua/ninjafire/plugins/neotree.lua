@@ -13,7 +13,7 @@ return {
       popup_border_style = "rounded",
       window = {
         position = "left",
-        width = 30,
+        width = 45,
         mapping_options = {
           noremap = true,
           nowait = true,

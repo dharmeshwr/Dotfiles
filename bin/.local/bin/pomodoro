@@ -1,0 +1,76 @@
+#!/bin/sh
+LOGFILE="/tmp/dwmblocks-click.log"
+
+notify-send "Pomodoro clicked" "Button $BUTTON $BLOCK_BUTTON"
+
+# Output to dwmbar (if script is used as a status block)
+printf "Click me!\n"
+
+# # File to store state
+# STATE="$HOME/.cache/pomodoro"
+#
+# WORK=1500   # 25 min
+# BREAK=300   # 5 min
+#
+# # Handle clicks
+# case "$BLOCK_BUTTON" in
+#     1)  # Left click → toggle start/stop
+#         if [ -f "$STATE.pause" ]; then
+#             rm -f "$STATE.pause"
+#             notify-send "Pomodoro" "Resumed!"
+#         else
+#             touch "$STATE.pause"
+#             notify-send "Pomodoro" "Paused!"
+#         fi
+#         ;;
+#     2)  # Middle click → reset
+#         echo "$WORK focus" > "$STATE"
+#         rm -f "$STATE.pause"
+#         notify-send "Pomodoro" "Reset to 25:00"
+#         ;;
+#     3)  # Right click → skip to next mode
+#         read TIME MODE < "$STATE"
+#         if [ "$MODE" = "focus" ]; then
+#             echo "$BREAK break" > "$STATE"
+#             notify-send "Pomodoro" "Skipping to break!"
+#         else
+#             echo "$WORK focus" > "$STATE"
+#             notify-send "Pomodoro" "Skipping to focus!"
+#         fi
+#         ;;
+# esac
+#
+# # If state file doesn’t exist, initialize
+# [ ! -f "$STATE" ] && echo "$WORK focus" > "$STATE"
+#
+# # If paused, just print current state without decreasing timer
+# if [ -f "$STATE.pause" ]; then
+#     read TIME MODE < "$STATE"
+# else
+#     read TIME MODE < "$STATE"
+#
+#     # Decrease timer
+#     if [ "$TIME" -gt 0 ]; then
+#         TIME=$((TIME - 60))
+#     else
+#         if [ "$MODE" = "focus" ]; then
+#             TIME=$BREAK
+#             MODE="break"
+#             notify-send "Pomodoro" "Take a 5 min break!"
+#             aplay /usr/share/sounds/alsa/relax.wav
+#         else
+#             TIME=$WORK
+#             MODE="focus"
+#             notify-send "Pomodoro" "Back to work!"
+#             aplay /usr/share/sounds/alsa/back_to_work.wav
+#         fi
+#     fi
+#
+#     echo "$TIME $MODE" > "$STATE"
+# fi
+#
+# # Print formatted for dwmblocks
+# read TIME MODE < "$STATE"
+# MIN=$((TIME / 60))
+# SEC=$((TIME % 60))
+# printf "%02d:%02d (%s)\n" "$MIN" "$SEC" "$MODE"

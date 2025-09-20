@@ -1,0 +1,68 @@
+! Solarized Dark Theme
+! DWM and DMENU colors
+dmenu.background:        #002b36
+dmenu.foreground:        #839496
+dmenu.selbackground:     #073642
+dmenu.selforeground:     #93a1a1
+dwm.normbgcolor:          #002b36
+dwm.normfgcolor:          #586e75
+dwm.selbgcolor:           #073642
+dwm.selfgcolor:           #93a1a1
+dwm.normbordercolor:      #002b36
+dwm.selbordercolor:       #586e75
+dwm.tagsnormfgcolor:      #586e75
+dwm.tagsnormbgcolor:      #002b36
+dwm.tagsnormbordercolor:  #002b36
+dwm.tagsselfgcolor:       #93a1a1
+dwm.tagsselbgcolor:       #073642
+dwm.tagsselbordercolor:   #073642
+dwm.titlenormfgcolor:     #586e75
+dwm.titlenormbgcolor:     #002b36
+dwm.titlenormbordercolor: #002b36
+dwm.titleselfgcolor:      #93a1a1
+dwm.titleselbgcolor:      #073642
+dwm.titleselbordercolor:  #073642
+
+! ST specific
+st.background:   #002b36  
+st.foreground:   #839496 
+st.cursorColor:  #839496
+
+! 16 ANSI colors
+st.color0:  #073642  
+st.color1:  #dc322f 
+st.color2:  #859900
+st.color3:  #b58900  
+st.color4:  #268bd2 
+st.color5:  #d33682
+st.color6:  #2aa198  
+st.color7:  #657b83 
+st.color8:  #002b36  
+st.color9:  #cb4b16  
+st.color10: #586e75  
+st.color11: #657b83  
+st.color12: #839496  
+st.color13: #6c71c4
+st.color14: #93a1a1 
+st.color15: #fdf6e3  
+
+! Terminal colors 
+*.foreground:   #839496
+*.background:   #002b36
+*.cursorColor:  #839496
+*.color0:       #073642
+*.color8:       #002b36
+*.color1:       #dc322f
+*.color9:       #cb4b16
+*.color2:       #859900
+*.color10:      #586e75
+*.color3:       #b58900
+*.color11:      #657b83
+*.color4:       #268bd2
+*.color12:      #839496
+*.color5:       #d33682
+*.color13:      #6c71c4
+*.color6:       #2aa198
+*.color14:      #93a1a1
+*.color7:        #657b83
+*.color15:      #fdf6e3

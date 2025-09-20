@@ -2,8 +2,8 @@
   defaultBranch = master
 
 [user]
-  name = Dharmeshwr
-  email = dharmeshwr@gmail.com
+	name = Dharmesh
+	email = dharmeshwr@gmail.com
   signingkey = B93EEC97575096FA007A5E28AFC642FFADE783AC
 
 [commit]

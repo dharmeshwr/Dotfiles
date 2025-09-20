@@ -3,21 +3,41 @@
 timestamp=$(date +"%Y%m%d_%H%M%S")
 output_file="$timestamp.txt"
 
+# Exclude patterns for binary/media files
+exclude_patterns=(
+  # images
+  "*.png" "*.jpg" "*.jpeg" "*.gif" "*.bmp" "*.tiff" "*.ico" "*.svg" "*.webp"
+  # audio
+  "*.mp3" "*.wav" "*.ogg" "*.flac" "*.aac" "*.m4a"
+  # video
+  "*.mp4" "*.mkv" "*.avi" "*.mov" "*.wmv" "*.flv" "*.webm"
+  # fonts
+  "*.ttf" "*.otf" "*.woff" "*.woff2" "*.eot"
+  # binaries
+  "*.exe" "*.dll" "*.so" "*.bin" "*.dat" "*.class" "*.o" "*.a"
+)
+
+# Build exclusion expression for find
+exclude_expr=()
+for pattern in "${exclude_patterns[@]}"; do
+  exclude_expr+=( ! -iname "$pattern" )
+done
+
 if [ "$#" -eq 0 ]; then
   # No arguments - find all files in current directory recursively
-  input_files=($(find . -type d \( -name node_modules -o -name .git \) -prune -o -type f ! -name "package-lock.json" ! -name "merge" -print))
+  input_files=($(find . -type d \( -name node_modules -o -name .git \) -prune -o -type f \
+    ! -name "package-lock.json" ! -name "merge" "${exclude_expr[@]}" -print))
 else
   # Arguments provided - process each one
   input_files=()
   for arg in "$@"; do
     if [ -d "$arg" ]; then
-      # It's a directory - find all files recursively inside it
       echo "Processing directory: $arg"
       while IFS= read -r -d '' file; do
         input_files+=("$file")
-      done < <(find "$arg" -type d \( -name node_modules -o -name .git \) -prune -o -type f ! -name "package-lock.json" ! -name "merge" -print0)
+      done < <(find "$arg" -type d \( -name node_modules -o -name .git \) -prune -o -type f \
+        ! -name "package-lock.json" ! -name "merge" "${exclude_expr[@]}" -print0)
     elif [ -f "$arg" ]; then
-      # It's a file - add it directly
       input_files+=("$arg")
     else
       echo "Warning: '$arg' is neither a file nor a directory, skipping..."

@@ -1,9 +1,9 @@
 return {
   {
     "rose-pine/neovim",
-    enabled = false,
+    enabled = true,
+    lazy = false,
     name = "rose-pine",
-    config = function() vim.cmd("colorscheme rose-pine") end,
   },
   {
     "sainnhe/gruvbox-material",
@@ -18,34 +18,49 @@ return {
       vim.g.gruvbox_material_enable_bold = 0
       vim.g.gruvbox_material_ui_contrast = "high"
       vim.g.gruvbox_material_float_style = "dim"
-      vim.cmd.colorscheme("gruvbox-material")
     end,
   },
   {
     "craftzdog/solarized-osaka.nvim",
     lazy = false,
-    enabled = false,
+    enabled = true,
     priority = 1000,
-    config = function() vim.cmd("colorscheme solarized-osaka") end,
     opts = {},
+  },
+  {
+    "catppuccin/nvim",
+    name = "catppuccin",
+    priority = 1000,
+    enabled = true,
+    config = function()
+      require("catppuccin").setup({
+        flavour = "auto", -- latte, frappe, macchiato, mocha
+        background = {
+          light = "latte",
+          dark = "mocha",
+        },
+        float = {
+          transparent = false, -- enable transparent floating windows
+          solid = false,     -- use solid styling for floating windows, see |winborder|
+        },
+      })
+    end
   },
   {
     "folke/tokyonight.nvim",
     lazy = false,
     priority = 1000,
-    enabled = false,
-    config = function() vim.cmd("colorscheme tokyonight") end,
+    enabled = true,
     opts = {},
   },
   {
     'projekt0n/github-nvim-theme',
     name = 'github-theme',
-    enabled = false,
+    enabled = true,
     lazy = false,
     priority = 1000,
     config = function()
       require('github-theme').setup({})
-      vim.cmd('colorscheme github_dark_default')
     end,
   },
 }

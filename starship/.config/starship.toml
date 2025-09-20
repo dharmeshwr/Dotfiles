@@ -1,5 +1,7 @@
 "$schema" = 'https://starship.rs/config-schema.json'
 
+palette = 'gruvbox_dark'
+
 # Left side prompt
 format = """
 $username\
@@ -32,7 +34,45 @@ $jobs\
 ${custom.home}\
 $cmd_duration\
 """
-palette = 'gruvbox_dark'
+
+# Catppuccin (Mocha variant)
+[palettes.catppuccin]
+color_fg0 = '#cdd6f4'
+color_bg1 = '#1e1e2e'
+color_bg3 = '#313244'
+color_blue = '#89b4fa'
+color_aqua = '#94e2d5'
+color_green = '#a6e3a1'
+color_orange = '#fab387'
+color_purple = '#cba6f7'
+color_red = '#f38ba8'
+color_yellow = '#f9e2af'
+
+# Gruvbox Light
+[palettes.gruvbox_light]
+color_fg0 = '#3c3836'
+color_bg1 = '#fbf1c7'
+color_bg3 = '#ebdbb2'
+color_blue = '#076678'
+color_aqua = '#427b58'
+color_green = '#79740e'
+color_orange = '#af3a03'
+color_purple = '#8f3f71'
+color_red = '#9d0006'
+color_yellow = '#b57614'
+
+# Solarized Dark
+[palettes.solarized_dark]
+color_fg0 = '#93a1a1'
+color_bg1 = '#002b36'
+color_bg3 = '#073642'
+color_blue = '#268bd2'
+color_aqua = '#2aa198'
+color_green = '#859900'
+color_orange = '#cb4b16'
+color_purple = '#6c71c4'
+color_red = '#dc322f'
+color_yellow = '#b58900'
 
 [palettes.gruvbox_dark]
 color_fg0 = '#fbf1c7'
@@ -45,6 +85,19 @@ color_orange = '#fe8019'
 color_purple = '#d3869b'
 color_red = '#fb4934'
 color_yellow = '#fabd2f'
+
+# default (suckless default colors)
+[palettes.default]
+color_fg0 = '#bbbbbb' # normal fg
+color_bg1 = '#222222' # background
+color_bg3 = '#444444' # darker gray
+color_blue = '#005577' # dwm accent blue
+color_aqua = '#5f8787' # muted cyan
+color_green = '#859900' # readable green
+color_orange = '#d65d0e' # contrast orange
+color_purple = '#6c71c4' # softer purple
+color_red = '#dc322f' # bright red
+color_yellow = '#b58900' # yellow (like statusbar)
 
 [os]
 disabled = false
@@ -104,7 +157,7 @@ behind = "⇣"
 diverged = "⇕"
 up_to_date = ""
 untracked = "?"
-stashed = "$"
+stashed = "#"
 modified = "!"
 staged = "+"
 renamed = "»"

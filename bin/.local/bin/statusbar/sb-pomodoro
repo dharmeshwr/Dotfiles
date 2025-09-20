@@ -1,0 +1,57 @@
+#!/bin/sh
+
+STATE="$HOME/.cache/pomodoro"
+WORK=1500  # 25 minutes
+
+# --- Handle Clicks ---
+case "$BLOCK_BUTTON" in
+    1)  # Left click → Toggle pause/resume
+        if [ -f "$STATE.pause" ]; then
+            # Resume: set last updated timestamp to now
+            date +%s > "$STATE.last"
+            rm -f "$STATE.pause"
+        else
+            touch "$STATE.pause"
+        fi
+        ;;
+    2)  # Middle click → Edit this script
+        setsid -f "$TERMINAL" -e "$EDITOR" "$0" ;;
+    3)  # Right click → Reset timer and stop
+        echo "$WORK focus" > "$STATE"
+        touch "$STATE.pause"
+        ;;
+esac
+
+# --- Initialize state if missing ---
+if [ ! -f "$STATE" ]; then
+    echo "$WORK focus" > "$STATE"
+    touch "$STATE.pause"
+fi
+if [ ! -f "$STATE.last" ]; then
+    date +%s > "$STATE.last"
+fi
+
+# --- Load current state ---
+read TIME MODE < "$STATE"
+
+# --- Decrease time if running ---
+if [ ! -f "$STATE.pause" ]; then
+    NOW=$(date +%s)
+    LAST=$(cat "$STATE.last")
+    ELAPSED=$((NOW - LAST))
+
+    if [ "$ELAPSED" -gt 0 ]; then
+        TIME=$((TIME - ELAPSED))
+        if [ "$TIME" -lt 0 ]; then TIME=0; fi
+        echo "$TIME $MODE" > "$STATE"
+        echo "$NOW" > "$STATE.last"
+    fi
+    ICON=""
+else
+    ICON="󰥔"
+fi
+
+# --- Display time with icon ---
+MIN=$((TIME / 60))
+SEC=$((TIME % 60))
+printf "%s %02d:%02d (%s)\n" "$ICON" "$MIN" "$SEC" "$MODE"

@@ -1,0 +1,225 @@
+#!/bin/bash
+
+THEMES_DIR="$HOME/.config/themes"
+BASE_XRESOURCES="$HOME/.Xresources"
+WALLPAPERS_DIR="$HOME/Pictures/Wallpapers"
+STOCK_WALLPAPER="$HOME/Pictures/Wallpapers/void.png"
+LAZY_CONFIG="$HOME/.config/nvim/lua/ninjafire/lazy.lua"
+STARSHIP_CONFIG="$HOME/.config/starship.toml"
+
+declare -A NVIM_THEMES=(
+    ["gruvbox-light"]="gruvbox-material"
+    ["gruvbox-dark"]="gruvbox-material"
+    ["solarized"]="solarized-osaka"
+    ["catppuccin-dark"]="catppuccin"
+    ["catppuccin-light"]="catppuccin"
+    ["default"]="github_dark_default"
+)
+
+apply_wallpaper() {
+    local theme_name=$1
+    local theme_wallpaper_dir="$WALLPAPERS_DIR/$theme_name"
+
+    if [ ! -d "$theme_wallpaper_dir" ]; then
+        echo "Warning: Wallpaper directory not found at $theme_wallpaper_dir"
+        echo "Create this directory with wallpaper files to enable automatic wallpaper switching"
+        return
+    fi
+
+    wallpaper_path=$(find "$theme_wallpaper_dir" -type f \( -iname "*.jpg" -o -iname "*.jpeg" -o -iname "*.png"  \) | shuf -n 1)
+
+    if [ -z "$wallpaper_path" ]; then
+        echo "Warning: No wallpaper images found in $theme_wallpaper_dir"
+        echo "Supported formats: jpg, jpeg, png, bmp, webp"
+        return
+    fi
+    
+    if command -v feh >/dev/null 2>&1; then
+        feh --bg-fill "$wallpaper_path"
+        ext="${wallpaper_path##*.}"
+        cp "$wallpaper_path" "$WALLPAPERS_DIR/current.$ext"
+        echo "Wallpaper set using feh: $(basename "$wallpaper_path")"
+    else
+        echo "Warning: No wallpaper setter found (feh, xwallpaper)"
+        echo "Wallpaper found: $wallpaper_path"
+    fi
+}
+
+apply_nvim_theme() {
+    local theme_name=$1
+    local nvim_theme="${NVIM_THEMES[$theme_name]}"
+    
+    if [ -z "$nvim_theme" ]; then
+        nvim_theme="$theme_name"
+        echo "Warning: No Neovim theme mapping found for '$theme_name', using '$nvim_theme'"
+    fi
+
+    local bg_setting="dark"
+    if [[ "$theme_name" == *"light"* ]]; then
+        bg_setting="light"
+    fi
+
+    if [ ! -f "$LAZY_CONFIG" ]; then
+        echo "Warning: Neovim lazy.lua config not found at $LAZY_CONFIG"
+        return
+    fi
+
+    # Use sed to replace the background setting line
+    sed -i "s/vim\.o\.background = \".*\"/vim.o.background = \"$bg_setting\"/" "$LAZY_CONFIG"
+    
+    # Use sed to replace the colorscheme line
+    sed -i "s/vim\.cmd(\"colorscheme .*\")/vim.cmd(\"colorscheme $nvim_theme\")/" "$LAZY_CONFIG"
+    
+    # Also update the install colorscheme if present
+    sed -i "s/install = { colorscheme = { \".*\" } }/install = { colorscheme = { \"$nvim_theme\" } }/" "$LAZY_CONFIG"
+    
+    echo "Neovim theme set to: $nvim_theme"
+}
+
+apply_starship_theme() {
+    local theme_name=$1
+    
+    if [ ! -f "$STARSHIP_CONFIG" ]; then
+        echo "Warning: Starship config not found at $STARSHIP_CONFIG"
+        return
+    fi
+
+    # Use sed to replace the palette line in starship.toml
+    sed -i "s/^palette = '.*'/palette = '$theme_name'/" "$STARSHIP_CONFIG"
+    
+    echo "Starship palette set to: $theme_name"
+}
+
+apply_stock_theme() {
+    temp_file=$(mktemp)
+    
+    # Remove any existing theme include line from .Xresources
+    grep -v "^#include.*/home/ninjafire/.config/themes/.*\.Xresources" "$BASE_XRESOURCES" > "$temp_file"
+    
+    # Replace original .Xresources
+    mv "$temp_file" "$BASE_XRESOURCES"
+    
+    # Apply default wallpaper
+    if [ ! -f "$STOCK_WALLPAPER" ]; then
+        echo "Warning: default wallpaper not found at $STOCK_WALLPAPER"
+    else
+        if command -v feh >/dev/null 2>&1; then
+            feh --bg-fill "$STOCK_WALLPAPER"
+            ext="${STOCK_WALLPAPER##*.}"
+            cp "$STOCK_WALLPAPER" "$WALLPAPERS_DIR/current.$ext"
+            echo "default wallpaper set using feh: $(basename "$STOCK_WALLPAPER")"
+        else
+            echo "Warning: No wallpaper setter found (feh, xwallpaper)"
+            echo "default wallpaper found: $STOCK_WALLPAPER"
+        fi
+    fi
+    
+    # Apply default Neovim theme
+    apply_nvim_theme "default"
+    apply_starship_theme "default"
+
+    xrdb ~/.Xresources
+    pkill -x dwm
+
+    echo "Applied default theme: removed theme includes from .Xresources"
+}
+
+apply_theme() {
+    local theme_name=$1
+
+    if [ "$theme_name" = "default" ]; then
+        apply_stock_theme
+        return 0
+    fi
+
+    local theme_file="$THEMES_DIR/$theme_name.Xresources"
+    local theme_wallpaper_dir="$WALLPAPERS_DIR/$theme_name"
+    
+    if [ ! -f "$theme_file" ]; then
+        echo "Theme '$theme_name' not found!"
+        echo "Available themes:"
+        ls "$THEMES_DIR"/*.Xresources 2>/dev/null | xargs -n 1 basename -s .Xresources | sed 's/^/  - /'
+        return 1
+    fi
+    
+    temp_file=$(mktemp)
+    
+    # Check if .Xresources already has a theme include line
+    if grep -q "^#include.*/home/ninjafire/.config/themes/.*\.Xresources" "$BASE_XRESOURCES"; then
+        # Replace existing theme include line
+        sed "s|^#include.*/home/ninjafire/.config/themes/.*\.Xresources.*|#include \"/home/ninjafire/.config/themes/$theme_name.Xresources\"|" "$BASE_XRESOURCES" > "$temp_file"
+    else
+        # Add theme include line at the top
+        echo "#include \"/home/ninjafire/.config/themes/$theme_name.Xresources\"" > "$temp_file"
+        cat "$BASE_XRESOURCES" >> "$temp_file"
+    fi
+    
+    # Replace original .Xresources
+    mv "$temp_file" "$BASE_XRESOURCES"
+
+    apply_wallpaper "$theme_name"
+    apply_nvim_theme "$theme_name"
+    apply_starship_theme "$theme_name"
+    
+    xrdb ~/.Xresources
+    pkill -x dwm
+    
+    echo "Applied theme: $theme_name"
+}
+
+list_themes() {
+    echo "Available themes:"
+    if [ -d "$THEMES_DIR" ]; then
+        for theme_file in "$THEMES_DIR"/*.Xresources; do
+            [ -f "$theme_file" ] || continue
+            theme_name=$(basename "$theme_file" .Xresources)
+            wallpaper_status=""
+            nvim_status=""
+            starship_status=""
+            wallpaper_dir="$WALLPAPERS_DIR/$theme_name"
+            
+            # Check wallpaper status
+            if [ -d "$wallpaper_dir" ]; then
+                wallpaper_count=$(find "$wallpaper_dir" -type f \( -iname "*.jpg" -o -iname "*.jpeg" -o -iname "*.png" -o -iname "*.bmp" -o -iname "*.webp" \) | wc -l)
+                if [ "$wallpaper_count" -gt 0 ]; then
+                    wallpaper_status=" [wallpapers: $wallpaper_count]"
+                else
+                    wallpaper_status=" [wallpapers: 0]"
+                fi
+            else
+                wallpaper_status=" [wallpapers: ✗]"
+            fi
+            
+            # Check Neovim theme mapping
+            if [ -n "${NVIM_THEMES[$theme_name]}" ]; then
+                nvim_status=" [nvim: ${NVIM_THEMES[$theme_name]}]"
+            else
+                nvim_status=" [nvim: $theme_name]"
+            fi
+            
+            echo "  - $theme_name$wallpaper_status$nvim_status$starship_status"
+        done
+        echo "To add a new theme, add colors in ~/.config/themes, starship and add a new nvim theme and wallpapers in ~/Pictures/Wallpapers"
+    else
+        echo " No themes found."
+    fi
+}
+
+dmenu_theme_switcher() {
+    theme=$( (echo "default"; ls "$THEMES_DIR"/*.Xresources 2>/dev/null | xargs -n 1 basename -s .Xresources) | dmenu -p "Choose your theme:")
+    if [ -n "$theme" ]; then
+        apply_theme "$theme"
+    fi
+}
+
+case "$1" in
+    -l|--list)
+        list_themes
+        ;;
+    "")
+        dmenu_theme_switcher
+        ;;
+    *)
+        apply_theme "$1"
+        ;;
+esac

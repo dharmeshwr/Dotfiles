@@ -1,15 +1,13 @@
-#!/bin/zsh
+#!/bin/sh
 
 options="Close X\nShutdown\nRestart\nLock"
-choice=$(echo -e "$options" | dmenu -p 'What would you like to do?')
+choice=$(echo "$options" | dmenu -p 'What would you like to do?')
 
 case $choice in
-    "Close X")
-        pkill dwm ;;
-    "Shutdown")
-        sudo poweroff ;;
     "Restart")
-        sudo reboot ;;
+        sudo reboot now;;
+    "Shutdown")
+        sudo poweroff now;;
     "Lock")
         slock ;;
     *) ;;

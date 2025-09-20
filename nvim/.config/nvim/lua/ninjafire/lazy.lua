@@ -31,5 +31,9 @@ require("lazy").setup({
     { import = "ninjafire.plugins" },
     { import = "ninjafire.core" },
   },
-  install = { colorscheme = { "gruvbox-material" } },
+  install = { colorscheme = { "github_dark_default" } },
 })
+
+-- Set theme after lazy has finished
+vim.o.background = "dark"
+vim.cmd("colorscheme github_dark_default")

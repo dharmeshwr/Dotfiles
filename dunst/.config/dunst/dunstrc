@@ -14,7 +14,7 @@
     separator_color = auto
     sort = yes
     idle_threshold = 120
-    font = SF Mono, 10
+    font = SF Mono, 9
     line_height = 0
     markup = full
     format = "<b>%s</b>\n%b"
@@ -28,7 +28,7 @@
     show_indicators = yes
     icon_position = left
     max_icon_size = 24
-    icon_path = /usr/share/icons/BigSur-black/BigSur-black/apps/22:/usr/share/icons/BigSur-black/BigSur-black/status/22
+    icon_path = /usr/share/icons/Newaita-reborn-dark/apps/22:/usr/share/icons/Newaita-reborn-dark/status/22
     sticky_history = yes
     history_length = 20
     dmenu = /usr/bin/dmenu_run -p dunst:
@@ -44,7 +44,7 @@
     close = ctrl+space
     close_all = ctrl+shift+space
     history = ctrl+grave
-    context = ctrl+shift+period
+    context = ctrl+period
 
 [experimental]
     per_monitor_dpi = false

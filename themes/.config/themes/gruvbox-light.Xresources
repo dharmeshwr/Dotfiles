@@ -1,0 +1,68 @@
+! Gruvbox Light Theme
+! DWM and DMENU colors
+dmenu.background:        #fbf1c7
+dmenu.foreground:        #3c3836
+dmenu.selbackground:     #ebdbb2
+dmenu.selforeground:     #282828
+dwm.normbgcolor:          #fbf1c7
+dwm.normfgcolor:          #665c54
+dwm.selbgcolor:           #ebdbb2
+dwm.selfgcolor:           #282828
+dwm.normbordercolor:      #fbf1c7
+dwm.selbordercolor:       #665c54
+dwm.tagsnormfgcolor:      #665c54
+dwm.tagsnormbgcolor:      #fbf1c7
+dwm.tagsnormbordercolor:  #fbf1c7
+dwm.tagsselfgcolor:       #282828
+dwm.tagsselbgcolor:       #ebdbb2
+dwm.tagsselbordercolor:   #ebdbb2
+dwm.titlenormfgcolor:     #665c54
+dwm.titlenormbgcolor:     #fbf1c7
+dwm.titlenormbordercolor: #fbf1c7
+dwm.titleselfgcolor:      #282828
+dwm.titleselbgcolor:      #ebdbb2
+dwm.titleselbordercolor:  #ebdbb2
+
+! ST specific
+st.background:   #fbf1c7  
+st.foreground:   #3c3836 
+st.cursorColor:  #3c3836
+
+! 16 ANSI colors
+st.color0:  #fbf1c7  
+st.color1:  #cc241d 
+st.color2:  #98971a
+st.color3:  #d79921  
+st.color4:  #458588 
+st.color5:  #b16286
+st.color6:  #689d6a  
+st.color7:  #7c6f64 
+st.color8:  #928374  
+st.color9:  #9d0006  
+st.color10: #79740e  
+st.color11: #b57614  
+st.color12: #076678  
+st.color13: #8f3f71
+st.color14: #427b58 
+st.color15: #3c3836  
+
+! Terminal colors 
+*.foreground:   #3c3836
+*.background:   #fbf1c7
+*.cursorColor:  #3c3836
+*.color0:       #fbf1c7
+*.color8:       #928374
+*.color1:       #cc241d
+*.color9:       #9d0006
+*.color2:       #98971a
+*.color10:      #79740e
+*.color3:       #d79921
+*.color11:      #b57614
+*.color4:       #458588
+*.color12:      #076678
+*.color5:       #b16286
+*.color13:      #8f3f71
+*.color6:       #689d6a
+*.color14:      #427b58
+*.color7:       #7c6f64
+*.color15:      #3c3836

@@ -4,9 +4,9 @@ return {
     vim.keymap.set("n", "<leader>zz", function()
       require("zen-mode").setup {
         window = {
+          backdrop = 0.70,
           width = .6,
           options = {
-            signcolumn = "no",
           }
         },
         plugins = {
@@ -16,7 +16,7 @@ return {
             showcmd = false,
             laststatus = 0,
           },
-          tmux = { enabled = false }
+          tmux = { enabled = true }
         }
       }
       require("zen-mode").toggle()
