@@ -10,9 +10,10 @@ STARSHIP_CONFIG="$HOME/.config/starship.toml"
 declare -A NVIM_THEMES=(
     ["gruvbox-light"]="gruvbox-material"
     ["gruvbox-dark"]="gruvbox-material"
-    ["solarized"]="solarized-osaka"
+    ["solarized-dark"]="solarized-osaka"
     ["catppuccin-dark"]="catppuccin"
     ["catppuccin-light"]="catppuccin"
+    ["everforest-dark"]="everforest"
     ["default"]="github_dark_default"
 )
 

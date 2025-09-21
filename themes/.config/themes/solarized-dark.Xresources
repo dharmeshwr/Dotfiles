@@ -1,9 +1,12 @@
 ! Solarized Dark Theme
-! DWM and DMENU colors
+
+! DMENU colors
 dmenu.background:        #002b36
 dmenu.foreground:        #839496
 dmenu.selbackground:     #073642
 dmenu.selforeground:     #93a1a1
+
+! DWM colors
 dwm.normbgcolor:          #002b36
 dwm.normfgcolor:          #586e75
 dwm.selbgcolor:           #073642
@@ -28,41 +31,39 @@ st.background:   #002b36
 st.foreground:   #839496 
 st.cursorColor:  #839496
 
-! 16 ANSI colors
-st.color0:  #073642  
-st.color1:  #dc322f 
-st.color2:  #859900
-st.color3:  #b58900  
-st.color4:  #268bd2 
-st.color5:  #d33682
-st.color6:  #2aa198  
-st.color7:  #657b83 
-st.color8:  #002b36  
-st.color9:  #cb4b16  
-st.color10: #586e75  
-st.color11: #657b83  
-st.color12: #839496  
-st.color13: #6c71c4
-st.color14: #93a1a1 
-st.color15: #fdf6e3  
-
-! Terminal colors 
-*.foreground:   #839496
+! special
+*.foreground:   #93a1a1
 *.background:   #002b36
-*.cursorColor:  #839496
-*.color0:       #073642
-*.color8:       #002b36
+*.cursorColor:  #93a1a1
+
+! black
+*.color0:       #002b36
+*.color8:       #657b83
+
+! red
 *.color1:       #dc322f
-*.color9:       #cb4b16
+*.color9:       #dc322f
+
+! green
 *.color2:       #859900
-*.color10:      #586e75
+*.color10:      #859900
+
+! yellow
 *.color3:       #b58900
-*.color11:      #657b83
+*.color11:      #b58900
+
+! blue
 *.color4:       #268bd2
-*.color12:      #839496
-*.color5:       #d33682
+*.color12:      #268bd2
+
+! magenta
+*.color5:       #6c71c4
 *.color13:      #6c71c4
+
+! cyan
 *.color6:       #2aa198
-*.color14:      #93a1a1
-*.color7:        #657b83
+*.color14:      #2aa198
+
+! white
+*.color7:       #93a1a1
 *.color15:      #fdf6e3

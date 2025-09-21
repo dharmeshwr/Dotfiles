@@ -25,46 +25,42 @@ dwm.titleselbgcolor:     #a6a3d1
 dwm.titleselbordercolor: #a6a3d1
 
 ! ST specific
-st.background:   #f5e0dc
-st.foreground:   #4c1d95
+st.background:   #eff1f5
+st.foreground:   #4c4f69
 st.cursorColor:  #4c1d95
 
-! 16 ANSI colors
-st.color0:  #f5e0dc  
-st.color1:  #f28d86
-st.color2:  #a6e3a1
-st.color3:  #f9e2af  
-st.color4:  #89b4fa
-st.color5:  #cba6f7
-st.color6:  #94e2d5  
-st.color7:  #4c1d95 
-st.color8:  #d0b0c9  
-st.color9:  #f28d86  
-st.color10: #a6e3a1  
-st.color11: #f9e2af  
-st.color12: #89b4fa  
-st.color13: #cba6f7
-st.color14: #94e2d5 
-st.color15: #4c1d95  
+*background: #eff1f5
+*foreground: #4c4f69
+*cursorColor: #dc8a78
 
+! black
+*color0: #5c5f77
+*color8: #6c6f85
 
-! Terminal colors
-*.foreground:   #4c1d95
-*.background:   #f5e0dc
-*.cursorColor:  #4c1d95
-*.color0:       #f5e0dc
-*.color8:       #d0b0c9
-*.color1:       #f28d86
-*.color9:       #f28d86
-*.color2:       #a6e3a1
-*.color10:      #a6e3a1
-*.color3:       #f9e2af
-*.color11:      #f9e2af
-*.color4:       #89b4fa
-*.color12:      #89b4fa
-*.color5:       #cba6f7
-*.color13:      #cba6f7
-*.color6:       #94e2d5
-*.color14:      #94e2d5
-*.color7:       #4c1d95
-*.color15:      #4c1d95
+! red
+*color1: #d20f39
+*color9: #d20f39
+
+! green
+*color2: #40a02b
+*color10: #40a02b
+
+! yellow
+*color3: #df8e1d
+*color11: #df8e1d
+
+! blue
+*color4: #1e66f5
+*color12: #1e66f5
+
+! magenta
+*color5: #ea76cb
+*color13: #ea76cb
+
+! cyan
+*color6: #179299
+*color14: #179299
+
+! white
+*color7: #acb0be
+*color15: #bcc0cc

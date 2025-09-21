@@ -31,9 +31,9 @@ require("lazy").setup({
     { import = "ninjafire.plugins" },
     { import = "ninjafire.core" },
   },
-  install = { colorscheme = { "github_dark_default" } },
+  install = { colorscheme = { "everforest" } },
 })
 
 -- Set theme after lazy has finished
 vim.o.background = "dark"
-vim.cmd("colorscheme github_dark_default")
+vim.cmd("colorscheme everforest")

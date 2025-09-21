@@ -41,7 +41,7 @@ return {
         },
         float = {
           transparent = false, -- enable transparent floating windows
-          solid = false,     -- use solid styling for floating windows, see |winborder|
+          solid = false,       -- use solid styling for floating windows, see |winborder|
         },
       })
     end
@@ -52,6 +52,24 @@ return {
     priority = 1000,
     enabled = true,
     opts = {},
+  },
+  {
+    "neanias/everforest-nvim",
+    version = false,
+    lazy = false,
+    priority = 1000,
+    config = function()
+      require('everforest').setup({
+        background = "hard",
+        transparent_background_level = 0,
+        italics = true,
+        disable_italic_comments = false,
+        inlay_hints_background = "dimmed",
+        on_highlights = function(hl, _)
+          hl["@string.special.symbol.ruby"] = { link = "@field" }
+        end,
+      })
+    end
   },
   {
     'projekt0n/github-nvim-theme',
