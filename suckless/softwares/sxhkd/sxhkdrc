@@ -1,0 +1,53 @@
+super + f
+  zen
+
+alt + 0
+  pcmanfm
+
+alt + 9
+  slock
+
+ctrl + shift + p
+  thorium-browser --incognito
+
+super + p
+  pavucontrol
+
+super + Escape
+	pkill -USR1 -x sxhkd
+
+XF86MonBrightness{Up,Down}  
+  brightnessctl set 10{+,-}% 
+
+XF86AudioRaiseVolume
+  wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+
+
+XF86AudioLowerVolume
+  wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-
+
+XF86AudioMute
+  wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
+
+super + shift + r
+    pkill -x dwm
+
+super + t
+  theme-switcher
+
+super + shift + i
+  zathura ~/Documents/Reverend_Insanity.pdf &
+
+super + shift + c
+  out
+
+Print  
+  flameshot screen --path ~/Pictures/Screenshots/screenshot
+
+shift + Print 
+  flameshot gui --path ~/Pictures/Screenshots/screenshot
+
+ctrl + Print  
+  flameshot gui --clipboard
+
+super + c
+  ffplay -fast /dev/video0
