@@ -34,6 +34,9 @@ super + shift + r
 super + t
   theme-switcher
 
+super + shift + i
+  zathura ~/Documents/Reverend_Insanity.pdf &
+
 super + shift + c
   out
 

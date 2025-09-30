@@ -25,10 +25,13 @@ xmodmap ~/.Xmodmap
 xset r rate 350 25
 
 # Monitors
-xrandr --output HDMI-1-1 --mode 1920x1080 --above eDP-1 &
+xrandr --setprovideroutputsource modesetting NVIDIA-0
+xrandr --auto   # detect and enable all outputs
+xrandr --output eDP-1-1 --mode 1920x1080 --pos 0x1080 --primary
+xrandr --output HDMI-0 --mode 1920x1080 --above eDP-1-1 --auto
 
 # Extras
-feh --bg-fill ~/Pictures/Wallpapers/current{.png,.jpg} &
+feh --bg-fill ~/Pictures/Wallpapers/current.* &
 pipewire &
 xautolock -time 10 -locker slock &
 picom --config $HOME/.config/picom/picom.conf -b &
@@ -36,7 +39,8 @@ sxhkd -c ~/.dotfiles/suckless/softwares/sxhkd/sxhkdrc &
 dunst &
 brightnessctl set 100+% &
 dwmblocks &
+zathura ~/Documents/Reverend_Insanity.pdf &
 
 while true; do
-    dwm >/dev/null 2>&1
+  dwm >/dev/null 2>&1
 done

@@ -3,17 +3,26 @@
 name=$(playerctl metadata --format '{{artist}} - {{title}}' 2>/dev/null)
 
 case $BLOCK_BUTTON in
-  1) playerctl play-pause ;;                                
-  2) setsid -f "$TERMINAL" -e "$EDITOR" "$0" ;;            
-  3) notify-send "🎵 Media" "$name" ;;
+  1) playerctl play-pause ;;                 
+  2) setsid -f "$TERMINAL" -e "$EDITOR" "$0" ;;  
+  3) notify-send "🎵 Media" "$name" ;;       
 esac
 
 status=$(playerctl status 2>/dev/null)
-
 if [ "$status" = "Playing" ]; then
   echo "󰝚"
 elif [ "$status" = "Paused" ]; then
   echo ""
 else
-  echo "No media playing"
+  echo "-"
 fi
+
+# default_sink=$(pactl info | awk -F': ' '/Default Sink/ {print $2}')
+# volume=$(pactl get-sink-volume "$default_sink" | awk '{print $5}' | tr -d '%')
+# muted=$(pactl get-sink-mute "$default_sink" | awk '{print $2}')
+#
+# if [ "$muted" = "yes" ]; then
+#   volume="-"
+# fi
+#
+# echo "$media_icon $volume"

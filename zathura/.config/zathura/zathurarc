@@ -2,87 +2,42 @@ set page-padding 1
 set window-title-basename "true"
 set selection-clipboard "clipboard"
 
-# Notifications
-set notification-error-bg       rgba(230,126,128,1)   # Everforest Red
-set notification-error-fg       rgba(211,198,170,1)   # Everforest Foreground
-set notification-warning-bg     rgba(219,188,127,1)   # Everforest Yellow
-set notification-warning-fg     rgba(45,53,59,1)      # Everforest Background
-set notification-bg             rgba(45,53,59,1)      # Everforest Background
-set notification-fg             rgba(211,198,170,1)   # Everforest Foreground
+set notification-error-bg       rgba(204,36,29,1)     # Gruvbox Red
+set notification-error-fg       rgba(235,219,178,1)   # Gruvbox Foreground
+set notification-warning-bg     rgba(215,153,33,1)    # Gruvbox Orange
+set notification-warning-fg     rgba(29,32,33,1)      # Gruvbox Background (Darker)
+set notification-bg             rgba(29,32,33,1)      # Gruvbox Background (Darker)
+set notification-fg             rgba(235,219,178,1)   # Gruvbox Foreground
 
-# Completion
-set completion-bg               rgba(45,53,59,1)      # Everforest Background
-set completion-fg               rgba(150,160,170,1)   # Everforest Gray (comments)
-set completion-group-bg         rgba(45,53,59,1)      # Everforest Background
-set completion-group-fg         rgba(150,160,170,1)   # Everforest Gray (comments)
-set completion-highlight-bg     rgba(75,86,92,1)      # Everforest Selection
-set completion-highlight-fg     rgba(211,198,170,1)   # Everforest Foreground
+set completion-bg               rgba(29,32,33,1)      # Gruvbox Background (Darker)
+set completion-fg               rgba(168,153,132,1)   # Gruvbox Comment
+set completion-group-bg         rgba(29,32,33,1)      # Gruvbox Background (Darker)
+set completion-group-fg         rgba(168,153,132,1)   # Gruvbox Comment
+set completion-highlight-bg     rgba(60,56,54,1)      # Gruvbox Selection
+set completion-highlight-fg     rgba(235,219,178,1)   # Gruvbox Foreground
 
-# Index
-set index-bg                    rgba(45,53,59,1)      # Everforest Background
-set index-fg                    rgba(211,198,170,1)   # Everforest Foreground
-set index-active-bg             rgba(75,86,92,1)      # Everforest Current Line
-set index-active-fg             rgba(211,198,170,1)   # Everforest Foreground
+set index-bg                    rgba(29,32,33,1)      # Gruvbox Background (Darker)
+set index-fg                    rgba(235,219,178,1)   # Gruvbox Foreground
+set index-active-bg             rgba(60,56,54,1)      # Gruvbox Current Line
+set index-active-fg             rgba(235,219,178,1)   # Gruvbox Foreground
 
-# Input & Status Bar
-set inputbar-bg                 rgba(45,53,59,1)      # Everforest Background
-set inputbar-fg                 rgba(211,198,170,1)   # Everforest Foreground
-set statusbar-bg                rgba(45,53,59,1)      # Everforest Background
-set statusbar-fg                rgba(211,198,170,1)   # Everforest Foreground
+set inputbar-bg                 rgba(29,32,33,1)      # Gruvbox Background (Darker)
+set inputbar-fg                 rgba(235,219,178,1)   # Gruvbox Foreground
+set statusbar-bg                rgba(29,32,33,1)      # Gruvbox Background (Darker)
+set statusbar-fg                rgba(235,219,178,1)   # Gruvbox Foreground
 
-# Highlights
-set highlight-color             rgba(219,188,127,0.5) # Everforest Yellow
-set highlight-active-color      rgba(211,134,155,0.5) # Everforest Pink
+set highlight-color             rgba(215,153,33,0.5)  # Gruvbox Orange
+set highlight-active-color      rgba(211,134,155,0.5) # Gruvbox Pink
 
-# Defaults
-set default-bg                  rgba(45,53,59,1)      # Everforest Background
-set default-fg                  rgba(211,198,170,1)   # Everforest Foreground
+set default-bg                  rgba(29,32,33,1)      # Gruvbox Background (Darker)
+set default-fg                  rgba(235,219,178,1)   # Gruvbox Foreground
 
-# Loading
 set render-loading              true
-set render-loading-fg           rgba(45,53,59,1)      # Everforest Background
-set render-loading-bg           rgba(211,198,170,1)   # Everforest Foreground
+set render-loading-fg           rgba(29,32,33,1)      # Gruvbox Background (Darker)
+set render-loading-bg           rgba(235,219,178,1)   # Gruvbox Foreground
 
-# Recoloring
-set recolor-lightcolor          rgba(45,53,59,1)      # Everforest Background
-set recolor-darkcolor           rgba(211,198,170,1)   # Everforest Foreground
-
-# set notification-error-bg       rgba(204,36,29,1)     # Gruvbox Red
-# set notification-error-fg       rgba(235,219,178,1)   # Gruvbox Foreground
-# set notification-warning-bg     rgba(215,153,33,1)    # Gruvbox Orange
-# set notification-warning-fg     rgba(29,32,33,1)      # Gruvbox Background (Darker)
-# set notification-bg             rgba(29,32,33,1)      # Gruvbox Background (Darker)
-# set notification-fg             rgba(235,219,178,1)   # Gruvbox Foreground
-#
-# set completion-bg               rgba(29,32,33,1)      # Gruvbox Background (Darker)
-# set completion-fg               rgba(168,153,132,1)   # Gruvbox Comment
-# set completion-group-bg         rgba(29,32,33,1)      # Gruvbox Background (Darker)
-# set completion-group-fg         rgba(168,153,132,1)   # Gruvbox Comment
-# set completion-highlight-bg     rgba(60,56,54,1)      # Gruvbox Selection
-# set completion-highlight-fg     rgba(235,219,178,1)   # Gruvbox Foreground
-#
-# set index-bg                    rgba(29,32,33,1)      # Gruvbox Background (Darker)
-# set index-fg                    rgba(235,219,178,1)   # Gruvbox Foreground
-# set index-active-bg             rgba(60,56,54,1)      # Gruvbox Current Line
-# set index-active-fg             rgba(235,219,178,1)   # Gruvbox Foreground
-#
-# set inputbar-bg                 rgba(29,32,33,1)      # Gruvbox Background (Darker)
-# set inputbar-fg                 rgba(235,219,178,1)   # Gruvbox Foreground
-# set statusbar-bg                rgba(29,32,33,1)      # Gruvbox Background (Darker)
-# set statusbar-fg                rgba(235,219,178,1)   # Gruvbox Foreground
-#
-# set highlight-color             rgba(215,153,33,0.5)  # Gruvbox Orange
-# set highlight-active-color      rgba(211,134,155,0.5) # Gruvbox Pink
-#
-# set default-bg                  rgba(29,32,33,1)      # Gruvbox Background (Darker)
-# set default-fg                  rgba(235,219,178,1)   # Gruvbox Foreground
-#
-# set render-loading              true
-# set render-loading-fg           rgba(29,32,33,1)      # Gruvbox Background (Darker)
-# set render-loading-bg           rgba(235,219,178,1)   # Gruvbox Foreground
-#
-# set recolor-lightcolor          rgba(29,32,33,1)      # Gruvbox Background (Darker)
-# set recolor-darkcolor           rgba(235,219,178,1)   # Gruvbox Foreground
+set recolor-lightcolor          rgba(29,32,33,1)      # Gruvbox Background (Darker)
+set recolor-darkcolor           rgba(235,219,178,1)   # Gruvbox Foreground
 
 map u scroll half-up
 map d scroll half-down

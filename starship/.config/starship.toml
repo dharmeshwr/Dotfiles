@@ -1,6 +1,6 @@
 "$schema" = 'https://starship.rs/config-schema.json'
 
-palette = 'gruvbox_dark'
+palette = 'gruvbox-dark'
 
 # Left side prompt
 format = """
@@ -35,8 +35,7 @@ ${custom.home}\
 $cmd_duration\
 """
 
-# Catppuccin (Mocha variant)
-[palettes.catppuccin]
+[palettes.catppuccin-dark]
 color_fg0 = '#cdd6f4'
 color_bg1 = '#1e1e2e'
 color_bg3 = '#313244'
@@ -48,8 +47,20 @@ color_purple = '#cba6f7'
 color_red = '#f38ba8'
 color_yellow = '#f9e2af'
 
+[palettes.catppuccin-light]
+color_fg0 = '#4c4f69'  # Text
+color_bg1 = '#eff1f5'  # Base
+color_bg3 = '#e6e9ef'  # Mantle
+color_blue = '#1e66f5'  # Blue
+color_aqua = '#04a5e5'  # Sky
+color_green = '#40a02b'  # Green
+color_orange = '#fe640b'  # Peach
+color_purple = '#8839ef'  # Mauve
+color_red = '#d20f39'  # Red
+color_yellow = '#df8e1d'  # Yellow
+
 # Gruvbox Light
-[palettes.gruvbox_light]
+[palettes.gruvbox-light]
 color_fg0 = '#3c3836'
 color_bg1 = '#fbf1c7'
 color_bg3 = '#ebdbb2'
@@ -61,8 +72,19 @@ color_purple = '#8f3f71'
 color_red = '#9d0006'
 color_yellow = '#b57614'
 
-# Solarized Dark
-[palettes.solarized_dark]
+[palettes.everforest-dark]
+color_fg0  = '#d3c6aa'  # main foreground
+color_bg1  = '#232a2e'  # background
+color_bg3  = '#2b3436'  # subtle background accent
+color_blue = '#7fbbb3'  # blue / teal
+color_aqua = '#83c092'  # aqua / cyan
+color_green = '#a7c080' # green (Everforest primary)
+color_orange= '#e69875' # warm orange
+color_purple= '#d699b6' # magenta-ish accent
+color_red  = '#e67e80'  # red / error
+color_yellow= '#dbbc7f' # yellow# Solarized Dark
+
+[palettes.solarized-dark]
 color_fg0 = '#93a1a1'
 color_bg1 = '#002b36'
 color_bg3 = '#073642'
@@ -74,7 +96,7 @@ color_purple = '#6c71c4'
 color_red = '#dc322f'
 color_yellow = '#b58900'
 
-[palettes.gruvbox_dark]
+[palettes.gruvbox-dark]
 color_fg0 = '#fbf1c7'
 color_bg1 = '#3c3836'
 color_bg3 = '#665c54'
@@ -146,7 +168,7 @@ truncation_symbol = ""
 [git_branch]
 symbol = ""
 style = "fg:color_blue"
-format = '[ on ]($style)[$symbol$branch](fg:color_blue)'
+format = '[ on ]($style)[$symbol$branch ](fg:color_blue)'
 
 [git_status]
 style = "fg:color_red"
