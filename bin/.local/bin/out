@@ -1,6 +1,6 @@
 #!/bin/sh
 
-options="Close X\nShutdown\nRestart\nLock"
+options="Shutdown\nRestart\nLock"
 choice=$(echo "$options" | dmenu -p 'What would you like to do?')
 
 case $choice in

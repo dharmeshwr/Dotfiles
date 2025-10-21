@@ -81,4 +81,9 @@ return {
       require('github-theme').setup({})
     end,
   },
+  {
+    "catgoose/nvim-colorizer.lua",
+    event = "BufReadPre",
+    opts = {},
+  }
 }

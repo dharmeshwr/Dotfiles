@@ -20,13 +20,13 @@ XF86MonBrightness{Up,Down}
   brightnessctl set 10{+,-}% 
 
 XF86AudioRaiseVolume
-  wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+
+  wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+ && ~/.local/bin/volume
 
 XF86AudioLowerVolume
-  wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-
+  wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%- && ~/.local/bin/volume
 
 XF86AudioMute
-  wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
+  wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle && ~/.local/bin/volume
 
 super + shift + r
     pkill -x dwm
@@ -34,11 +34,17 @@ super + shift + r
 super + t
   theme-switcher
 
+super + shift + l
+  LD_LIBRARY_PATH=/opt/openssl-1.1/lib /opt/stremio/stremio
+
 super + shift + i
   zathura ~/Documents/Reverend_Insanity.pdf &
 
-super + shift + c
+super + shift + x
   out
+
+super + shift + c
+  clipmenu -nb '#282828'
 
 Print  
   flameshot screen --path ~/Pictures/Screenshots/screenshot

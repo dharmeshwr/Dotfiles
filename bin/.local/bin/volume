@@ -1,0 +1,17 @@
+#!/bin/bash
+
+# Get default sink
+SINK=$(pactl info | grep "Default Sink" | awk '{print $3}')#!/bin/bash
+
+# Get default sink
+SINK=$(pactl info | grep "Default Sink" | awk '{print $3}')
+
+# Get volume and mute status
+VOL=$(pactl get-sink-volume "$SINK" | head -n1 | awk '{print $5}')
+MUTE=$(pactl get-sink-mute "$SINK" | awk '{print $2}')
+
+if [ "$MUTE" = "yes" ]; then
+    notify-send -u low -h string:x-canonical-private-synchronous:volume "Muted" -i audio-volume-muted
+else
+    notify-send -u low -h string:x-canonical-private-synchronous:volume "Volume: $VOL" -i audio-volume-high
+fi

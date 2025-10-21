@@ -51,11 +51,11 @@ vim.keymap.set({ "n", "t" }, "<c-\\>", toggle_terminal)
 vim.keymap.set('t', '<esc><esc>', "<c-\\><c-n>")
 
 local job_id = 0
-vim.keymap.set("n", "<space>st", function()
+vim.keymap.set("n", "<space>tt", function()
   vim.cmd.vnew()
   vim.cmd.term()
   vim.cmd.wincmd("J")
-  vim.api.nvim_win_set_height(0, 10)
+  vim.api.nvim_win_set_height(0, 15)
 
   job_id = vim.bo.channel
 end)

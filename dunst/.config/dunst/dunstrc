@@ -28,7 +28,7 @@
     show_indicators = yes
     icon_position = left
     max_icon_size = 24
-    icon_path = /usr/share/icons/Newaita-reborn-dark/apps/22:/usr/share/icons/Newaita-reborn-dark/status/22
+    icon_path = /usr/share/icons/breeze-dark/apps/22:/usr/share/icons/breeze-dark/status/22
     sticky_history = yes
     history_length = 20
     dmenu = /usr/bin/dmenu_run -p dunst:

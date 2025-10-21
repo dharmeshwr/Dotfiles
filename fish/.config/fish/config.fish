@@ -47,10 +47,14 @@ alias secret 'openssl rand -hex 32'
 set -gx EDITOR nvim
 set -gx TERMINAL st
 
+set --export ANDROID_HOME $HOME/Android/Sdk
+
 set -gx PATH bin $PATH
 set -gx PATH ~/bin $PATH
 set -gx PATH ~/.local/bin/ $PATH
 set -gx PATH ~/.local/bin/statusbar/ $PATH
+set -gx PATH $ANDROID_HOME/emulator $PATH
+set -gx PATH $ANDROID_HOME/platform-tools $PATH
 
 set -gx PATH node_modules/.bin $PATH
 

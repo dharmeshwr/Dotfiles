@@ -18,14 +18,6 @@ return {
       bracketed.setup {}
 
       -----------------------------------------------------------
-      -- local git = require 'mini.git'
-      -- git.setup {}
-
-      -----------------------------------------------------------
-      -- local diff = require 'mini.diff'
-      -- diff.setup {}
-
-      -----------------------------------------------------------
       local move = require 'mini.move'
       move.setup {}
 
@@ -51,6 +43,36 @@ return {
         },
         symbol = "│",
       }
+
+      -----------------------------------------------------------
+      local notify = require 'mini.notify'
+      notify.setup({
+        content = {
+          sort = function(notif_arr)
+            table.sort(notif_arr, function(a, b) return a.ts_add < b.ts_add end)
+            return notif_arr
+          end,
+        },
+        lsp_progress = { enable = false },
+        window = {
+          config = { anchor = "NE", border = "single" },
+          max_width_share = 0.4, -- up to 40% of the screen width
+          winblend = 10,         -- transparency
+        },
+      })
+
+      vim.keymap.set("n", "<leader>nn", function()
+        notify.clear()
+      end, { desc = "Notifications: Dismiss all" })
+
+
+      vim.notify = notify.make_notify({
+        ERROR = { duration = 15000 }, -- 15s
+        WARN  = { duration = 10000 }, -- 10s
+        INFO  = { duration = 8000 },  -- 8s
+        DEBUG = { duration = 5000 },  -- 5s
+        TRACE = { duration = 3000 },  -- 3s
+      })
     end
   }
 }

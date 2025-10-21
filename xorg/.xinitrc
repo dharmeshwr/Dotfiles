@@ -31,6 +31,7 @@ xrandr --output eDP-1-1 --mode 1920x1080 --pos 0x1080 --primary
 xrandr --output HDMI-0 --mode 1920x1080 --above eDP-1-1 --auto
 
 # Extras
+clipmenud &
 feh --bg-fill ~/Pictures/Wallpapers/current.* &
 pipewire &
 xautolock -time 10 -locker slock &
@@ -41,6 +42,7 @@ brightnessctl set 100+% &
 dwmblocks &
 zathura ~/Documents/Reverend_Insanity.pdf &
 
+mpv ~/Documents/boot.mp3
 while true; do
   dwm >/dev/null 2>&1
 done
