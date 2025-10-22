@@ -36,13 +36,13 @@ return {
       },
     },
     keys = {
-      {
-        "<F2>",
-        function()
-          require("neo-tree.command").execute({ toggle = true })
-        end,
-        desc = "Toggle Neo-tree",
-      },
+      -- {
+      --   "<F2>",
+      --   function()
+      --     require("neo-tree.command").execute({ toggle = true })
+      --   end,
+      --   desc = "Toggle Neo-tree",
+      -- },
     }
   }
 }

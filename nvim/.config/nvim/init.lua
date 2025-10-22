@@ -75,7 +75,11 @@ vim.api.nvim_create_autocmd("VimResized", {
 -- Before saving a file, it automatically creates missing directories if needed.
 vim.api.nvim_create_autocmd("BufWritePre", {
   group = augroup,
-  callback = function()
+  callback = function(ev)
+    if ev.match:match("^oil://") then
+      return
+    end
+
     local dir = vim.fn.expand('<afile>:p:h')
     if vim.fn.isdirectory(dir) == 0 then
       vim.fn.mkdir(dir, 'p')

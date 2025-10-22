@@ -8,7 +8,7 @@ alt + 9
   slock
 
 ctrl + shift + p
-  thorium-browser --incognito
+  helium --incognito
 
 super + p
   pavucontrol
