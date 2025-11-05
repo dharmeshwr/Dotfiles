@@ -1,0 +1,107 @@
+#!/bin/bash
+
+CONFIG_FILE="/etc/wpa_supplicant/wpa_supplicant.conf"
+INTERFACE="wlp3s0"  
+DEFAULT_SSID="Airtel_Dran"  
+DEFAULT_PASSWORD="12052023"
+
+check_root() {
+    if [[ $EUID -ne 0 ]]; then
+        echo "This script must be run as root (use sudo)."
+        exit 1
+    fi
+}
+
+get_ssid() {
+    ssid="$1"  
+    if [[ -z "$ssid" ]]; then
+        ssid="$DEFAULT_SSID"
+        echo "Connnecting to Airtel_dran "
+    fi
+    export ssid
+}
+
+get_password() {
+    password="$2"  
+    if [[ -z "$password" ]]; then
+        password="$DEFAULT_PASSWORD"
+    fi
+    export password  
+}
+
+backup_config() {
+    if [[ -f "$CONFIG_FILE" ]]; then
+        cp "$CONFIG_FILE" "${CONFIG_FILE}.backup.$(date +%Y%m%d_%H%M%S)"
+        echo "Backed up existing config to ${CONFIG_FILE}.backup.$(date +%Y%m%d_%H%M%S)"
+    fi
+}
+
+generate_config() {
+    wpa_passphrase "$ssid" "$password" | sudo tee $CONFIG_FILE
+    echo "Generated wpa_supplicant.conf for SSID: $ssid"
+}
+
+disconnect() {
+    stop_wpa_supplicant
+    ip link set "$INTERFACE" down
+    echo "WiFi interface $INTERFACE disconnected."
+}
+
+stop_wpa_supplicant() {
+    if pgrep wpa_supplicant > /dev/null; then
+        pkill wpa_supplicant
+        sleep 2
+        echo "Stopped existing wpa_supplicant process."
+    fi
+}
+
+start_wpa_supplicant() {
+    wpa_supplicant -B -i "$INTERFACE" -c "$CONFIG_FILE"
+    if [[ $? -eq 0 ]]; then
+        echo "Started wpa_supplicant on interface $INTERFACE."
+    else
+        echo "Failed to start wpa_supplicant. Check your config and interface."
+        exit 1
+    fi
+}
+
+get_ip() {
+    if command -v dhclient &> /dev/null; then
+        dhclient "$INTERFACE"
+    else
+        ip addr flush dev "$INTERFACE"
+        dhclient -v "$INTERFACE" &
+        sleep 5
+    fi
+
+    for i in {1..30}; do
+        ip_addr=$(ip addr show "$INTERFACE" | grep -oP '(?<=inet\s)\d+(\.\d+){3}')
+        if [[ -n "$ip_addr" ]]; then
+            echo "Connected! IP Address: $ip_addr"
+            return 0
+        fi
+        sleep 1
+    done
+    echo "Failed to obtain IP address. Check connection manually."
+    return 1
+}
+
+main() {
+    check_root
+    if [[ "$1" == "disconnect" ]]; then
+        disconnect
+    else
+        get_ssid "$1"
+        get_password "$2"
+        backup_config
+        generate_config
+        stop_wpa_supplicant
+        start_wpa_supplicant
+        get_ip
+        echo "WiFi connection setup complete. Use 'iwconfig' or 'ip addr' to verify."
+    fi
+}
+
+if [[ "${BASH_SOURCE[0]}" == "${0}" ]]; then
+    main "$@"
+fi

@@ -90,5 +90,17 @@ return {
       legacy_computing_symbols_support = false,
       smear_insert_mode = true,
     },
+  },
+  {
+    'sahaj-b/brainrot.nvim',
+    enabled = false,
+    event = 'VeryLazy',
+    opts = {
+      phonk_time = 2.5,      -- seconds the phonk/image overlay stays
+      disable_phonk = false, -- skip phonk/overlay on "no errors"
+      sound_enabled = true,  -- enable sounds
+      image_enabled = true,  -- enable images (needs image.nvim)
+      volume = 50,           -- 0..100
+    },
   }
 }

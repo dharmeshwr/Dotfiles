@@ -20,7 +20,7 @@ vim.opt.synmaxcol = 300                          -- Syntax highlighting limit
 vim.opt.backspace = { "start", "eol", "indent" } -- Make backspace behave normally in insert mode
 vim.opt.clipboard:append("unnamedplus")          -- Use system clipboard for all yank/paste operations
 vim.opt.hidden = true                            -- switch buffers without saving the current one
-vim.opt.iskeyword:append("-")                    -- Treat dash as part of word
+-- vim.opt.iskeyword:append("-")                    -- Treat dash as part of word
 vim.opt.mouse = "a"                              -- mouse support in all modes
 vim.opt.errorbells = false                       -- No error bells
 vim.opt.diffopt:append("linematch:60")           -- Makes diffs more readable and context-aware.
@@ -59,13 +59,12 @@ vim.opt.foldenable = true   -- Enable folding
 vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
 
 -- Search Settings
-vim.opt.hlsearch = true                           -- Highlight all search matches
-vim.opt.ignorecase = true                         -- Case-insensitive searching
-vim.opt.smartcase = true                          -- Case sensitive if uppercase in search
-vim.opt.incsearch = true                          -- Show matches as you type
-vim.opt.inccommand = "split"                      -- Show live preview of substitute commands (:%s)
-vim.opt.path:append({ "**" })                     -- Search files recursively with :find
-vim.opt.wildignore:append({ "*/node_modules/*" }) -- Ignore node_modules when searching
+vim.opt.hlsearch = true                                                   -- Highlight all search matches
+vim.opt.ignorecase = true                                                 -- Case-insensitive searching
+vim.opt.smartcase = true                                                  -- Case sensitive if uppercase in search
+vim.opt.incsearch = true                                                  -- Show matches as you type
+vim.opt.inccommand = "split"
+vim.opt.wildignore:append({ "*/node_modules/*", "*/.next/*", "*/git/*" }) -- Ignore node_modules when searching
 
 -- Visual Settings
 vim.opt.number = true         -- Show absolute line numbers
@@ -94,17 +93,5 @@ vim.api.nvim_command("command Q q")
 vim.api.nvim_command("command Wa wa")
 vim.api.nvim_command("command WQ wq")
 vim.api.nvim_command("command Wq wq")
-
--- Transparency
--- vim.cmd [[
---   highlight Normal guibg=none
---   highlight NonText guibg=none
---   highlight Normal ctermbg=none
---   highlight NonText ctermbg=none
---   highlight TabLineFill guibg=NONE ctermfg=242 ctermbg=NONE
--- ]]
--- vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
--- vim.api.nvim_set_hl(0, "NormalNC", { bg = "none" })
--- vim.api.nvim_set_hl(0, "EndOfBuffer", { bg = "none" })
 
 return {}

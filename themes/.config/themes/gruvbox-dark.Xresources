@@ -13,7 +13,7 @@ dwm.selbordercolor:       #a89984
 dwm.tagsnormfgcolor:      #a89984
 dwm.tagsnormbgcolor:      #1d2021
 dwm.tagsnormbordercolor:  #1d2021
-dwm.tagsselfgcolor:       #fbf1c7
+dwm.tagsselfgcolor:       #d79921
 dwm.tagsselbgcolor:       #3c3836
 dwm.tagsselbordercolor:   #3c3836
 dwm.titlenormfgcolor:     #a89984

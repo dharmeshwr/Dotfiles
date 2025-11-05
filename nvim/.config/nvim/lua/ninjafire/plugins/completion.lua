@@ -54,7 +54,7 @@ return {
       },
       completion = {
         ghost_text = {
-          enabled = false
+          enabled = true
         },
         menu = {
           draw = {
@@ -66,7 +66,7 @@ return {
               }
             }
           },
-          -- border = 'single',
+          border = 'single',
         }
       },
     },

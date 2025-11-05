@@ -1,7 +1,29 @@
 #!/bin/sh
 
+STATE_FILE="/tmp/net_status"
+CURRENT_STATUS="Offline"
+PING_TARGET="8.8.8.8"
+
 case $BLOCK_BUTTON in
   2) setsid -f "$TERMINAL" -e "$EDITOR" "$0" ;;
 esac
 
-ping -c 1 8.8.8.8 > /dev/null && echo 'Online' || echo 'Offline'
+if ping -c 1 -W 1 "$PING_TARGET" > /dev/null 2>&1; then
+  CURRENT_STATUS="Online"
+fi
+
+if [ -f "$STATE_FILE" ]; then
+  PREVIOUS_STATUS=$(cat "$STATE_FILE")
+else
+  PREVIOUS_STATUS=""
+fi
+
+if [ "$PREVIOUS_STATUS" = "Online" ] && [ "$CURRENT_STATUS" = "Offline" ]; then
+  notify-send "Network disconnected"
+elif [ "$PREVIOUS_STATUS" = "Offline" ] && [ "$CURRENT_STATUS" = "Online" ]; then
+  notify-send "Network Connected"
+fi
+
+echo "$CURRENT_STATUS" > "$STATE_FILE"
+
+echo "$CURRENT_STATUS"

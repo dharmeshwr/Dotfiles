@@ -87,6 +87,12 @@ vim.api.nvim_create_autocmd("BufWritePre", {
   end,
 })
 
+-- vim.api.nvim_create_autocmd("BufWritePost", {
+--   callback = function()
+--     require('brainrot').phonk()
+--   end
+-- })
+
 -- Auto-build and restart suckless tools when config files change
 vim.api.nvim_create_autocmd("BufWritePost", {
   group = augroup,

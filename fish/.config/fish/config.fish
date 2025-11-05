@@ -3,8 +3,8 @@
 # end
 
 # sudo rm -rf /opt/Discord/ && sudo rm -rf /usr/bin/discord
-# tar -xvf discord-0.0.110.tar.gz
-# sudo cp -r Discord/ /opt
+# tar -xvf ~/Downloads/discord-0.0.110.tar.gz
+# sudo cp -r ~/Downloads/Discord/ /opt
 # rm -rf ~/Downloads/Discord ~/Downloads/*.tar.gz
 # sudo ln -sf /opt/Discord/Discord /usr/bin/discord
 
@@ -44,6 +44,13 @@ alias cost 'scc'
 alias du 'du -shc'
 alias secret 'openssl rand -hex 32'
 
+set -gx XDG_RUNTIME_DIR "/run/user/$(id -u)"
+
+if not test -d "$XDG_RUNTIME_DIR"
+    sudo mkdir -p "$XDG_RUNTIME_DIR"
+    sudo chmod 0700 "$XDG_RUNTIME_DIR"
+end
+
 set -gx EDITOR nvim
 set -gx TERMINAL st
 
@@ -55,7 +62,7 @@ set -gx PATH ~/.local/bin/ $PATH
 set -gx PATH ~/.local/bin/statusbar/ $PATH
 set -gx PATH $ANDROID_HOME/emulator $PATH
 set -gx PATH $ANDROID_HOME/platform-tools $PATH
-
+set -gx PATH $(yarn global bin) $PATH
 set -gx PATH node_modules/.bin $PATH
 
 # bun

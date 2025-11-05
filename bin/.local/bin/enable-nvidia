@@ -1,0 +1,38 @@
+#!/bin/sh
+
+echo "Don't you dare to power off the machine — re-enabling NVIDIA GPU..."
+
+DISABLE_FILE=/etc/modprobe.d/disable-nvidia.conf
+POWEROFF_FILE=/etc/modprobe.d/nvidia-poweroff.conf
+RULE_FILE=/etc/udev/rules.d/00-nvidia-poweroff.rules
+
+# --- Remove NVIDIA blacklists ---
+if [ -f "$DISABLE_FILE" ]; then
+  echo "→ Removing NVIDIA blacklist: $DISABLE_FILE"
+  sudo rm -f "$DISABLE_FILE"
+fi
+
+if [ -f "$POWEROFF_FILE" ]; then
+  echo "→ Removing NVIDIA power-off blacklist: $POWEROFF_FILE"
+  sudo rm -f "$POWEROFF_FILE"
+fi
+
+# --- Remove udev power-off rule ---
+if [ -f "$RULE_FILE" ]; then
+  echo "→ Removing udev rule: $RULE_FILE"
+  sudo rm -f "$RULE_FILE"
+fi
+
+# --- Reload udev rules ---
+echo "→ Reloading udev rules..."
+sudo udevadm control --reload-rules
+sudo udevadm trigger
+
+# --- Rebuild initramfs ---
+echo "→ Rebuilding initramfs..."
+sudo dracut -f --kver "$(uname -r)"
+
+# --- Done ---
+echo "✅ NVIDIA GPU should be enabled after reboot."
+echo "→ Reboot now to load the NVIDIA driver:"
+echo "   sudo reboot"

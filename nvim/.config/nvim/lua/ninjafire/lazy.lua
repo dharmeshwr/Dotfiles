@@ -37,3 +37,19 @@ require("lazy").setup({
 -- Set theme after lazy has finished
 vim.o.background = "dark"
 vim.cmd("colorscheme gruvbox-material")
+
+-- Transparency
+-- vim.cmd [[
+--    highlight Normal guibg=none
+--    highlight NonText guibg=none
+--    highlight Normal ctermbg=none
+--    highlight NonText ctermbg=none
+--    highlight TabLineFill guibg=NONE ctermfg=242 ctermbg=NONE
+--  ]]
+-- vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
+-- vim.api.nvim_set_hl(0, "NormalNC", { bg = "none" })
+-- vim.api.nvim_set_hl(0, "EndOfBuffer", { bg = "none" })
+
+vim.cmd [[
+  highlight CmpGhostText guifg=#665c54 gui=italic
+]]

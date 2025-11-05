@@ -8,7 +8,7 @@ alt + 9
   slock
 
 ctrl + shift + p
-  helium --incognito
+  google-chrome-stable --incognito
 
 super + p
   pavucontrol
