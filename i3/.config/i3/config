@@ -1,5 +1,5 @@
 set $fm eDP-1
-set $sm HDMI-1-1
+set $sm HDMI-1-0
 set $mod Mod4
 set $alt Mod1
 set $term st
@@ -8,21 +8,25 @@ set $emailClient mailspring --password-store="gnome-libsecret" &
 set $fileManager pcmanfm
 
 # font pango:JetBrainsMono Nerd Font Semibold 9
-font pango:OverpassM Nerd Font Semibold 8
+font pango:CommitMono Nerd Font 9
 # font pango:DejaVu Sans Mono 8
 
 # exec --no-startup-id ~/.config/i3/random-wall.sh
-exec --no-startup-id feh --bg-fill ~/Pictures/wallpapers/4k/893848.png
+exec --no-startup-id feh --bg-fill ~/Pictures/Wallpapers/current.*
 # exec --no-startup-id dex --autostart --environment i3
 # exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock  -i ~/Pictures/lockscreen.png --nofork
+exec --no-startup-id picom --config /home/ninjafire/.config/picom/picom.conf -b &
 exec --no-startup-id xrdb merge ~/.Xresources
 exec --no-startup-id dunst
 exec --no-startup-id nm-applet
-exec --no-startup-id obsidian
-exec --no-startup-id $emailClient
-# exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 
-exec --no-startup-id /usr/lib/polkit-1/polkitd
-exec --no-startup-id xrandr --output HDMI-1-1 --mode 1920x1080 --above eDP-1 
+# exec --no-startup-id clipmenud
+# exec --no-startup-id obsidian
+# exec --no-startup-id $emailClient
+exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 
+# exec --no-startup-id /usr/lib/polkit-1/polkitd
+# exec --no-startup-id xrandr --output HDMI-1-0 --mode 1920x1080 --above eDP-1 --rate 100.00 
+exec --no-startup-id xrandr --output eDP-1 --off                                                                
+exec --no-startup-id xrandr --output HDMI-1-0 --mode 1920x1080 --rate 100.00  --primary --auto
 
 for_window [instance="dropdown"] floating enable
 for_window [instance="dropdown"] resize set 1200 800
@@ -55,6 +59,7 @@ bindsym XF86MonBrightnessDown exec --no-startup-id  brightnessctl set 10%- && $r
 bindsym XF86MonBrightnessUp exec --no-startup-id  brightnessctl set 10%+ && $refresh_i3status
 
 for_window [class="rev"] floating enable
+for_window [class="pavucontrol"] floating enable
 
 floating_modifier $mod
 
@@ -65,6 +70,8 @@ bindsym $mod+f exec $browser
 # bindsym $mod+d exec $browser -P work
 
 bindsym $alt+0 exec $filemanager
+
+bindsym $mod+Shift+c clipmenu
 
 bindsym $alt+9 exec --no-startup-id i3lock -i ~/Pictures/lockscreen.png 
 
@@ -82,10 +89,12 @@ bindsym Ctrl+Print exec --no-startup-id flameshot gui --clipboard
 
 bindsym $mod+Shift+s exec --no-startup-id killall dunst || dunst
 
-bindsym $mod+space exec --no-startup-id ~/.config/rofi/launchers/launcher.sh
-# bindsym $mod+Shift+space exec --no-startup-id dmenu_run
+# bindsym $mod+space exec --no-startup-id ~/.config/rofi/launchers/launcher.sh
+bindsym $mod+space exec --no-startup-id dmenu_run
 
-bindsym Control+Shift+p exec --no-startup-id firefox --private-window
+bindsym Control+Shift+p exec --no-startup-id google-chrome-stable --incognito
+
+client.focused          #809584 #809584 #ebdbb2 #809584 #809584
 
 for_window [class="^.*"] border pixel 1
 
@@ -187,7 +196,7 @@ bindsym $mod+Shift+Control+j move container to output down
 bindsym $mod+Shift+Control+k move container to output up
 bindsym $mod+Shift+Control+l move container to output right
 
-bindsym $mod+Shift+c reload
+# bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
@@ -209,15 +218,38 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
+
 bar {
-    status_command i3status
+    status_command i3status -c ~/.config/i3status/config
     tray_output primary
     output $fm
     workspace_buttons yes
+
+    colors {
+        background #282828
+        statusline #a89984
+        separator  #a89984
+
+        focused_workspace  #ebdbb2 #282828 #ebdbb2
+        active_workspace   #282828 #ebdbb2 #282828
+        inactive_workspace #282828 #a89984 #282828
+        urgent_workspace   #cc241d #fb4934 #282828
+    }
 }
 
 bar {
-    tray_output none
+    status_command i3status -c ~/.config/i3status/config
     output $sm
     workspace_buttons yes
+
+    colors {
+      background #282828
+        statusline #a89984
+        separator  #a89984
+
+        focused_workspace  #ebdbb2 #282828 #ebdbb2
+        active_workspace   #282828 #ebdbb2 #282828
+        inactive_workspace #282828 #a89984 #282828
+        urgent_workspace   #cc241d #fb4934 #282828
+    }
 }
