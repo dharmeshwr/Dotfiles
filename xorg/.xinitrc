@@ -23,24 +23,21 @@ xset r rate 350 25
 xrandr --auto   # detect and enable all outputs
 # xrandr --output eDP-1-1 --mode 1920x1080 --pos 0x1080 --primary
 # xrandr --output HDMI-0 --mode 1920x1080 --above eDP-1-1 --auto
-# xrandr --output HDMI-0 --mode 1920x1080 --primary --auto
-# xrandr --output eDP-1-1 --off
+xrandr --output HDMI-1-0 --mode 1920x1080 --primary --auto
+xrandr --output eDP-1 --off
 
 # Extras
 clipmenud &
-pipewire &
-# xautolock -time 10 -locker slock &
+xautolock -time 10 -locker slock &
 picom --config $HOME/.config/picom/picom.conf -b &
-sxhkd -c ~/.dotfiles/suckless/softwares/sxhkd/sxhkdrc &
+sxhkd -c ~/.dotfiles/suckless/sxhkd/sxhkdrc &
 dunst &
 brightnessctl set 100+% &
-dwmblocks &
+slstatus &
+# dwmblocks &
 feh --bg-fill ~/Pictures/Wallpapers/current.* &
 # zathura ~/Documents/Reverend_Insanity.pdf &
 
-mpv ~/Documents/boot.mp3 &
-exec dwm
-
-# while true; do
-#   dwm >/dev/null 2>&1
-# done
+while true; do
+  dwm >/dev/null 2>&1
+done

@@ -13,4 +13,4 @@ Xcursor.size: 24
 ! Font
 *.font: Monospace-10
 dmenu.font: Monospace-10
-st.font: MartianMono Nerd Font-11
+st.font: Recursive Mono Linear-11

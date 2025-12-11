@@ -4,6 +4,8 @@ local opts = { noremap = true, silent = true }
 --Clipboard
 keymap.set({ "n", "v" }, "<leader>j", [["+y]])
 keymap.set("n", "<leader>Y", [["+Y]])
+keymap.set("n", "<leader>v", function() vim.cmd('%y') end, { desc = "Yank entire file" })
+keymap.set("n", "<leader>a", function() vim.cmd("normal! ggVG") end)
 
 -- File commands
 keymap.set("n", "QQ", ":q!<CR>", { noremap = false })

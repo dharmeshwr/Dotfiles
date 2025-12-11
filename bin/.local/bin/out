@@ -1,13 +1,15 @@
 #!/bin/sh
 
-options="Shutdown\nRestart\nLock"
+options="Restart
+Shutdown
+Lock"
 choice=$(echo "$options" | dmenu -p 'What would you like to do?')
 
 case $choice in
     "Restart")
-        sudo reboot now;;
+        reboot;;
     "Shutdown")
-        sudo poweroff now;;
+        poweroff;;
     "Lock")
         slock ;;
     *) ;;

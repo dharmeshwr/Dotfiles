@@ -2,14 +2,14 @@ set $fm eDP-1
 set $sm HDMI-1-0
 set $mod Mod4
 set $alt Mod1
-set $term st
-set $browser zen
+set $term kitty
+set $browser brave --password-store=basic
 set $emailClient mailspring --password-store="gnome-libsecret" &
 set $fileManager pcmanfm
 
 # font pango:JetBrainsMono Nerd Font Semibold 9
-font pango:CommitMono Nerd Font 9
-# font pango:DejaVu Sans Mono 8
+# font pango:Monospace 8
+font pango:DejaVu Sans Mono 8
 
 # exec --no-startup-id ~/.config/i3/random-wall.sh
 exec --no-startup-id feh --bg-fill ~/Pictures/Wallpapers/current.*
@@ -17,6 +17,7 @@ exec --no-startup-id feh --bg-fill ~/Pictures/Wallpapers/current.*
 # exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock  -i ~/Pictures/lockscreen.png --nofork
 exec --no-startup-id picom --config /home/ninjafire/.config/picom/picom.conf -b &
 exec --no-startup-id xrdb merge ~/.Xresources
+exec --no-startup-id xmodmap ~/.Xmodmap
 exec --no-startup-id dunst
 exec --no-startup-id nm-applet
 # exec --no-startup-id clipmenud
@@ -58,7 +59,7 @@ bindsym XF86AudioMicMute exec --no-startup-id wpctl set-mute @DEFAULT_SOURCE@ to
 bindsym XF86MonBrightnessDown exec --no-startup-id  brightnessctl set 10%- && $refresh_i3status
 bindsym XF86MonBrightnessUp exec --no-startup-id  brightnessctl set 10%+ && $refresh_i3status
 
-for_window [class="rev"] floating enable
+# for_window [class="rev"] floating enable
 for_window [class="pavucontrol"] floating enable
 
 floating_modifier $mod
@@ -84,7 +85,7 @@ bindsym $mod+y exec ~/.config/i3/random-wall.sh
 bindsym $mod+w kill
 
 bindsym Print exec --no-startup-id flameshot screen --path ~/Pictures/Screenshots/screenshot
-bindsym Shift+Print exec --no-startup-id flameshot gui --path ~/Pictures/Screenshots/screenshot
+bindsym Shift+Print exec --no-startup-id flameshot gui --clipboard --path ~/Pictures/Screenshots/screenshot
 bindsym Ctrl+Print exec --no-startup-id flameshot gui --clipboard
 
 bindsym $mod+Shift+s exec --no-startup-id killall dunst || dunst
@@ -92,7 +93,7 @@ bindsym $mod+Shift+s exec --no-startup-id killall dunst || dunst
 # bindsym $mod+space exec --no-startup-id ~/.config/rofi/launchers/launcher.sh
 bindsym $mod+space exec --no-startup-id dmenu_run
 
-bindsym Control+Shift+p exec --no-startup-id google-chrome-stable --incognito
+bindsym Control+Shift+p exec --no-startup-id brave --incognito
 
 client.focused          #809584 #809584 #ebdbb2 #809584 #809584
 
@@ -218,38 +219,42 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-
 bar {
-    status_command i3status -c ~/.config/i3status/config
-    tray_output primary
-    output $fm
-    workspace_buttons yes
-
-    colors {
-        background #282828
-        statusline #a89984
-        separator  #a89984
-
-        focused_workspace  #ebdbb2 #282828 #ebdbb2
-        active_workspace   #282828 #ebdbb2 #282828
-        inactive_workspace #282828 #a89984 #282828
-        urgent_workspace   #cc241d #fb4934 #282828
-    }
+  status_command i3status 
+  tray_output primary
 }
 
-bar {
-    status_command i3status -c ~/.config/i3status/config
-    output $sm
-    workspace_buttons yes
-
-    colors {
-      background #282828
-        statusline #a89984
-        separator  #a89984
-
-        focused_workspace  #ebdbb2 #282828 #ebdbb2
-        active_workspace   #282828 #ebdbb2 #282828
-        inactive_workspace #282828 #a89984 #282828
-        urgent_workspace   #cc241d #fb4934 #282828
-    }
-}
+# bar {
+#     status_command i3status -c ~/.config/i3status/config
+#     tray_output primary
+#     output $fm
+#     workspace_buttons yes
+#
+#     colors {
+#         background #282828
+#         statusline #a89984
+#         separator  #a89984
+#
+#         focused_workspace  #ebdbb2 #282828 #ebdbb2
+#         active_workspace   #282828 #ebdbb2 #282828
+#         inactive_workspace #282828 #a89984 #282828
+#         urgent_workspace   #cc241d #fb4934 #282828
+#     }
+# }
+#
+# bar {
+#     status_command i3status -c ~/.config/i3status/config
+#     output $sm
+#     workspace_buttons yes
+#
+#     colors {
+#       background #282828
+#         statusline #a89984
+#         separator  #a89984
+#
+#         focused_workspace  #ebdbb2 #282828 #ebdbb2
+#         active_workspace   #282828 #ebdbb2 #282828
+#         inactive_workspace #282828 #a89984 #282828
+#         urgent_workspace   #cc241d #fb4934 #282828
+#     }
+# }

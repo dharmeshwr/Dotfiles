@@ -6,7 +6,7 @@ function gacp
 
   set msg $argv[1]
   
-  git add .
+  git add --all
   git commit -m "$msg"
   git push
 end 

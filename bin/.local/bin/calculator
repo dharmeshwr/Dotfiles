@@ -1,0 +1,6 @@
+#!/bin/bash
+
+expr=$(echo "" | dmenu -p "Calculate:" "$@") 
+[ -z "$expr" ] && exit
+result=$(echo "$expr" | bc -l)
+notify-send "$expr = $result" || echo "$result"

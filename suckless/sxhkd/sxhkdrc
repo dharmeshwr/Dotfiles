@@ -1,0 +1,62 @@
+super + f
+  brave --password-store=basic
+
+alt + 0
+  pcmanfm
+
+alt + 9
+  slock
+
+ctrl + shift + p
+  brave --incognito
+
+super + p
+  killer
+
+super + Escape
+	pkill -USR1 -x sxhkd
+
+XF86MonBrightness{Up,Down}  
+  brightnessctl set 10{+,-}% 
+
+XF86AudioRaiseVolume
+  wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+ && ~/.local/bin/volume
+
+XF86AudioLowerVolume
+  wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%- && ~/.local/bin/volume
+
+XF86AudioMute
+  wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle && ~/.local/bin/volume
+
+super + shift + r
+    pkill -x dwm
+
+super + t
+  theme-switcher
+
+super + shift + l
+  LD_LIBRARY_PATH=/opt/openssl-1.1/lib /opt/stremio/stremio
+
+super + shift + i
+  zathura ~/Documents/Reverend_Insanity.pdf &
+
+super + shift + x
+  out
+
+super + shift + c
+  clipmenu -nb '#282828'
+
+super + shift + m
+  calculator
+
+Print  
+  flameshot screen --path ~/Pictures/Screenshots/screenshot
+
+shift + Print 
+  flameshot gui --clipboard
+
+ctrl + Print  
+  flameshot gui --path ~/Pictures/Screenshots/screenshot
+
+super + c
+  ffplay -fast /dev/video0

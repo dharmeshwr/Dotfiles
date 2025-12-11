@@ -6,7 +6,7 @@
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
 static char *font =
-    "OverpassM Nerd Font:pixelsize=16:antialias=true:autohint=true";
+    "Recursive Mono Linear:pixelsize=16:antialias=true:autohint=true";
 #if FONT2_PATCH
 /* Spare fonts */
 static char *font2[] = {

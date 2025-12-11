@@ -1,0 +1,16 @@
+#!/bin/sh
+
+procs=$(ps -eo pid,comm --no-header)
+
+selection=$(printf "%s\n" "$procs" | dmenu -f -p "Kill which process?")
+
+[ -z "$selection" ] && exit 0  # user cancelled
+
+pid=$(printf "%s" "$selection" | awk '{print $1}')
+
+# Confirm kill?
+confirm=$(printf "no\nyes" | dmenu -p "Kill PID $pid?" )
+
+[ "$confirm" = "yes" ] || exit 0
+
+kill "$pid"
