@@ -1,5 +1,5 @@
 super + f
-  brave --password-store=basic
+   brave --password-store=basic
 
 alt + 0
   pcmanfm
@@ -8,7 +8,7 @@ alt + 9
   slock
 
 ctrl + shift + p
-  brave --incognito
+  brave --password-store=basic --incognito
 
 super + p
   killer

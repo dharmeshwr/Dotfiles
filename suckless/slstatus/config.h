@@ -68,5 +68,5 @@ static const struct arg args[] = {
     /* function      format                  argument */
     {run_command, "%s | ", "sb-network"},
     {ram_used, "%s | ", NULL},
-    {datetime, "%s", "%F %T"},
+    {datetime, "%s", "%b %d (%a) %I:%M:%S %p"},
 };

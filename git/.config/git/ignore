@@ -16,3 +16,5 @@ target/
 # Zig specific
 .zig-cache/
 zig-out/
+
+**/.claude/settings.local.json

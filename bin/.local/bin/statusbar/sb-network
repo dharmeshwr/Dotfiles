@@ -18,11 +18,11 @@ else
   PREVIOUS_STATUS=""
 fi
 
-if [ "$PREVIOUS_STATUS" = "Online" ] && [ "$CURRENT_STATUS" = "Offline" ]; then
-  notify-send "Network disconnected"
-elif [ "$PREVIOUS_STATUS" = "Offline" ] && [ "$CURRENT_STATUS" = "Online" ]; then
-  notify-send "Network Connected"
-fi
+# if [ "$PREVIOUS_STATUS" = "Online" ] && [ "$CURRENT_STATUS" = "Offline" ]; then
+#   notify-send "Network disconnected"
+# elif [ "$PREVIOUS_STATUS" = "Offline" ] && [ "$CURRENT_STATUS" = "Online" ]; then
+#   notify-send "Network Connected"
+# fi
 
 echo "$CURRENT_STATUS" > "$STATE_FILE"
 

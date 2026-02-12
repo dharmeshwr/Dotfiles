@@ -22,6 +22,8 @@ dwm.titlenormbordercolor: #1d2021
 dwm.titleselfgcolor:      #fbf1c7
 dwm.titleselbgcolor:      #3c3836
 dwm.titleselbordercolor:  #3c3836
+dwm.normfloatcolor:       #1d2021
+dwm.selfloatcolor:        #3c3836
 
 ! ST specific
 st.background:   #1d2021  

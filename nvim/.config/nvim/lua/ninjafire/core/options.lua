@@ -6,7 +6,7 @@ vim.g.maplocalleader = " " -- Set local leader key (NEW)
 vim.scriptencoding = "utf-8"                     -- Set script encoding to UTF-8
 vim.opt.encoding = "utf-8"                       -- Set internal encoding to UTF-8
 vim.opt.fileencoding = "utf-8"                   -- Set file encoding to UTF-8
-vim.o.cmdheight = 0                              -- Hide command line (0 = auto-hide in Neovim 0.9+)
+-- vim.o.cmdheight = 0                              -- Hide command line (0 = auto-hide in Neovim 0.9+)
 vim.opt.title = true                             -- Show filename in window title
 vim.o.completeopt = "menuone,noselect,noinsert"  -- Better completion menu behavior
 vim.o.conceallevel = 0                           -- Hide concealed text (useful for Markdown, LaTeX)
