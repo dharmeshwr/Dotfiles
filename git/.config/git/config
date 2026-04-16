@@ -4,7 +4,7 @@
 [user]
 	name = Dharmesh
 	email = dharmeshwr@gmail.com
-  signingkey = E5537826FD5CE809939E6BEAFF9A4D6D1FE9C317
+  signingkey = 3FFC78B51C3B4417
 
 [commit]
   gpgSign = true
@@ -75,3 +75,8 @@
 
 [interactive]
   singlekey = true
+[filter "lfs"]
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f

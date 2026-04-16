@@ -94,4 +94,11 @@ vim.api.nvim_command("command Wa wa")
 vim.api.nvim_command("command WQ wq")
 vim.api.nvim_command("command Wq wq")
 
+vim.o.autoread = true
+
+vim.api.nvim_create_autocmd({ "FocusGained", "BufEnter", "CursorHold", "CursorHoldI" }, {
+  command = "if mode() != 'c' | checktime | endif",
+  pattern = { "*" },
+})
+
 return {}

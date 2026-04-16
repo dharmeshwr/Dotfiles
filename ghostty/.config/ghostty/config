@@ -1,8 +1,8 @@
 theme = Gruvbox Dark Hard
-font-size = 13
-font-family = CommitMono Nerd Font Bold
+font-size = 15
+font-family = JetBrainsMono Nerd Font Bold
 shell-integration-features = no-cursor
-maximize = true
+maximize = false
 adjust-cell-height = 40%
 mouse-hide-while-typing = true
 mouse-scroll-multiplier = 2
@@ -11,18 +11,15 @@ window-padding-x= 1
 window-padding-y= 1
 window-save-state = always
 window-colorspace = "display-p3"
-gtk-titlebar = false
+gtk-titlebar = true
 font-feature= calt
 font-feature= liga
 font-feature= ss01
 background-opacity = 1
-background-blur-radius = 20
 confirm-close-surface = false
 resize-overlay = never
 clipboard-read = "allow"
 clipboard-paste-protection = false
 clipboard-trim-trailing-spaces =true
 mouse-scroll-multiplier = 0.6
-window-decoration = none
-
 keybind=ctrl+s>r=reload_config
