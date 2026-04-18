@@ -46,7 +46,7 @@ function restart() {
     "$process" &!
 }
 # eval "$(starship init zsh)"
-eval "$(zoxide init --cmd cd zsh)"
+# eval "$(zoxide init --cmd cd zsh)"
 
 export ZSH="$HOME/.oh-my-zsh"
 # export SSH_AUTH_SOCK=/run/user/$UID/keyring/ssh
