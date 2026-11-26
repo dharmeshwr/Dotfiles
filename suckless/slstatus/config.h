@@ -66,7 +66,8 @@ static const char unknown_str[] = "n/a";
  */
 static const struct arg args[] = {
     /* function      format                  argument */
-    {run_command, "%s | ", "sb-network"},
+    {run_command, "%s | ", "/home/ninjafire/.local/bin/statusbar/sb-network"},
+    {battery_perc, "%s% | ", "macsmc-battery"},
     {ram_used, "%s | ", NULL},
     {datetime, "%s", "%b %d (%a) %I:%M:%S %p"},
 };

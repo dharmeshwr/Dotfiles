@@ -14,7 +14,9 @@ declare -A NVIM_THEMES=(
     ["catppuccin-dark"]="catppuccin"
     ["catppuccin-light"]="catppuccin"
     ["everforest-dark"]="everforest"
+    ["tokyonight"]="tokyonight"
     ["default"]="github_dark_default"
+    ["night"]="github_dark_default"
 )
 
 apply_wallpaper() {

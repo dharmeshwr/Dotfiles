@@ -4,7 +4,7 @@
 [user]
 	name = Dharmesh
 	email = dharmeshwr@gmail.com
-  signingkey = 3FFC78B51C3B4417
+  signingkey = FEBFFB59DC8FA41D
 
 [commit]
   gpgSign = true
@@ -80,3 +80,9 @@
 	process = git-lfs filter-process
 	required = true
 	clean = git-lfs clean -- %f
+[credential "https://github.com"]
+	helper = 
+	helper = !/usr/bin/gh auth git-credential
+[credential "https://gist.github.com"]
+	helper = 
+	helper = !/usr/bin/gh auth git-credential

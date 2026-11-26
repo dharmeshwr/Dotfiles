@@ -1,5 +1,5 @@
 ! Font settings
-Xft.dpi: 100
+Xft.dpi: 160
 Xft.antialias: true
 Xft.hinting: true
 Xft.hintstyle: hintslight
@@ -7,10 +7,10 @@ Xft.rgba: rgb
 Xft.lcdfilter: lcddefault
 
 ! Cursor settings
-Xcursor.theme: Bibata-Modern-Classic
-Xcursor.size: 24
+Xcursor.theme: MacOS-Tahoe-Cursor
+Xcursor.size: 32
 
 ! Font
-*.font: Monospace-10
-dmenu.font: Monospace-10
-st.font: Recursive Mono Linear-11
+*.font: MartianMono Nerd Font-10
+dmenu.font: MartianMono Nerd Font-10 
+st.font: MartianMono Nerd Font-10 

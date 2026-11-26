@@ -17,6 +17,7 @@ set -gx TERM xterm-256color
 abbr present "sudo chronyc -a makestep"
 abbr clip "xsel --clipboard"
 
+abbr cl "claude --dangerously-skip-permissions"
 abbr nv 'nvim'
 alias clearvim 'rm ~/.local/state/nvim ~/.local/share/nvim ~/.cache/nvim'
 
@@ -57,3 +58,6 @@ set -gx PATH node_modules/.bin $PATH
 # bun
 set --export BUN_INSTALL "$HOME/.bun"
 set --export PATH $BUN_INSTALL/bin $PATH
+
+# opencode
+fish_add_path /home/ninjafire/.opencode/bin

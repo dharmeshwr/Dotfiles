@@ -167,14 +167,14 @@ static void (*bartabmonfns[])(Monitor *) = { NULL /* , customlayoutfn */ };
 #endif // MONOCLE_LAYOUT
 #endif // BAR_TABGROUPS_PATCH
 #if BAR_PANGO_PATCH
-static const char font[]                 = "Recursive Mono Casual Static 10";
+static const char font[]                 = "MartianMono Nerd Font 9";
 #else
 static const char *fonts[] = {
-    "Recursive Mono Casual Static:style=Regular:pixelsize=14",
-    "Symbols Nerd Font Mono:pixelsize=14:antialias=true:autohint=true",
+    "MartianMono Nerd Font:style=Regular:pixelsize=14",
+    // "Symbols Nerd Font Mono:pixelsize=14:antialias=true:autohint=true",
 };
 #endif // BAR_PANGO_PATCH
-static const char dmenufont[]            = "Recursive Sans Casual Static:style=Regular:pixelsize=14";
+static const char dmenufont[]            = "MartianMono Nerd Font:style=Regular:pixelsize=20";
 
 static char c000000[]                    = "#000000"; // placeholder value
 

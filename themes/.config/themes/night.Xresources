@@ -1,0 +1,66 @@
+! Deep Voids and Cold Accents
+
+! DWM and DMENU colors
+dmenu.background:        #000000
+dmenu.foreground:        #eeeeee
+dmenu.selbackground:     #111111
+dmenu.selforeground:     #00afff
+dwm.normbgcolor:          #000000
+dwm.normfgcolor:          #666666
+dwm.selbgcolor:           #111111
+dwm.selfgcolor:           #00afff
+dwm.normbordercolor:      #000000
+dwm.selbordercolor:       #014c6e
+dwm.tagsnormfgcolor:      #444444
+dwm.tagsnormbgcolor:      #000000
+dwm.tagsnormbordercolor:  #000000
+dwm.tagsselfgcolor:       #00afff
+dwm.tagsselbgcolor:       #111111
+dwm.tagsselbordercolor:   #111111
+dwm.titlenormfgcolor:     #444444
+dwm.titlenormbgcolor:     #000000
+dwm.titlenormbordercolor: #000000
+dwm.titleselfgcolor:      #eeeeee
+dwm.titleselbgcolor:      #111111
+dwm.titleselbordercolor:  #111111
+
+! ST specific
+st.background:   #000000  
+st.foreground:   #eeeeee 
+st.cursorColor:  #00afff
+
+*background: #000000
+*foreground: #eeeeee
+*cursorColor: #00afff
+
+! black
+*color0: #111111
+*color8: #333333
+
+! red
+*color1: #ff0055
+*color9: #ff0055
+
+! green
+*color2: #00ff87
+*color10: #00ff87
+
+! yellow
+*color3: #ffcc00
+*color11: #ffcc00
+
+! blue
+*color4: #00afff
+*color12: #00afff
+
+! magenta
+*color5: #ae81ff
+*color13: #ae81ff
+
+! cyan
+*color6: #00ffff
+*color14: #00ffff
+
+! white
+*color7: #bbbbbb
+*color15: #ffffff

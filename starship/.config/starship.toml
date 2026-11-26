@@ -1,6 +1,6 @@
 "$schema" = 'https://starship.rs/config-schema.json'
 
-palette = 'gruvbox-dark'
+palette = 'tokyonight'
 
 # Left side prompt
 format = """
@@ -35,6 +35,18 @@ ${custom.home}\
 $cmd_duration\
 """
 
+[palettes.tokyonight]
+color_fg0 = '#c0caf5'    # Soft Blue-White
+color_bg1 = '#1a1b26'    # Deep Night Background
+color_bg3 = '#292e42'    # Storm Blue Accent
+color_blue = '#7aa2f7'   # Neon Blue
+color_aqua = '#7dcfff'   # Cyan/Sky
+color_green = '#9ece6a'  # Toxic Green
+color_orange = '#ff9e64' # Sunset Orange
+color_purple = '#bb9af7' # Bright Magenta
+color_red = '#f7768e'    # Candy Red
+color_yellow = '#e0af68' # Soft Gold
+
 [palettes.catppuccin-dark]
 color_fg0 = '#cdd6f4'
 color_bg1 = '#1e1e2e'
@@ -46,55 +58,6 @@ color_orange = '#fab387'
 color_purple = '#cba6f7'
 color_red = '#f38ba8'
 color_yellow = '#f9e2af'
-
-[palettes.catppuccin-light]
-color_fg0 = '#4c4f69'  # Text
-color_bg1 = '#eff1f5'  # Base
-color_bg3 = '#e6e9ef'  # Mantle
-color_blue = '#1e66f5'  # Blue
-color_aqua = '#04a5e5'  # Sky
-color_green = '#40a02b'  # Green
-color_orange = '#fe640b'  # Peach
-color_purple = '#8839ef'  # Mauve
-color_red = '#d20f39'  # Red
-color_yellow = '#df8e1d'  # Yellow
-
-# Gruvbox Light
-[palettes.gruvbox-light]
-color_fg0 = '#3c3836'
-color_bg1 = '#fbf1c7'
-color_bg3 = '#ebdbb2'
-color_blue = '#076678'
-color_aqua = '#427b58'
-color_green = '#79740e'
-color_orange = '#af3a03'
-color_purple = '#8f3f71'
-color_red = '#9d0006'
-color_yellow = '#b57614'
-
-[palettes.everforest-dark]
-color_fg0  = '#d3c6aa'  # main foreground
-color_bg1  = '#232a2e'  # background
-color_bg3  = '#2b3436'  # subtle background accent
-color_blue = '#7fbbb3'  # blue / teal
-color_aqua = '#83c092'  # aqua / cyan
-color_green = '#a7c080' # green (Everforest primary)
-color_orange= '#e69875' # warm orange
-color_purple= '#d699b6' # magenta-ish accent
-color_red  = '#e67e80'  # red / error
-color_yellow= '#dbbc7f' # yellow# Solarized Dark
-
-[palettes.solarized-dark]
-color_fg0 = '#93a1a1'
-color_bg1 = '#002b36'
-color_bg3 = '#073642'
-color_blue = '#268bd2'
-color_aqua = '#2aa198'
-color_green = '#859900'
-color_orange = '#cb4b16'
-color_purple = '#6c71c4'
-color_red = '#dc322f'
-color_yellow = '#b58900'
 
 [palettes.gruvbox-dark]
 color_fg0 = '#fbf1c7'
@@ -108,18 +71,17 @@ color_purple = '#d3869b'
 color_red = '#fb4934'
 color_yellow = '#fabd2f'
 
-# default (suckless default colors)
 [palettes.default]
-color_fg0 = '#bbbbbb' # normal fg
-color_bg1 = '#222222' # background
-color_bg3 = '#444444' # darker gray
-color_blue = '#005577' # dwm accent blue
-color_aqua = '#5f8787' # muted cyan
-color_green = '#859900' # readable green
-color_orange = '#d65d0e' # contrast orange
-color_purple = '#6c71c4' # softer purple
-color_red = '#dc322f' # bright red
-color_yellow = '#b58900' # yellow (like statusbar)
+color_fg0 = '#bbbbbb'
+color_bg1 = '#222222'
+color_bg3 = '#444444'
+color_blue = '#005577'
+color_aqua = '#5f8787'
+color_green = '#859900'
+color_orange = '#d65d0e'
+color_purple = '#6c71c4'
+color_red = '#dc322f'
+color_yellow = '#b58900'
 
 [os]
 disabled = false
@@ -130,13 +92,8 @@ Windows = "󰍲"
 Ubuntu = "󰕈"
 Macos = "󰀵"
 Linux = "󰌽"
-Gentoo = "󰣨"
-Fedora = "󰣛"
-Alpine = ""
-Amazon = ""
-Android = ""
 Arch = "󰣇"
-Void=" "
+Void = " "
 
 [sudo]
 format = "[$symbol]($style)"
@@ -146,29 +103,26 @@ disabled = false
 
 [username]
 show_always = true
-style_user = "fg:color_orange"
+style_user = "fg:color_purple" # Signature Tokyo Night Purple
 style_root = "fg:color_red"
 format = '[$user]($style)'
 
 [hostname]
 ssh_only = false
-style = "fg:color_yellow"
-format = '[ at ]($style)[$hostname](fg:color_yellow)'
+style = "fg:color_blue" # Neon Blue
+format = '[ at ](fg:color_fg0)[$hostname]($style)'
 
 [directory]
-style = "fg:color_aqua"
-format = '[ in ]($style)[$path](fg:color_aqua)'
+style = "fg:color_aqua" # Cyan accent
+format = '[ in ](fg:color_fg0)[$path]($style)'
 read_only = " 󰌾"
 truncation_length = 3
 truncation_symbol = ""
 
-[directory.substitutions]
-"~" = "~"
-
 [git_branch]
-symbol = ""
-style = "fg:color_blue"
-format = '[ on ]($style)[$symbol$branch ](fg:color_blue)'
+symbol = "󰘬 "
+style = "fg:color_green"
+format = '[ on ](fg:color_fg0)[$symbol$branch ]($style)'
 
 [git_status]
 style = "fg:color_red"
@@ -187,7 +141,7 @@ deleted = "✘"
 
 [git_state]
 format = '\([$state( $progress_current/$progress_total)]($style)\) '
-style = "fg:red"
+style = "fg:color_red"
 
 [git_metrics]
 format = '([+$added ]($added_style))([-$deleted]($deleted_style))'
@@ -207,12 +161,12 @@ utc_time_offset = "local"
 style = "dimmed fg:color_fg0"
 
 [cmd_duration]
-format = "[ took ]($style)[$duration]($style)"
-style = "fg:yellow"
+format = "[ took ](fg:color_fg0)[$duration]($style)"
+style = "fg:color_yellow"
 
 [character]
 disabled = false
-success_symbol = '[](bold fg:color_green)'
+success_symbol = '[](bold fg:color_purple)' # Purple lead for neon feel
 error_symbol = '[](bold fg:color_red)'
 vimcmd_symbol = '[](bold fg:color_green)'
 vimcmd_replace_one_symbol = '[](bold fg:color_purple)'
@@ -223,50 +177,24 @@ vimcmd_visual_symbol = '[](bold fg:color_yellow)'
 format = "[$symbol$number]($style) "
 style = "fg:color_fg0"
 
-# Language/tool detection (shown with icons after git info)
+# Language/tool detection
 [nodejs]
-symbol = ""
-style = "fg:color_green"
-format = '[ ($symbol$version)]($style)'
-[python]
-symbol = ""
-style = "fg:color_green"
-format = '[ ($symbol$version)]($style)'
-[rust]
-symbol = ""
-style = "fg:color_green"
-format = '[ ($symbol$version)]($style)'
-[golang]
-symbol = ""
-style = "fg:color_green"
-format = '[ ($symbol$version)]($style)'
-[java]
-symbol = ""
-style = "fg:color_green"
-format = '[ ($symbol$version)]($style)'
-[c]
-symbol = ""
-style = "fg:color_green"
-format = '[ ($symbol$version)]($style)'
-[cpp]
-symbol = ""
-style = "fg:color_green"
-format = '[ ($symbol$version)]($style)'
-[php]
-symbol = ""
-style = "fg:color_green"
-format = '[ ($symbol$version)]($style)'
-[kotlin]
-symbol = ""
-style = "fg:color_green"
-format = '[ ($symbol$version)]($style)'
-[haskell]
-symbol = ""
+symbol = "󰎙 "
 style = "fg:color_green"
 format = '[ ($symbol$version)]($style)'
 
+[python]
+symbol = " "
+style = "fg:color_blue"
+format = '[ ($symbol$version)]($style)'
+
+[rust]
+symbol = " "
+style = "fg:color_orange"
+format = '[ ($symbol$version)]($style)'
+
 [package]
-symbol = "" 
+symbol = "󰏗 "
 format = " $version"
 
 [line_break]
@@ -275,4 +203,4 @@ disabled = false
 [custom.home]
 when = "test $HOME = $PWD"
 format = " "
-style = "bright-white"
+style = "fg:color_purple"

@@ -1,5 +1,5 @@
 super + f
-   brave --password-store=basic
+   chromium
 
 alt + 0
   pcmanfm
@@ -8,7 +8,7 @@ alt + 9
   slock
 
 ctrl + shift + p
-  brave --password-store=basic --incognito
+  firefox --private-window
 
 super + p
   killer
@@ -52,10 +52,10 @@ super + shift + m
 Print  
   flameshot screen --path ~/Pictures/Screenshots/screenshot
 
-shift + Print 
+super + shift + p 
   flameshot gui --clipboard
 
-ctrl + Print  
+ctrl + p
   flameshot gui --path ~/Pictures/Screenshots/screenshot
 
 super + c
